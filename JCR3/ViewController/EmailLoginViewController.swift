@@ -8,16 +8,14 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class EmailLoginViewController: UIViewController {
 
-    @IBOutlet weak var phoneNumberTxt: UITextField!
-    
+    ///outlet
+    @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
-    
     @IBOutlet weak var masukBtn: UIButton!
-    
     @IBOutlet weak var errorLbl: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

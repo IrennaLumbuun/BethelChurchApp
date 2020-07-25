@@ -19,8 +19,6 @@ class LandingPageViewController: UIViewController {
         super.viewDidLoad()
         self.initiateBackground()
         self.setJcLogo()
-        Utilities.styleButton(btn: masukEmailBtn)
-        Utilities.styleButton(btn:masukHpBtn)
 
         // Do any additional setup after loading the view.
     }

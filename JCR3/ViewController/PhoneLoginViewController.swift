@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class SignUpViewController: UIViewController {
+class PhoneLoginViewController: UIViewController {
     
     // Outlets
     @IBOutlet weak var phoneNumberTxt: UITextField!
@@ -87,6 +87,7 @@ class SignUpViewController: UIViewController {
         
         Auth.auth().signIn(with: credential) { (success, error) in
             if error == nil {
+                //TODO: check if UUID is in database. If not, direct user to sign up
                 self.transitionToHome()
           } else {
                 //self.errorLbl.text = error!
