@@ -22,5 +22,8 @@ class Utilities{
         return passwordTest.evaluate(with:password)
     }
     
+    static func styleButton(btn: UIButton){
+        btn.layer.cornerRadius = 10
+    }
     // TODO: check phoneNumber
 }

@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "879976614814",
+    "firebase_url": "https://jcr3user.firebaseio.com",
+    "project_id": "jcr3user",
+    "storage_bucket": "jcr3user.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879976614814:android:84ce9ce5a4bd9fa7b9248f",
+        "android_client_info": {
+          "package_name": "com.jcr3apps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879976614814-876r0k7qfi7taobcr7qj2jm8248lslpd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jcr3apps",
+            "certificate_hash": "85a2948911c4fc08e57976af6425a19df81aa32f"
+          }
+        },
+        {
+          "client_id": "879976614814-0h4kp0b5dvl50921t603tu1r4s4qpriq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jcr3apps",
+            "certificate_hash": "e63d263e965f1efbd2765f33d1c4eaa075245627"
+          }
+        },
+        {
+          "client_id": "879976614814-2moaj7ishcgshhp78ddode2qff9fqr5i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7ijS3sDwgIztkk26BGkrCHqNTDKBhuQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879976614814-2moaj7ishcgshhp78ddode2qff9fqr5i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879976614814:android:ec599b9d4d128fadb9248f",
+        "android_client_info": {
+          "package_name": "com.storefire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879976614814-55vbqf0br75fj38e1mgh0pakbpqo3npl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.storefire",
+            "certificate_hash": "e63d263e965f1efbd2765f33d1c4eaa075245627"
+          }
+        },
+        {
+          "client_id": "879976614814-2moaj7ishcgshhp78ddode2qff9fqr5i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7ijS3sDwgIztkk26BGkrCHqNTDKBhuQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879976614814-2moaj7ishcgshhp78ddode2qff9fqr5i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,37 +10,29 @@ import UIKit
 import FirebaseAuth
 
 class SignUpViewController: UIViewController {
-
+    
+    // Outlets
     @IBOutlet weak var phoneNumberTxt: UITextField!
-    
     @IBOutlet weak var passwordTxt: UITextField!
-    
     @IBOutlet weak var daftarBtn: UIButton!
-    
     @IBOutlet weak var errorLbl: UILabel!
+    @IBOutlet weak var kodeVerifikasiTxt: UITextField!
+    @IBOutlet weak var verifikasiBtn: UIButton!
     
+    //Constructor
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         setUpElements()
     }
     
     func setUpElements(){
         errorLbl.alpha = 0
+        kodeVerifikasiTxt.alpha = 0
+        verifikasiBtn.alpha = 0
+        
         // TODO: style other elements?
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // check textfields and validate the data is correct
     // return nil if correct
@@ -73,15 +65,40 @@ class SignUpViewController: UIViewController {
             // create user
             PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumberTxt.text!, uiDelegate: nil) { (verificationID, error) in
                 if error == nil{
-                    print(verificationID)
-                    // transition to home screen?
+                    UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+                    self.verifikasiBtn.alpha = 1
+                    self.kodeVerifikasiTxt.alpha = 1
+                    self.phoneNumberTxt.alpha = 0
+                    self.passwordTxt.alpha = 0
+                    self.daftarBtn.alpha = 0
                 } else {
                         self.errorLbl.text = error?.localizedDescription
                         self.errorLbl.alpha = 1
                       return
                     }
             }
-            // transition to home screen
         }
+    }
+    
+    @IBAction func verifikasiBtnTapped(_ sender: Any) {
+        let kodeVerifikasi = kodeVerifikasiTxt.text?.trimmingCharacters(in: .whitespaces)
+        let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID!, verificationCode: kodeVerifikasi!)
+        
+        Auth.auth().signIn(with: credential) { (success, error) in
+            if error == nil {
+                self.transitionToHome()
+          } else {
+                //self.errorLbl.text = error!
+                self.errorLbl.alpha = 1
+          }
+        }
+    }
+    
+    func transitionToHome(){
+        let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        
+        view.window?.rootViewController = homeVC
+        view.window?.makeKeyAndVisible()
     }
 }

@@ -21,7 +21,8 @@
 		8227E09D24CABDD300572DC7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E09A24CABDD300572DC7 /* SignUpViewController.swift */; };
 		8227E0A524CAC3E100572DC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8227E0A424CAC3E100572DC7 /* GoogleService-Info.plist */; };
 		8227E0A724CBB68000572DC7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0A624CBB68000572DC7 /* Utilities.swift */; };
-		8227E0AA24CBC74500572DC7 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0A924CBC74500572DC7 /* VerificationViewController.swift */; };
+		8227E0AC24CC201D00572DC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0AB24CC201D00572DC7 /* Constants.swift */; };
+		8227E0AE24CCBD1000572DC7 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0AD24CCBD1000572DC7 /* LandingPageViewController.swift */; };
 		878A99285C1C863E8590FF89 /* Pods_JCR3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46F9A2D3D53AE32FFE613F1 /* Pods_JCR3.framework */; };
 		D69F156CDD44D7C3F509E85E /* Pods_JCR3_JCR3UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E703CE314C2C3D6F313BBD3 /* Pods_JCR3_JCR3UITests.framework */; };
 /* End PBXBuildFile section */
@@ -68,7 +69,8 @@
 		8227E0A424CAC3E100572DC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8227E0A624CBB68000572DC7 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		8227E0A824CBBD0B00572DC7 /* JCR3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JCR3.entitlements; sourceTree = "<group>"; };
-		8227E0A924CBC74500572DC7 /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
+		8227E0AB24CC201D00572DC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8227E0AD24CCBD1000572DC7 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		8498C9AF1BA2BEBC39B42AF6 /* Pods-JCR3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCR3Tests.release.xcconfig"; path = "Target Support Files/Pods-JCR3Tests/Pods-JCR3Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8E1012134371D31139578445 /* Pods-JCR3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCR3.release.xcconfig"; path = "Target Support Files/Pods-JCR3/Pods-JCR3.release.xcconfig"; sourceTree = "<group>"; };
 		ADA2B07FA99BFC742A5D2C4F /* Pods-JCR3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCR3Tests.debug.xcconfig"; path = "Target Support Files/Pods-JCR3Tests/Pods-JCR3Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				8227E0A624CBB68000572DC7 /* Utilities.swift */,
+				8227E0AB24CC201D00572DC7 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -184,8 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				8227E09924CABDD200572DC7 /* HomeViewController.swift */,
+				8227E0AD24CCBD1000572DC7 /* LandingPageViewController.swift */,
 				8227E09824CABDD200572DC7 /* LogInViewController.swift */,
-				8227E0A924CBC74500572DC7 /* VerificationViewController.swift */,
 				8227E09A24CABDD300572DC7 /* SignUpViewController.swift */,
 			);
 			path = ViewController;
@@ -446,12 +449,13 @@
 			files = (
 				8227E09D24CABDD300572DC7 /* SignUpViewController.swift in Sources */,
 				8227E09C24CABDD300572DC7 /* HomeViewController.swift in Sources */,
-				8227E0AA24CBC74500572DC7 /* VerificationViewController.swift in Sources */,
 				8227E0A724CBB68000572DC7 /* Utilities.swift in Sources */,
 				8227E09B24CABDD300572DC7 /* LogInViewController.swift in Sources */,
+				8227E0AE24CCBD1000572DC7 /* LandingPageViewController.swift in Sources */,
 				8227E05624CAA36800572DC7 /* ViewController.swift in Sources */,
 				8227E05224CAA36800572DC7 /* AppDelegate.swift in Sources */,
 				8227E05424CAA36800572DC7 /* SceneDelegate.swift in Sources */,
+				8227E0AC24CC201D00572DC7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
