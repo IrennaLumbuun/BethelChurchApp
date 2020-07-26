@@ -26,4 +26,13 @@ class Utilities{
         btn.layer.cornerRadius = 10
     }
     // TODO: check phoneNumber
+    static func initiateBackground(imageName: String, view: UIViewController) {
+        let backgroundImage = UIImage.init(named: imageName)
+        let backgroundImageView = UIImageView.init(frame: view.view.frame)
+
+        backgroundImageView.image = backgroundImage
+        backgroundImageView.contentMode = .scaleAspectFill
+
+        view.view.insertSubview(backgroundImageView, at: 0)
+    }
 }

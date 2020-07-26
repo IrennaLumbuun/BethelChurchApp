@@ -13,7 +13,6 @@ class PhoneLoginViewController: UIViewController {
     
     // Outlets
     @IBOutlet weak var phoneNumberTxt: UITextField!
-    @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var daftarBtn: UIButton!
     @IBOutlet weak var errorLbl: UILabel!
     @IBOutlet weak var kodeVerifikasiTxt: UITextField!
@@ -29,6 +28,7 @@ class PhoneLoginViewController: UIViewController {
         errorLbl.alpha = 0
         kodeVerifikasiTxt.alpha = 0
         verifikasiBtn.alpha = 0
+        Utilities.initiateBackground(imageName: "welcome.jpg", view: self)
         
         // TODO: style other elements?
     }
@@ -39,18 +39,10 @@ class PhoneLoginViewController: UIViewController {
     // return error if not
     func validateFields() -> String?{
         // check all fields are filled in
-        if phoneNumberTxt.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTxt.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+        if phoneNumberTxt.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Semua textbox harus diisi"
         }
         
-        // check if the password is strong
-        let password = passwordTxt.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        /* TODO: uncomment & figure out regex
-        if Utilities.isAStrongPassword(password: password) == false{
-            // password is too weak
-            return "Password harus lebih dari 8 digit, minimum satu huruf, satu angka, dan satu simbol (cth: %, $, #, dll)"
-        }*/
         return nil
     }
     
@@ -69,7 +61,6 @@ class PhoneLoginViewController: UIViewController {
                     self.verifikasiBtn.alpha = 1
                     self.kodeVerifikasiTxt.alpha = 1
                     self.phoneNumberTxt.alpha = 0
-                    self.passwordTxt.alpha = 0
                     self.daftarBtn.alpha = 0
                 } else {
                         self.errorLbl.text = error?.localizedDescription

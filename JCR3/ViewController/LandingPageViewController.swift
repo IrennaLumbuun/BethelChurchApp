@@ -7,22 +7,32 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LandingPageViewController: UIViewController {
 
     @IBOutlet weak var jcLogoImg: UIImageView!
-    
     @IBOutlet weak var masukEmailBtn: UIButton!
     @IBOutlet weak var masukHpBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initiateBackground()
+        Utilities.initiateBackground(imageName: "welcome.jpg", view: self)
         self.setJcLogo()
 
         // Do any additional setup after loading the view.
     }
     
+    /* uncomment when done with authentication
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            self.transitionToHome()
+        }
+    }
+ */
+    
+    //TODO: delete logo
     func setJcLogo(){
         self.jcLogoImg.image = UIImage.init(named: "iconjc.png")
         self.jcLogoImg.layer.borderWidth = 5
@@ -42,6 +52,11 @@ class LandingPageViewController: UIViewController {
         self.view.insertSubview(backgroundImageView, at: 0)
     }
     
-    
+    func transitionToHome(){
+        let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        
+        view.window?.rootViewController = homeVC
+        view.window?.makeKeyAndVisible()
+    }
     
 }
