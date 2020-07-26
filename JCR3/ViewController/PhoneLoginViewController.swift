@@ -29,8 +29,6 @@ class PhoneLoginViewController: UIViewController {
         kodeVerifikasiTxt.alpha = 0
         verifikasiBtn.alpha = 0
         Utilities.initiateBackground(imageName: "welcome.jpg", view: self)
-        
-        // TODO: style other elements?
     }
     
     
@@ -54,7 +52,7 @@ class PhoneLoginViewController: UIViewController {
             errorLbl.text = error!
             errorLbl.alpha = 1
         } else {
-            // create user
+            // login user
             PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumberTxt.text!, uiDelegate: nil) { (verificationID, error) in
                 if error == nil{
                     UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
@@ -78,10 +76,17 @@ class PhoneLoginViewController: UIViewController {
         
         Auth.auth().signIn(with: credential) { (success, error) in
             if error == nil {
-                //TODO: check if UUID is in database. If not, direct user to sign up
-                self.transitionToHome()
+                // if is a new user, redirect to daftar
+                print("additionalUserInfo ->\(success?.additionalUserInfo as Any)")
+                print("is new user? -> \(success?.additionalUserInfo?.isNewUser as Any)")
+                if success?.additionalUserInfo?.isNewUser ?? false {
+                    self.transitionToDaftar()
+                }
+                else{
+                    self.transitionToHome()
+                }
           } else {
-                //self.errorLbl.text = error!
+                self.errorLbl.text = error?.localizedDescription
                 self.errorLbl.alpha = 1
           }
         }
@@ -91,6 +96,13 @@ class PhoneLoginViewController: UIViewController {
         let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
         
         view.window?.rootViewController = homeVC
+        view.window?.makeKeyAndVisible()
+    }
+    
+    func transitionToDaftar(){
+        let daftarVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.daftarViewController) as? DaftarViewController
+        
+        view.window?.rootViewController = daftarVC
         view.window?.makeKeyAndVisible()
     }
 }

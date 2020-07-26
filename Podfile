@@ -20,6 +20,6 @@ target 'JCR3' do
    pod 'Firebase/Analytics'
    pod 'Firebase/Auth'
    pod 'Firebase/Core'
-   pod 'Firebase/Firestore'
+   pod 'Firebase/Database'
 
 end

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class EmailLoginViewController: UIViewController {
 
@@ -16,6 +17,10 @@ class EmailLoginViewController: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var masukBtn: UIButton!
     @IBOutlet weak var errorLbl: UILabel!
+    
+    /*database
+    var ref: DatabaseReference!
+    var ref = Database.database().reference()*/
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,13 +61,19 @@ class EmailLoginViewController: UIViewController {
                 (result, error) in
                 if error != nil{
                     let errorCode = AuthErrorCode(rawValue: error!._code)
-                    
                     // fail to sign in because user does not exist
                     // we redirect to sign up page
                     if errorCode == AuthErrorCode.userNotFound{
-                        self.transitionToDaftar()
+                        Auth.auth().createUser(withEmail: email, password: password) { (success, error) in
+                            if error != nil {
+                                self.errorLbl.text = error?.localizedDescription
+                                self.errorLbl.alpha = 1
+                            } else {
+                                self.transitionToDaftar()
+                            }
+                        }
                     }
-                    else{
+                    else {
                         self.errorLbl.text = error?.localizedDescription
                         self.errorLbl.alpha = 1
                     }
