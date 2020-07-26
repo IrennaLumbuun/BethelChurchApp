@@ -11,5 +11,6 @@ struct Constants {
     struct Storyboard {
         static let homeViewController = "homeVC"
         static let daftarViewController = "daftarVC"
+        static let liveStreamPopUp = "LiveStreamPopUp"
     }
 }

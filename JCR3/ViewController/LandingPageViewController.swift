@@ -18,21 +18,18 @@ class LandingPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Utilities.initiateBackground(imageName: "welcome.jpg", view: self)
-        self.setJcLogo()
-
-        // Do any additional setup after loading the view.
+        //self.setJcLogo() <-- do we use logo?
     }
     
-    /* uncomment when done with authentication
+    // if user is authenticated, go directly to dashboard
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Auth.auth().addStateDidChangeListener { (auth, user) in
             self.transitionToHome()
         }
     }
- */
     
-    //TODO: delete logo
+    /*
     func setJcLogo(){
         self.jcLogoImg.image = UIImage.init(named: "iconjc.png")
         self.jcLogoImg.layer.borderWidth = 5
@@ -40,7 +37,7 @@ class LandingPageViewController: UIViewController {
         self.jcLogoImg.layer.cornerRadius = jcLogoImg.frame.height/1.75
         self.jcLogoImg.frame.size = CGSize(width: 150, height:150)
         self.jcLogoImg.center = CGPoint(x: self.view.center.x, y: 200)
-    }
+    }*/
     
     func initiateBackground() {
         let backgroundImage = UIImage.init(named: "welcome.jpg")
