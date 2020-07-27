@@ -18,10 +18,13 @@ class EmailLoginViewController: UIViewController {
     @IBOutlet weak var masukBtn: UIButton!
     @IBOutlet weak var errorLbl: UILabel!
     
-    /*database
-    var ref: DatabaseReference!
-    var ref = Database.database().reference()*/
 
+    @IBOutlet weak var lupaPasswordPopUp: UIView!
+    @IBOutlet weak var lupaPasswordBtn: UIButton!
+    @IBOutlet weak var tutupBtn: UIButton!
+    @IBOutlet weak var recoveryEmailTxt: UITextField!
+    @IBOutlet weak var errorRecoverLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +34,8 @@ class EmailLoginViewController: UIViewController {
     
     func setUpElements(){
         errorLbl.alpha = 0
+        lupaPasswordPopUp.alpha = 0
+        errorRecoverLbl.alpha = 0
         Utilities.initiateBackground(imageName: "welcome.jpg", view: self)
         // TODO: style other elements?
     }
@@ -96,5 +101,32 @@ class EmailLoginViewController: UIViewController {
         
         view.window?.rootViewController = daftarVC
         view.window?.makeKeyAndVisible()
+    }
+    
+    
+    @IBAction func showLupaPasswordPopUp(_ sender: Any) {
+        lupaPasswordPopUp.alpha = 1
+        recoveryEmailTxt.text = emailTxt.text
+    }
+    @IBAction func lupaPasswordBtnTapped(_ sender: Any) {
+        let email = recoveryEmailTxt.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if email == "" {
+            errorRecoverLbl.text = "Isi emailmu"
+            self.errorRecoverLbl.alpha = 1
+        }
+        //assume no errors because I am tireddd
+        Auth.auth().sendPasswordReset(withEmail: email!) { (error) in
+            if error == nil{
+                self.lupaPasswordPopUp.alpha = 0
+                //tell user email is OTW
+            } else {
+            self.errorRecoverLbl.text = error?.localizedDescription
+            self.errorRecoverLbl.alpha = 1
+            }
+        }
+    }
+    
+    @IBAction func tutupBtnTapped(_ sender: Any) {
+        lupaPasswordPopUp.alpha = 0
     }
 }
