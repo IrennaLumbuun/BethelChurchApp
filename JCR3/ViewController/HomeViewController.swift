@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HomeViewController: UIViewController {
 
@@ -73,7 +74,34 @@ class HomeViewController: UIViewController {
             
         }
         // 1 -> auto download warrior bride
-        // 2 -> open link
+        if btnTag == 1 {
+            Database.database().reference().child("Dashboard").observeSingleEvent(of: .value, with: { (snapshot) in
+                  // Get user value
+                    let data = snapshot.value as? NSDictionary
+                    var url = data?["Warrior"] as? String ?? ""
+                    url = url.replacingOccurrences(of: "\\/", with: "/").replacingOccurrences(of:"\"", with: "")
+                    let toOpen = URL(string: url)
+                    UIApplication.shared.open((toOpen)!)
+                  }) {(error) in
+                    print("error")
+                    print(error.localizedDescription)
+                }
+            }
+        
+    if btnTag == 2 {
+        Database.database().reference().child("Dashboard").observeSingleEvent(of: .value, with: { (snapshot) in
+          // Get user value
+            let data = snapshot.value as? NSDictionary
+            var url = data?["SBS"] as? String ?? ""
+            url = url.replacingOccurrences(of: "\\/", with: "/").replacingOccurrences(of:"\"", with: "")
+            let toOpen = URL(string: url)
+            UIApplication.shared.open((toOpen)!)
+          }) {(error) in
+            print("error")
+            print(error.localizedDescription)
+        }
+    }
+    
         // 3 -> redirect to dukunganDoa
     }
 }

@@ -582,51 +582,88 @@
         <!--Streaming Pop Up View Controller-->
         <scene sceneID="PKn-zD-1w4">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aRp-un-UV8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LiveStreamPopUp" id="zmx-OF-M4F" customClass="StreamingPopUpViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZZs-jB-R6b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2TW-u0-K3g">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <rect key="frame" x="20" y="479" width="374" height="148"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CR-MQ-RWB">
-                                        <rect key="frame" x="8" y="75" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQS-Iu-jlA">
-                                        <rect key="frame" x="186" y="11" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EV5-ap-pcK">
-                                        <rect key="frame" x="97" y="11" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5U-E0-FpL">
-                                        <rect key="frame" x="8" y="8" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJ4-0h-elw">
-                                        <rect key="frame" x="97" y="75" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="r2Z-hn-kXb">
+                                        <rect key="frame" x="-2" y="31" width="344" height="87"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="127" translatesAutoresizingMaskIntoConstraints="NO" id="V5e-qR-WqI">
+                                                <rect key="frame" x="0.0" y="0.0" width="344" height="34"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5U-E0-FpL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
+                                                        <state key="normal" title="JC">
+                                                            <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="jcBtnTapped:" destination="zmx-OF-M4F" eventType="touchUpInside" id="sOI-Cp-dx0"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EV5-ap-pcK">
+                                                        <rect key="frame" x="157" y="0.0" width="30" height="34"/>
+                                                        <state key="normal" title="GBI"/>
+                                                        <connections>
+                                                            <action selector="gbiBtnTapped:" destination="zmx-OF-M4F" eventType="touchUpInside" id="O3M-YL-v7m"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQS-Iu-jlA">
+                                                        <rect key="frame" x="314" y="0.0" width="30" height="34"/>
+                                                        <state key="normal" title="BYR"/>
+                                                        <connections>
+                                                            <action selector="byrBtnTapped:" destination="zmx-OF-M4F" eventType="touchUpInside" id="XQl-Wh-oSN"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="CHb-0l-LvA">
+                                                <rect key="frame" x="0.0" y="57" width="344" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CR-MQ-RWB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="172" height="30"/>
+                                                        <state key="normal" title="kids"/>
+                                                        <connections>
+                                                            <action selector="kidsBtnTapped:" destination="zmx-OF-M4F" eventType="touchUpInside" id="ZYU-8Z-QCn"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJ4-0h-elw">
+                                                        <rect key="frame" x="172" y="0.0" width="172" height="30"/>
+                                                        <state key="normal" title="dm"/>
+                                                        <connections>
+                                                            <action selector="dmBtnTapped:" destination="zmx-OF-M4F" eventType="touchUpInside" id="PnH-Pc-LJg"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.50489619006849318" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="goT-hY-cay"/>
                     </view>
+                    <connections>
+                        <outlet property="PopUpView" destination="2TW-u0-K3g" id="7dL-lY-TLO"/>
+                        <outlet property="bottomStack" destination="CHb-0l-LvA" id="SL3-qb-o84"/>
+                        <outlet property="byrBtn" destination="oQS-Iu-jlA" id="mVc-Of-h1b"/>
+                        <outlet property="dmBtn" destination="rJ4-0h-elw" id="jxh-tF-a7t"/>
+                        <outlet property="gbiBtn" destination="EV5-ap-pcK" id="nVu-0F-SU9"/>
+                        <outlet property="jcBtn" destination="P5U-E0-FpL" id="kvT-RX-CcU"/>
+                        <outlet property="kidsBtn" destination="0CR-MQ-RWB" id="j9g-Ry-B7t"/>
+                        <outlet property="topStack" destination="V5e-qR-WqI" id="F9C-7C-so2"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aRp-un-UV8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2383" y="-498"/>
+            <point key="canvasLocation" x="2382.608695652174" y="-498.21428571428567"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="IPi-jp-bA2">
