@@ -579,6 +579,67 @@
             </objects>
             <point key="canvasLocation" x="4290" y="-333"/>
         </scene>
+        <!--Dukungan Doa View Controller-->
+        <scene sceneID="Ba9-h0-2MY">
+            <objects>
+                <viewController storyboardIdentifier="dukunganDoaVC" id="bWd-tl-Jry" customClass="DukunganDoaViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0dc-wp-890">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HB6-rf-XiP">
+                                <rect key="frame" x="20" y="64" width="374" height="215"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shalom, nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0k-kl-ieX">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bantu kami untuk sebutkan jenis kelamin dan usia Anda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbE-qh-gBb">
+                                        <rect key="frame" x="0.0" y="40.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lz5-Ki-2VP">
+                                        <rect key="frame" x="0.0" y="81" width="374" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXW-QX-Yik">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                                                <state key="normal" title="Laki"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUa-2T-14r">
+                                                <rect key="frame" x="335" y="0.0" width="39" height="30"/>
+                                                <state key="normal" title="Cewe"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usia" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Rz-1Q-PKL">
+                                        <rect key="frame" x="0.0" y="131" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vI-fA-EiG">
+                                        <rect key="frame" x="0.0" y="185" width="374" height="30"/>
+                                        <state key="normal" title="Lanjut chatting"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HB6-rf-XiP" secondAttribute="trailing" constant="20" id="ChE-pd-Bic"/>
+                            <constraint firstItem="HB6-rf-XiP" firstAttribute="top" secondItem="Q6B-wa-uix" secondAttribute="top" constant="20" id="ati-vo-AYo"/>
+                            <constraint firstItem="HB6-rf-XiP" firstAttribute="leading" secondItem="Q6B-wa-uix" secondAttribute="leading" constant="20" id="iIj-uj-7KD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q6B-wa-uix"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K3X-ss-2Eg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2761" y="-461"/>
+        </scene>
         <!--Streaming Pop Up View Controller-->
         <scene sceneID="PKn-zD-1w4">
             <objects>
@@ -663,7 +724,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2382.608695652174" y="-498.21428571428567"/>
+            <point key="canvasLocation" x="2761" y="-1132"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="IPi-jp-bA2">

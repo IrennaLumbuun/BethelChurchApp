@@ -60,6 +60,7 @@ class HomeViewController: UIViewController {
 
         scView.contentSize = CGSize(width: xOffset, height: scView.frame.height)
     }
+    
     @objc func btnClicked(sender : UIButton) {
         //get buttonName
         let btnTag = sender.tag
@@ -88,20 +89,25 @@ class HomeViewController: UIViewController {
                 }
             }
         
-    if btnTag == 2 {
-        Database.database().reference().child("Dashboard").observeSingleEvent(of: .value, with: { (snapshot) in
-          // Get user value
-            let data = snapshot.value as? NSDictionary
-            var url = data?["SBS"] as? String ?? ""
-            url = url.replacingOccurrences(of: "\\/", with: "/").replacingOccurrences(of:"\"", with: "")
-            let toOpen = URL(string: url)
-            UIApplication.shared.open((toOpen)!)
-          }) {(error) in
-            print("error")
-            print(error.localizedDescription)
+        if btnTag == 2 {
+            Database.database().reference().child("Dashboard").observeSingleEvent(of: .value, with: { (snapshot) in
+              // Get user value
+                let data = snapshot.value as? NSDictionary
+                var url = data?["SBS"] as? String ?? ""
+                url = url.replacingOccurrences(of: "\\/", with: "/").replacingOccurrences(of:"\"", with: "")
+                let toOpen = URL(string: url)
+                UIApplication.shared.open((toOpen)!)
+              }) {(error) in
+                print("error")
+                print(error.localizedDescription)
+            }
         }
-    }
     
-        // 3 -> redirect to dukunganDoa
+        if btnTag == 3 {
+            let dukunganDoaVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.dukunganDoaViewController) as? DukunganDoaViewController
+            
+            view.window?.rootViewController = dukunganDoaVC
+            view.window?.makeKeyAndVisible()
+        }
     }
 }

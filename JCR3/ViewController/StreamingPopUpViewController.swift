@@ -66,6 +66,7 @@ class StreamingPopUpViewController: UIViewController {
     }
     
 
+    // TODO: refractor ALL THESE functions
     @IBAction func jcBtnTapped(_ sender: Any) {
         Database.database().reference().child("Dashboard").observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
