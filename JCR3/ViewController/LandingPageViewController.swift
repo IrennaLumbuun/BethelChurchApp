@@ -25,7 +25,9 @@ class LandingPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            self.transitionToHome()
+            if Auth.auth().currentUser != nil{
+                self.transitionToHome()
+            }
         }
     }
     

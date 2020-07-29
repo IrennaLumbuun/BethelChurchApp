@@ -6,6 +6,8 @@
 //  Copyright © 2020 Irenna Lumbuun. All rights reserved.
 //
 
+// TODO: add a touch event listener so the pop up closes if user touch background
+
 import UIKit
 import FirebaseDatabase
 

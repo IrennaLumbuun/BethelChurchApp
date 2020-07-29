@@ -33,7 +33,8 @@ class UserProfileViewController: UIViewController {
     }
     
     func setup(){
-        
+        renderLabel()
+        styleItem()
     }
     
     func renderLabel(){
@@ -74,6 +75,7 @@ class UserProfileViewController: UIViewController {
         Database.database().reference().child("Account/\(uid!)").setValue(["Request": 1])
         // tambahin ke JCR3console
         // see how to configre multiple firebase account https://firebase.google.com/docs/projects/multiprojects#use_multiple_projects_in_your_application
+        // todo: ksh feedback ke user
     }
     @IBAction func changePasswordTapped(_ sender: Any) {
         // bikin pop up
