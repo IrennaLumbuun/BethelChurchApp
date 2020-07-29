@@ -63,6 +63,15 @@ class DaftarViewController: UIViewController {
         let userEmail = Auth.auth().currentUser!.email
         let userPhone = Auth.auth().currentUser!.phoneNumber
         let field = ["Email" : userEmail, "Role": "Jemaat", "Number": userPhone, "Name": name, "Uid": userID]
+        
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = name
+        //changeRequest.photoURL = ??
+        changeRequest?.commitChanges(completion: { (error) in
+            if error != nil{
+                print(error!)
+            }
+        })
         ref.child("Account/\(userID)").setValue(field)
     }
 }

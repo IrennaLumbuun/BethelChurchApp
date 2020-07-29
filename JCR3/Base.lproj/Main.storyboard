@@ -10,7 +10,7 @@
         <!--Landing Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LandingPageViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LandingPageVC" id="BYZ-38-t0r" customClass="LandingPageViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -585,8 +585,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yG8-tc-3MD">
-                                <rect key="frame" x="20" y="170" width="374" height="147"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yG8-tc-3MD">
+                                <rect key="frame" x="20" y="0.0" width="374" height="207"/>
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVx-i0-knL">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
@@ -594,35 +594,40 @@
                                             <navigationItem title="Title" id="gKj-UJ-Fgo"/>
                                         </items>
                                     </navigationBar>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lr0-Su-YOa">
-                                        <rect key="frame" x="0.0" y="56" width="374" height="91"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Lr0-Su-YOa">
+                                        <rect key="frame" x="0.0" y="76" width="374" height="131"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JlV-Ux-bfY">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="91"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JlV-Ux-bfY">
+                                                <rect key="frame" x="0.0" y="0.0" width="167" height="131"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXl-Gt-1rZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="167" height="50"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyq-si-jqM">
-                                                        <rect key="frame" x="0.0" y="50" width="60" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="60" width="167" height="40.5"/>
+                                                        <color key="backgroundColor" red="0.24129595779999999" green="0.32573222759999998" blue="0.6762571383" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="JCR0-9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UU-x3-yJ7">
-                                                        <rect key="frame" x="0.0" y="70.5" width="60" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="110.5" width="167" height="20.5"/>
+                                                        <color key="backgroundColor" red="0.24129595779999999" green="0.32573222759999998" blue="0.6762571383" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <color key="backgroundColor" red="0.24129595779999999" green="0.32573222759999998" blue="0.6762571383" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                             </stackView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmt-6l-d8Y">
-                                                <rect key="frame" x="60" y="0.0" width="314" height="91"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmt-6l-d8Y">
+                                                <rect key="frame" x="207" y="0.0" width="167" height="131"/>
                                             </imageView>
                                         </subviews>
+                                        <color key="backgroundColor" red="0.24129595779999999" green="0.32573222759999998" blue="0.6762571383" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.24129595779999999" green="0.32573222759999998" blue="0.6762571383" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -634,10 +639,19 @@
                         <viewLayoutGuide key="safeArea" id="ELh-5c-MG3"/>
                     </view>
                     <navigationItem key="navigationItem" id="Cjg-hd-chM"/>
+                    <connections>
+                        <outlet property="NavBar" destination="JVx-i0-knL" id="zyN-gR-Cjt"/>
+                        <outlet property="accountIdLbl" destination="3UU-x3-yJ7" id="dsY-Q1-p4G"/>
+                        <outlet property="horizontalStack" destination="Lr0-Su-YOa" id="moi-xf-vTB"/>
+                        <outlet property="namaLbl" destination="eyq-si-jqM" id="ruf-Rw-Fcl"/>
+                        <outlet property="profilePic" destination="PXl-Gt-1rZ" id="iry-HB-bPe"/>
+                        <outlet property="qrCodeImg" destination="nmt-6l-d8Y" id="37x-de-xRO"/>
+                        <outlet property="verticalStack" destination="JlV-Ux-bfY" id="6zU-YN-ajZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sdc-TH-6bP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4290" y="-333"/>
+            <point key="canvasLocation" x="4288.4057971014499" y="-333.48214285714283"/>
         </scene>
         <!--Dukungan Doa View Controller-->
         <scene sceneID="Ba9-h0-2MY">
@@ -863,18 +877,31 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQH-6u-6bk">
                                         <rect key="frame" x="0.0" y="276" width="374" height="30"/>
                                         <state key="normal" title="Request Pengerja"/>
+                                        <connections>
+                                            <action selector="requestPengerjaTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="IQX-tO-o5V"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvS-h9-e1B" userLabel="Change Password">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvS-h9-e1B" userLabel="Change Password">
                                         <rect key="frame" x="0.0" y="326" width="374" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Change Password"/>
+                                        <connections>
+                                            <action selector="changePasswordTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="9PW-dm-F4j"/>
+                                            <action selector="requestPengerjaTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="JXv-pS-cGj"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQi-pZ-F1w">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQi-pZ-F1w">
                                         <rect key="frame" x="0.0" y="376" width="374" height="30"/>
                                         <state key="normal" title="Rating JCR3 Apps"/>
+                                        <connections>
+                                            <action selector="ratingBtnTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="9hD-qC-gRI"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGB-gs-6xC">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGB-gs-6xC">
                                         <rect key="frame" x="0.0" y="426" width="374" height="30"/>
                                         <state key="normal" title="Sign Out"/>
+                                        <connections>
+                                            <action selector="signOutBtnTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="SfD-4P-WZg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -888,6 +915,22 @@
                         <viewLayoutGuide key="safeArea" id="PMb-8N-IeT"/>
                     </view>
                     <navigationItem key="navigationItem" id="Mud-tP-Dr0"/>
+                    <connections>
+                        <outlet property="BadgeBtn" destination="0y2-vL-46P" id="anu-ot-e10"/>
+                        <outlet property="BtnGroupHorizontalStack" destination="Iyp-An-715" id="H0U-Su-XTS"/>
+                        <outlet property="ChangePasswordBtn" destination="JvS-h9-e1B" id="grX-to-vCU"/>
+                        <outlet property="EditProfileBtn" destination="hcq-I5-q4X" id="tj8-8t-46X"/>
+                        <outlet property="GemarBtn" destination="u8I-6U-7M4" id="FxY-Ga-0Ws"/>
+                        <outlet property="GreetingLbl" destination="Jgb-FK-gXe" id="VPp-MG-tA9"/>
+                        <outlet property="MainVerticalStack" destination="A7e-E7-81k" id="AZo-AV-oY6"/>
+                        <outlet property="NavBar" destination="tTY-EP-YDR" id="9Ds-47-wYI"/>
+                        <outlet property="NavbarTitle" destination="xJv-ud-DzT" id="2qJ-mg-wht"/>
+                        <outlet property="PhoneNumberLbl" destination="Lpu-jC-1bf" id="awr-1x-PdO"/>
+                        <outlet property="ProfilePic" destination="wGL-iM-pBb" id="UKQ-G4-EP5"/>
+                        <outlet property="RatingBtn" destination="GQi-pZ-F1w" id="d1k-4u-wCY"/>
+                        <outlet property="RequestPengerjaBtn" destination="IQH-6u-6bk" id="hIz-vz-29m"/>
+                        <outlet property="SignOutBtn" destination="WGB-gs-6xC" id="pCh-s3-o05"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7X-8N-Tnf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

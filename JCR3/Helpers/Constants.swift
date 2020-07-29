@@ -13,5 +13,6 @@ struct Constants {
         static let daftarViewController = "daftarVC"
         static let liveStreamPopUp = "LiveStreamPopUp"
         static let dukunganDoaViewController = "dukunganDoaVC"
+        static let landingPageViewController = "LandingPageVC"
     }
 }
