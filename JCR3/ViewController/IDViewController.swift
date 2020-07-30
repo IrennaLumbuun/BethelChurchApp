@@ -43,7 +43,7 @@ class IDViewController: UIViewController {
     
     func instantiateBadge(){
         let uuid = Auth.auth().currentUser?.uid
-        Database.database().reference().child("Account/\(String(describing: uuid))").observeSingleEvent(of: .value, with: { (snapshot) in
+        Database.database().reference().child("Account/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let data = snapshot.value as? NSDictionary
             let nama = data?["Name"] as? String ?? "Jane Doe"

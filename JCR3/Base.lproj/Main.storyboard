@@ -953,7 +953,7 @@
                                             <navigationItem title="Your Profile" id="qL4-HV-Qsz"/>
                                         </items>
                                     </navigationBar>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xlp-by-GrS">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="JCR12345" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xlp-by-GrS">
                                         <rect key="frame" x="0.0" y="76" width="374" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="64n-ZS-0E1"/>
@@ -961,34 +961,37 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yce-eM-ig7">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jemaat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yce-eM-ig7">
                                         <rect key="frame" x="0.0" y="136" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xol-XH-USN">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+628123456789" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xol-XH-USN">
                                         <rect key="frame" x="0.0" y="190" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLI-1z-EN4">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nama" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLI-1z-EN4">
                                         <rect key="frame" x="0.0" y="244" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBh-vd-Vcd">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBh-vd-Vcd">
                                         <rect key="frame" x="0.0" y="298" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUL-gp-GMg">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gereja" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUL-gp-GMg">
                                         <rect key="frame" x="0.0" y="352" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNb-3Y-AuL">
                                         <rect key="frame" x="0.0" y="406" width="374" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Simpan"/>
+                                        <connections>
+                                            <action selector="simpanBtnTapped:" destination="0v9-bT-m9H" eventType="touchUpInside" id="ljt-Lr-oPW"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jika kamu ingin mendapatkan fitur pengerja, bisa mengajukan dengan button request" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COm-n5-BLS">
                                         <rect key="frame" x="0.0" y="456" width="374" height="41"/>
@@ -999,6 +1002,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gno-34-Vab">
                                         <rect key="frame" x="0.0" y="517" width="374" height="30"/>
                                         <state key="normal" title="Request Pengerja"/>
+                                        <connections>
+                                            <action selector="requestPengerjaTapped:" destination="0v9-bT-m9H" eventType="touchUpInside" id="8pz-nn-E3U"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1015,6 +1021,18 @@
                         <viewLayoutGuide key="safeArea" id="086-IP-oud"/>
                     </view>
                     <navigationItem key="navigationItem" id="B1N-3L-VUh"/>
+                    <connections>
+                        <outlet property="NavBar" destination="Lra-2T-qZA" id="BP2-XX-nb2"/>
+                        <outlet property="NavBarLbl" destination="qL4-HV-Qsz" id="AXZ-jx-m3W"/>
+                        <outlet property="emailTxt" destination="wBh-vd-Vcd" id="ZQj-xS-eNs"/>
+                        <outlet property="gerejaTxt" destination="KUL-gp-GMg" id="Q3O-y2-mzq"/>
+                        <outlet property="idAccountTxt" destination="xlp-by-GrS" id="EEw-bS-5pb"/>
+                        <outlet property="namaTxt" destination="gLI-1z-EN4" id="MYU-jl-G8T"/>
+                        <outlet property="noHpTxt" destination="xol-XH-USN" id="KdN-Gk-hcJ"/>
+                        <outlet property="requestPengerjaBtn" destination="Gno-34-Vab" id="blH-OU-kVx"/>
+                        <outlet property="simpanBtn" destination="VNb-3Y-AuL" id="QxA-gR-x11"/>
+                        <outlet property="statusTxt" destination="Yce-eM-ig7" id="6ue-tQ-ynR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3hg-UK-aua" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

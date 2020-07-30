@@ -55,14 +55,24 @@ class DaftarViewController: UIViewController {
         view.window?.makeKeyAndVisible()
     }
     
+    func setIDAccount() -> String{
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "ddMMyyHHmmss"
+        let formattedDate = format.string(from: date)
+        print(formattedDate)
+        return formattedDate
+    }
+    
     func storeUserToDatabase(){
-        let ref = Database.database().reference()
-        
         let name = namaTxt.text
         let userID = Auth.auth().currentUser!.uid
         let userEmail = Auth.auth().currentUser!.email
         let userPhone = Auth.auth().currentUser!.phoneNumber
-        let field = ["Email" : userEmail, "Role": "Jemaat", "Number": userPhone, "Name": name, "Uid": userID]
+        // calculate IdAccount ddmmyyHHmmss
+        let IDAccount = setIDAccount()
+        let field = ["Email" : userEmail, "Role": "Jemaat", "Number": userPhone, "Name": name, "Uid": userID, "IDAccount": "JCR3" + IDAccount]
+
         
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
@@ -72,6 +82,6 @@ class DaftarViewController: UIViewController {
                 print(error!)
             }
         })
-        ref.child("Account/\(userID)").setValue(field)
+        Database.database().reference().child("Account/\(userID)").setValue(field)
     }
 }

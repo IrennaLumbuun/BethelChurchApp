@@ -69,13 +69,7 @@ class UserProfileViewController: UIViewController {
      */
     
     @IBAction func requestPengerjaTapped(_ sender: Any) {
-        // request pengerja
-        // ganti userdatabase dari 0 ke 1
-        let uid = Auth.auth().currentUser?.uid
-        Database.database().reference().child("Account/\(uid!)").setValue(["Request": 1])
-        // tambahin ke JCR3console
-        // see how to configre multiple firebase account https://firebase.google.com/docs/projects/multiprojects#use_multiple_projects_in_your_application
-        // todo: ksh feedback ke user
+        Utilities.requestPengerja()
     }
     @IBAction func changePasswordTapped(_ sender: Any) {
         // bikin pop up

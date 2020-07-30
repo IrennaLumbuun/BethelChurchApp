@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class Utilities{
     
@@ -16,6 +18,9 @@ class Utilities{
          - Password has to be at least 8 characters
          - Contains a character, a number, a special character
      */
+    //todo bikin button feedback after button dipencet
+    
+    
     static func isAStrongPassword(password: String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@",
             "^(?=.*[a-z])(?=.*[$@$#!%*?&])(A-Za-z\\d$@$#!%*?&]{8,}")
@@ -34,6 +39,16 @@ class Utilities{
         backgroundImageView.contentMode = .scaleAspectFill
 
         view.view.insertSubview(backgroundImageView, at: 0)
+    }
+    
+    static func requestPengerja(){
+        // request pengerja
+        // ganti userdatabase dari 0 ke 1
+        let uid = Auth.auth().currentUser?.uid
+        Database.database().reference().child("Account/\(uid!)").setValue(["Request": 1])
+        // tambahin ke JCR3console
+        // see how to configre multiple firebase account https://firebase.google.com/docs/projects/multiprojects#use_multiple_projects_in_your_application
+        // todo: ksh feedback ke user
     }
     
     /* buat kalo perlu picker lagi
