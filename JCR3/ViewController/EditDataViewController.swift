@@ -33,7 +33,6 @@ class EditDataViewController: UIViewController {
         Database.database().reference().child("Account/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let data = snapshot.value as? NSDictionary
-            print(data as Any)
             let id = data?["IDAccount"] as? String ?? ""
             let status = data?["Role"] as? String ?? ""
             let number = data?["Number"] as? String ?? ""

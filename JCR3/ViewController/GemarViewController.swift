@@ -10,6 +10,8 @@ import UIKit
 
 class GemarViewController: UIViewController {
 
+    @IBOutlet weak var addEntryBtn: UIButton!
+    @IBOutlet weak var bacaRenunganBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 

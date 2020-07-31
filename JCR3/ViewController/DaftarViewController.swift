@@ -60,7 +60,6 @@ class DaftarViewController: UIViewController {
         let format = DateFormatter()
         format.dateFormat = "ddMMyyHHmmss"
         let formattedDate = format.string(from: date)
-        print(formattedDate)
         return formattedDate
     }
     
