@@ -803,7 +803,6 @@
         <!--Streaming Pop Up View Controller-->
         <scene sceneID="PKn-zD-1w4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aRp-un-UV8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LiveStreamPopUp" id="zmx-OF-M4F" customClass="StreamingPopUpViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZZs-jB-R6b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -883,13 +882,94 @@
                         <outlet property="topStack" destination="V5e-qR-WqI" id="F9C-7C-so2"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aRp-un-UV8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2761" y="-1132"/>
+        </scene>
+        <!--Edit Password View Controller-->
+        <scene sceneID="aLV-4f-M2F">
+            <objects>
+                <viewController id="EIU-Dr-lsy" customClass="EditPasswordViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="abZ-wz-Dta">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yUk-c8-oxD">
+                                <rect key="frame" x="20" y="100" width="374" height="315.5"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhq-zf-xpp">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
+                                        <items>
+                                            <navigationItem title="Membuat Password Baru" id="Kfq-66-cpR">
+                                                <barButtonItem key="rightBarButtonItem" image="xmark" catalog="system" id="EhB-2t-0Jq">
+                                                    <connections>
+                                                        <action selector="tutupBtnTapped:" destination="EIU-Dr-lsy" id="Ua9-aJ-Tbb"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password baru minimal 6 huruf, angka, atau simbol" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Bk-YV-xKq">
+                                        <rect key="frame" x="0.0" y="76" width="374" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password baru" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="37m-LH-IlX">
+                                        <rect key="frame" x="0.0" y="137" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Konfirm password baru" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGU-Ng-1eu">
+                                        <rect key="frame" x="0.0" y="191" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyL-os-def">
+                                        <rect key="frame" x="0.0" y="245" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBA-ac-FHf">
+                                        <rect key="frame" x="0.0" y="285.5" width="374" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Simpan Password baru">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="simpanBtnTapped:" destination="EIU-Dr-lsy" eventType="touchUpInside" id="NH9-bY-ctG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yUk-c8-oxD" secondAttribute="trailing" constant="20" id="46P-iG-Rjg"/>
+                            <constraint firstItem="yUk-c8-oxD" firstAttribute="top" secondItem="BVl-oL-VaP" secondAttribute="top" constant="100" id="hvq-Zm-bEO"/>
+                            <constraint firstItem="yUk-c8-oxD" firstAttribute="leading" secondItem="BVl-oL-VaP" secondAttribute="leading" constant="20" id="r7S-bJ-qBY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BVl-oL-VaP"/>
+                    </view>
+                    <connections>
+                        <outlet property="errorLbl" destination="IyL-os-def" id="Bc3-me-uct"/>
+                        <outlet property="konfirmPasswordTxt" destination="zGU-Ng-1eu" id="EY1-R3-yjg"/>
+                        <outlet property="passwordBaruTxt" destination="37m-LH-IlX" id="mNF-pb-cks"/>
+                        <outlet property="popUpVertical" destination="yUk-c8-oxD" id="AMz-zf-Ras"/>
+                        <outlet property="simpanPasswordBtn" destination="DBA-ac-FHf" id="fqo-62-UIM"/>
+                        <outlet property="tutupBtn" destination="EhB-2t-0Jq" id="3Nt-MH-rBx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gv8-65-YYx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4288.4057971014499" y="-1707.5892857142856"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="IPi-jp-bA2">
             <objects>
-                <viewController id="RuL-Fw-u0M" customClass="UserProfileViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileViewController" id="RuL-Fw-u0M" customClass="UserProfileViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sgu-Ss-tI2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -973,6 +1053,7 @@
                                         <connections>
                                             <action selector="changePasswordTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="9PW-dm-F4j"/>
                                             <action selector="requestPengerjaTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="JXv-pS-cGj"/>
+                                            <segue destination="EIU-Dr-lsy" kind="show" id="NyR-ZA-1ug"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQi-pZ-F1w">
@@ -1134,5 +1215,6 @@
         <image name="inbox" width="64" height="64"/>
         <image name="radio" width="64" height="64"/>
         <image name="user" width="48" height="48"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>
