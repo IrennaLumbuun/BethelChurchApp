@@ -640,11 +640,14 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMH-uq-gTP">
                                         <rect key="frame" x="0.0" y="137" width="374" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="HMMinistry placehodler"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWs-NS-JSg">
                                         <rect key="frame" x="0.0" y="187" width="374" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Harpazo Placeholder"/>
+                                        <connections>
+                                            <segue destination="dtk-oE-9bS" kind="show" id="sMA-DX-QVM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -662,6 +665,139 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2e-bY-siW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3533" y="-69"/>
+        </scene>
+        <!--Radio View Controller-->
+        <scene sceneID="vLF-YB-e2L">
+            <objects>
+                <viewController storyboardIdentifier="RadioVC" id="dtk-oE-9bS" customClass="RadioViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XsB-ww-GpP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9w-rb-Wk6">
+                                <rect key="frame" x="20" y="320" width="374" height="35"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <font key="NSFont" size="30" name="Calibri"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hww-nr-NLA">
+                                <rect key="frame" x="20" y="375" width="374" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaV-dx-B7l">
+                                        <rect key="frame" x="0.0" y="0.0" width="87.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lad-bm-loa">
+                                        <rect key="frame" x="363.5" y="0.0" width="10.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Jt-a3-INB">
+                                <rect key="frame" x="20" y="742" width="374" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="r4r-iJ-QdS"/>
+                                </constraints>
+                            </progressView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="L0c-db-ztK">
+                                <rect key="frame" x="20" y="772" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAh-83-pve">
+                                        <rect key="frame" x="0.0" y="-0.5" width="91.5" height="51"/>
+                                        <state key="normal" backgroundImage="link" catalog="system"/>
+                                        <connections>
+                                            <action selector="shareBtnTapped:" destination="dtk-oE-9bS" eventType="touchUpInside" id="XMu-PX-pVA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUZ-cZ-bAd">
+                                        <rect key="frame" x="141.5" y="1.5" width="91" height="46.5"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                        <state key="normal" backgroundImage="play.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playBtnTapped:" destination="dtk-oE-9bS" eventType="touchUpInside" id="GbZ-G7-LSi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Er2-Ck-udV">
+                                        <rect key="frame" x="282.5" y="0.0" width="91.5" height="51"/>
+                                        <state key="normal" backgroundImage="bubble.left.and.bubble.right.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="chatBtnTapped:" destination="dtk-oE-9bS" eventType="touchUpInside" id="ZUh-6Z-aYg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5fj-km-v7K"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EVE-n2-x17">
+                                <rect key="frame" x="10" y="0.0" width="394" height="288"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="TbD-rp-G09"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DSb-bZ-920" firstAttribute="trailing" secondItem="s9w-rb-Wk6" secondAttribute="trailing" constant="20" id="3oW-JV-c4B"/>
+                            <constraint firstItem="L0c-db-ztK" firstAttribute="top" secondItem="1Jt-a3-INB" secondAttribute="bottom" constant="10" id="5hp-G6-FGi"/>
+                            <constraint firstAttribute="trailing" secondItem="1Jt-a3-INB" secondAttribute="trailing" constant="20" id="BVV-3h-yyf"/>
+                            <constraint firstItem="DSb-bZ-920" firstAttribute="trailing" secondItem="L0c-db-ztK" secondAttribute="trailing" constant="20" id="NMo-Zo-a8G"/>
+                            <constraint firstItem="Hww-nr-NLA" firstAttribute="leading" secondItem="DSb-bZ-920" secondAttribute="leading" constant="20" id="P9c-fw-Vnu"/>
+                            <constraint firstItem="s9w-rb-Wk6" firstAttribute="leading" secondItem="DSb-bZ-920" secondAttribute="leading" constant="20" id="T72-i2-aka"/>
+                            <constraint firstItem="EVE-n2-x17" firstAttribute="trailing" secondItem="DSb-bZ-920" secondAttribute="trailing" constant="10" id="VPN-JV-FEO"/>
+                            <constraint firstAttribute="bottom" secondItem="L0c-db-ztK" secondAttribute="bottom" constant="20" id="WAL-xJ-ljd"/>
+                            <constraint firstItem="L0c-db-ztK" firstAttribute="leading" secondItem="XsB-ww-GpP" secondAttribute="leading" constant="20" id="afv-T4-ica"/>
+                            <constraint firstItem="EVE-n2-x17" firstAttribute="top" secondItem="DSb-bZ-920" secondAttribute="top" constant="10" id="b3v-20-wcx"/>
+                            <constraint firstItem="EVE-n2-x17" firstAttribute="leading" secondItem="DSb-bZ-920" secondAttribute="leading" constant="10" id="doe-Bc-oXw"/>
+                            <constraint firstItem="Hww-nr-NLA" firstAttribute="top" secondItem="s9w-rb-Wk6" secondAttribute="bottom" constant="20" id="eH9-W9-hoP"/>
+                            <constraint firstItem="s9w-rb-Wk6" firstAttribute="top" secondItem="EVE-n2-x17" secondAttribute="bottom" constant="10" id="lJ1-ep-jr7"/>
+                            <constraint firstItem="1Jt-a3-INB" firstAttribute="leading" secondItem="XsB-ww-GpP" secondAttribute="leading" constant="20" id="pWt-Ek-hoi"/>
+                            <constraint firstItem="DSb-bZ-920" firstAttribute="trailing" secondItem="Hww-nr-NLA" secondAttribute="trailing" constant="20" id="yDL-tR-hMm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DSb-bZ-920"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jCd-Wz-s0E"/>
+                    <connections>
+                        <outlet property="chatBtn" destination="Er2-Ck-udV" id="cKc-CD-geY"/>
+                        <outlet property="numListenerLbl" destination="Lad-bm-loa" id="Buz-2x-gQT"/>
+                        <outlet property="onAirStatus" destination="zaV-dx-B7l" id="Sde-0T-SiB"/>
+                        <outlet property="playBtn" destination="qUZ-cZ-bAd" id="qBg-3G-cN3"/>
+                        <outlet property="progressView" destination="1Jt-a3-INB" id="C8E-KN-Q3g"/>
+                        <outlet property="radioImg" destination="EVE-n2-x17" id="xFF-eR-52U"/>
+                        <outlet property="radioNameLbl" destination="s9w-rb-Wk6" id="2Bj-8n-T4W"/>
+                        <outlet property="shareBtn" destination="ZAh-83-pve" id="zrL-Vc-Ky3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y11-nQ-6Zh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4231.884057971015" y="-70.3125"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cjw-Dp-O5D">
+            <objects>
+                <viewController id="bQG-cl-Cqv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Es-L0-lT1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="vud-KQ-gES"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E5s-Rx-lF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4931" y="-65"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="TuH-fW-qNA">
@@ -737,7 +873,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sdc-TH-6bP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4288.4057971014499" y="-333.48214285714283"/>
+            <point key="canvasLocation" x="5000" y="-1027"/>
         </scene>
         <!--Dukungan Doa View Controller-->
         <scene sceneID="Ba9-h0-2MY">
@@ -1210,9 +1346,12 @@
         <segue reference="vku-Zn-G4F"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="gemar" width="48" height="48"/>
         <image name="inbox" width="64" height="64"/>
+        <image name="link" catalog="system" width="128" height="116"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="radio" width="64" height="64"/>
         <image name="user" width="48" height="48"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
