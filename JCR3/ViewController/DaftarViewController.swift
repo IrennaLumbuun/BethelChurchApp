@@ -20,7 +20,6 @@ class DaftarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        print("in daftar")
 
         // Do any additional setup after loading the view.
     }
@@ -63,7 +62,7 @@ class DaftarViewController: UIViewController {
         let userPhone = Auth.auth().currentUser!.phoneNumber
         print(name!.startIndex)
         print(name!.lowercased()[name!.startIndex])
-        let urlId = self.getProfilePic(c: name!.lowercased()[name!.startIndex] ?? "x")
+        let urlId = self.getProfilePic(c: name!.lowercased()[name!.startIndex])
         // calculate IdAccount ddmmyyHHmmss
         let IDAccount = Utilities.getFormattedDate(desiredFormat: "ddMMyyHHmmss")
         let field: [String : Any] = ["Church": "", "Cool": "", "Email" : userEmail ?? "", "Foto" : urlId, "Role": "Jemaat", "Number": userPhone ?? "", "Name": name!, "Uid": userID, "IDAccount": "JCR3" + IDAccount, "Request": 0]

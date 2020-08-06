@@ -21,7 +21,7 @@ class LandingPageViewController: UIViewController {
         //self.setJcLogo() <-- do we use logo?
     }
     
-    // if user is authenticated, go directly to dashboard
+    /* if user is authenticated, go directly to dashboard
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Auth.auth().addStateDidChangeListener { (auth, user) in
@@ -29,7 +29,7 @@ class LandingPageViewController: UIViewController {
                 self.transitionToHome()
             }
         }
-    }
+    }*/
     
     /*
     func setJcLogo(){
