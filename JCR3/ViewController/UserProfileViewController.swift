@@ -48,26 +48,6 @@ class UserProfileViewController: UIViewController {
         
     }
     
-    /** Siapa tau perlu :))
-            let uuid = Auth.auth().currentUser?.uid
-            Database.database().reference().child("Account/\(String(describing: uuid))").observeSingleEvent(of: .value, with: { (snapshot) in
-                // Get user value
-                let data = snapshot.value as? NSDictionary
-                let nama = data?["Name"] as? String ?? "Jane Doe"
-                let jcId = data?["IDAccount"] as? String ?? "JCR1234"
-                self.namaLbl.text = nama
-                self.accountIdLbl.text = jcId
-                
-                //set QR code
-                let qrcode = self.generateQRCode(from: jcId)
-                self.qrCodeImg.image = qrcode
-                self.profilePic.image =  qrcode // TODO: change later!!
-            }) {(error) in
-                    print("error")
-                    print(error.localizedDescription)
-                }
-     */
-    
     @IBAction func requestPengerjaTapped(_ sender: Any) {
         Utilities.requestPengerja()
     }

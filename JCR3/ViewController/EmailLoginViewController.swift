@@ -69,6 +69,7 @@ class EmailLoginViewController: UIViewController {
                     // fail to sign in because user does not exist
                     // we redirect to sign up page
                     if errorCode == AuthErrorCode.userNotFound{
+                        print("user not found")
                         Auth.auth().createUser(withEmail: email, password: password) { (success, error) in
                             if error != nil {
                                 self.errorLbl.text = error?.localizedDescription
@@ -84,6 +85,9 @@ class EmailLoginViewController: UIViewController {
                     }
                 }
                 else{
+                    print("success")
+                    print(email)
+                    print(password)
                     self.transitionToHome()
                 }
             }

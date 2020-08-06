@@ -52,6 +52,7 @@ class PhoneLoginViewController: UIViewController {
             errorLbl.text = error!
             errorLbl.alpha = 1
         } else {
+            errorLbl.alpha = 0
             // login user
             PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumberTxt.text!, uiDelegate: nil) { (verificationID, error) in
                 if error == nil{
@@ -77,9 +78,9 @@ class PhoneLoginViewController: UIViewController {
         Auth.auth().signIn(with: credential) { (success, error) in
             if error == nil {
                 // if is a new user, redirect to daftar
-                print("additionalUserInfo ->\(success?.additionalUserInfo as Any)")
-                print("is new user? -> \(success?.additionalUserInfo?.isNewUser as Any)")
-                if success?.additionalUserInfo?.isNewUser ?? false {
+                print("additionalUserInfo ->\(success!.additionalUserInfo as Any)")
+                if success!.additionalUserInfo!.isNewUser == true {
+                    print("is new user")
                     self.transitionToDaftar()
                 }
                 else{

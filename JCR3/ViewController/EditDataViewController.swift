@@ -30,7 +30,7 @@ class EditDataViewController: UIViewController {
     
     func setup(){
         let uuid = Auth.auth().currentUser?.uid
-        Database.database().reference().child("Account/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
+        Database.database().reference().child("User/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let data = snapshot.value as? NSDictionary
             let id = data?["IDAccount"] as? String ?? ""

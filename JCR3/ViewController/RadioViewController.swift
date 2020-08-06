@@ -19,20 +19,25 @@ class RadioViewController: UIViewController, AVAssetResourceLoaderDelegate {
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var chatBtn: UIButton!
     
-    let urlFile = URL(string:"http://pu.klikhost.com:8060/stream")!
+    //global var
+    var url = ""
+    var img = ""
+    
     var player: AVPlayer!
     var avAudioSession:AVAudioSession = AVAudioSession.sharedInstance()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(url)
+        let urlFile = URL(string: url)!
+        self.radioImg.image = UIImage.init(named: img)
+        
+        //autoplay radio
         try! avAudioSession.setCategory(.playback, mode: .default, options: [])
         try! avAudioSession.setActive(true)
-
         let audioURLAsset = AVURLAsset(url: urlFile)
         player = AVPlayer(playerItem: AVPlayerItem(asset: audioURLAsset))
         player.play()
-        // styling
-        // autoplay radio
     }
     
     @IBAction func shareBtnTapped(_ sender: Any) {
@@ -40,28 +45,16 @@ class RadioViewController: UIViewController, AVAssetResourceLoaderDelegate {
     }
     
     @IBAction func playBtnTapped(_ sender: Any) {
-        /*
-        if let player = player, player.isPlaying {
-            player.stop()
-            onAirStatus.text = "Playing"
+        print(player.rate)
+        if player.rate != 0 {
+            player.pause()
+            onAirStatus.text = "Not Playing"
             playBtn.setBackgroundImage(UIImage(systemName: "play.fill"), for: .normal)
         } else {
-            let url = "http://pu.klikhost.com:8060/stream"
-            do {
-               //AVAudioSession.sharedInstance().setMode(.default)
-                //AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                player = try AVAudioPlayer(contentsOf:URL(string: url)!)
-               guard let player = player else {
-                    return
-                }
                 player.play()
                 playBtn.setBackgroundImage(UIImage(systemName: "pause.fill"), for: .normal)
-                onAirStatus.text = "Not playing"
-            } catch Exception {
-                print(Exception)
-            }
+                onAirStatus.text = "Playing"
         }
- */
     }
     
     @IBAction func chatBtnTapped(_ sender: Any) {

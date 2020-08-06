@@ -38,23 +38,26 @@ class EntryGemarViewController: UIViewController {
         self.rhemaTxt.frame.size.height = self.view.frame.height - tanggalLbl.frame.height - ayatTxt.frame.height - 100
     }
     
+    // TODO: reformat ikutin ko Anton
     @IBAction func simpanBtnTapped(_ sender: Any) {
         let uuid = Auth.auth().currentUser?.uid
-        let entry: [String: String] = ["ayat": ayatTxt.text ?? "", "rhema": rhemaTxt.text ?? ""]
-        // append entry to a list of entries
-        Database.database().reference().child("Gemar/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
+        let data = [Utilities.getFormattedDate(desiredFormat: "MMddyyyyHHmmss"): "[\(Utilities.getFormattedDate(desiredFormat: "dd MMMM yyyy")), \(ayatTxt.text ?? ""), \(rhemaTxt.text ?? "")]"]
+        Database.database().reference().child("jcsaatteduh/sate/\(uuid!)").setValue(data)
+        
+        /* Uncomment this if ko anton agrees to rearrange databaseappend entry to a list of entries
+        Database.database().reference().child("jcsaatteduh/sate/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
             var data = snapshot.value as? Array<Any>
             if data == nil{
                 data = [entry]
             } else {
                 data?.append(entry)
             }
-            Database.database().reference().child("Gemar/\(uuid!)").setValue(data!)
+            Database.database().reference().child("jcsaatteduh/sate/\(uuid!)").setValue(data!)
             self.ayatTxt.text = ""
             self.rhemaTxt.text = ""
            }) {(error) in
                    print(error.localizedDescription)
-               }
+               }*/
     }
     
 }

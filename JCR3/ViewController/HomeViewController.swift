@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var newsUpdateSearchBar: UISearchBar!
     @IBOutlet weak var inboxUpdateBtn: UIButton!
@@ -35,8 +35,11 @@ class HomeViewController: UIViewController {
         let buttonPadding:CGFloat = 10
         var xOffset:CGFloat = 10
         
-        scView = UIScrollView(frame: CGRect(x: 0, y: 300, width: view.bounds.width, height: 50))
+        scView = UIScrollView(frame: CGRect(x: 0, y: 300, width: view.bounds.width * 4, height: 50))
         scView.isPagingEnabled = true
+        scView.isScrollEnabled = true
+        scView.isUserInteractionEnabled = true
+        scView.delegate = self
         view.addSubview(scView)
 
         scView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +61,7 @@ class HomeViewController: UIViewController {
             scView.addSubview(button)
         }
 
-        scView.contentSize = CGSize(width: xOffset, height: scView.frame.height)
+        //scView.contentSize = CGSize(width: xOffset, height: scView.frame.height)
     }
     
     @objc func btnClicked(sender : UIButton) {

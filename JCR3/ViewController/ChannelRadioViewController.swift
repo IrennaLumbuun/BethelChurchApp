@@ -10,21 +10,32 @@ import UIKit
 
 class ChannelRadioViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func HarpazoBtnTapped(_ sender: Any) {
+        performSegue(withIdentifier: "HarpazoRadio", sender: self)
     }
-    */
-
+    
+    @IBAction func HMMinistryBtnTapped(_ sender: Any) {
+        performSegue(withIdentifier: "HMMRadio", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! RadioViewController
+        if segue.identifier == "HarpazoRadio"{
+            print("Harpazo")
+            vc.url = "http://pu.klikhost.com:8060/stream"
+            vc.img = "harpazo.jpg"
+        }
+        else if segue.identifier == "HMMRadio" {
+            print("hmm")
+            vc.url = "http://pu.klikhost.com:8060/stream"
+            vc.img = "hmm.jpg"
+        }
+    }
 }

@@ -20,6 +20,13 @@ class Utilities{
      */
     //todo bikin button feedback after button dipencet
     
+    static func getFormattedDate(desiredFormat: String) -> String {
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = desiredFormat
+        let formattedDate = format.string(from: date)
+        return formattedDate
+    }
     
     static func isAStrongPassword(password: String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@",
@@ -43,11 +50,22 @@ class Utilities{
     
     static func requestPengerja(){
         // request pengerja
-        // ganti userdatabase dari 0 ke 1
-        let uid = Auth.auth().currentUser?.uid
-        Database.database().reference().child("Account/\(uid!)").setValue(["Request": 1])
+        let uuid = Auth.auth().currentUser?.uid
+        Database.database().reference().child("User/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let data = snapshot.value as? NSMutableDictionary
+            data?["Request"] = 1
+            Database.database().reference().child("User/\(uuid!)").setValue(data)
+            let currentUser = Auth.auth().currentUser!
+            
+            let idAccount = data?["IDAccount"] as! NSString
+            let dataRequestPengerja = [idAccount: "[\(idAccount), \(currentUser.displayName ?? "nama"), \(currentUser.phoneNumber ?? "number"), \(currentUser.email ?? "email"), Request, \(Utilities.getFormattedDate(desiredFormat: "MM/dd/yyyy HH:mm:ss"))]"]
+            Database.database().reference().child("RequestPengerja/Request").setValue(dataRequestPengerja)
+        }) {(error) in
+                print("error")
+                print(error.localizedDescription)
+            }
         // tambahin ke JCR3console
-        // see how to configre multiple firebase account https://firebase.google.com/docs/projects/multiprojects#use_multiple_projects_in_your_application
         // todo: ksh feedback ke user
     }
     
