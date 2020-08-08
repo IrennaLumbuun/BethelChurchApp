@@ -530,26 +530,61 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDL-gz-oCb">
+                                <rect key="frame" x="0.0" y="56" width="414" height="694"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tv7-2Q-xtE">
+                                        <rect key="frame" x="0.0" y="8" width="414" height="686"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sate_cell" id="4QN-02-ZHr">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4QN-02-ZHr" id="dJa-bP-She" customClass="GemarTableViewCell" customModule="JCR3" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="w3Z-uT-aoH" id="W0g-CX-WDI"/>
+                                            <outlet property="delegate" destination="w3Z-uT-aoH" id="r6P-el-stf"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="tv7-2Q-xtE" firstAttribute="top" secondItem="eDL-gz-oCb" secondAttribute="top" constant="8" id="Jwh-Eh-EGK"/>
+                                    <constraint firstAttribute="bottom" secondItem="tv7-2Q-xtE" secondAttribute="bottom" id="MT0-2x-eRU"/>
+                                    <constraint firstAttribute="trailing" secondItem="tv7-2Q-xtE" secondAttribute="trailing" id="dHR-IQ-LeR"/>
+                                    <constraint firstItem="tv7-2Q-xtE" firstAttribute="leading" secondItem="eDL-gz-oCb" secondAttribute="leading" id="yOr-PL-WzN"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="wgX-AG-1Iq" firstAttribute="leading" secondItem="Eg0-sF-rrw" secondAttribute="leading" constant="20" id="1cZ-Qt-r1s"/>
+                            <constraint firstItem="wgX-AG-1Iq" firstAttribute="top" secondItem="eDL-gz-oCb" secondAttribute="bottom" constant="8" id="HQ1-F7-Ql1"/>
                             <constraint firstItem="Lx6-dG-oan" firstAttribute="leading" secondItem="Eg0-sF-rrw" secondAttribute="leading" constant="20" id="HfM-3l-yMT"/>
                             <constraint firstItem="Lx6-dG-oan" firstAttribute="top" secondItem="Eg0-sF-rrw" secondAttribute="top" id="IzX-OO-FkF"/>
                             <constraint firstAttribute="trailing" secondItem="Lx6-dG-oan" secondAttribute="trailing" constant="20" id="Mgo-gc-yBP"/>
+                            <constraint firstItem="eDL-gz-oCb" firstAttribute="leading" secondItem="Eg0-sF-rrw" secondAttribute="leading" id="RPW-kV-Krq"/>
                             <constraint firstItem="Eg0-sF-rrw" firstAttribute="trailing" secondItem="wgX-AG-1Iq" secondAttribute="trailing" constant="20" id="dCz-1l-0qn"/>
+                            <constraint firstItem="eDL-gz-oCb" firstAttribute="top" secondItem="Lx6-dG-oan" secondAttribute="bottom" id="lfb-Hw-QVV"/>
                             <constraint firstItem="Eg0-sF-rrw" firstAttribute="bottom" secondItem="wgX-AG-1Iq" secondAttribute="bottom" constant="20" id="tgI-3Y-JQx"/>
+                            <constraint firstItem="eDL-gz-oCb" firstAttribute="trailing" secondItem="Eg0-sF-rrw" secondAttribute="trailing" id="xqx-ad-ZuE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Eg0-sF-rrw"/>
                     </view>
                     <connections>
                         <outlet property="addEntryBtn" destination="z4i-2T-7Gq" id="VcE-gG-Iuu"/>
                         <outlet property="bacaRenunganBtn" destination="Fot-xj-YfX" id="IO5-IS-dqi"/>
+                        <outlet property="gemarTable" destination="tv7-2Q-xtE" id="VY4-yr-5cA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sof-Km-JcB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3527" y="604"/>
+            <point key="canvasLocation" x="3526.0869565217395" y="603.34821428571422"/>
         </scene>
         <!--Entry Gemar View Controller-->
         <scene sceneID="Qtd-0d-Poz">
