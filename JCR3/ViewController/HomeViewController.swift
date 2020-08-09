@@ -10,7 +10,8 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class HomeViewController: UIViewController, UIScrollViewDelegate {
+class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
+    
 
     @IBOutlet weak var newsUpdateSearchBar: UISearchBar!
     @IBOutlet weak var inboxUpdateBtn: UIButton!
@@ -18,15 +19,28 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var radioBtn: UIButton!
     @IBOutlet weak var gemarBtn: UIButton!
     @IBOutlet weak var notifScrollView: UIScrollView!
+    @IBOutlet weak var btnGroupCollectionView: UICollectionView!
+    
+    //setting up scrollable button group here
+    private let cellId = "btnCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
-        print("view did load home")
+        //setup()
+        
+        //for scrollable button group
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        btnGroupCollectionView.backgroundColor = UIColor.black
+        btnGroupCollectionView.collectionViewLayout = layout
+        btnGroupCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        btnGroupCollectionView.register(BtnCell.self, forCellWithReuseIdentifier: "btnCell") //this
     }
     
     //10:30 to see the whole code for horizontal scroll direction collection view
-    // lanjut 16:24
+    // lanjut 17:29, 19:06, 19:18
+    // append element see 27:40
     
     override func viewWillAppear(_ animated: Bool) {
         //in a weird case where user is has not set up their name yet
@@ -42,9 +56,26 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         view.window?.makeKeyAndVisible()
     }
     
+    
+    //override func for collection view layout
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("getting collection item")
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("return collection")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath as IndexPath) as! BtnCell //this
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        print("resize collection")
+        return CGSize(width: 100, height: 80)//this
+    }
+    
+    /*
     func setup() {
         setScrollableButttonGroup()
-        
     }
     
     func setScrollableButttonGroup(){
@@ -79,7 +110,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         }
 
         //scView.contentSize = CGSize(width: xOffset, height: scView.frame.height)
-    }
+    }*/
     
     @objc func btnClicked(sender : UIButton) {
         //get buttonName
@@ -131,3 +162,19 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 }
+
+class BtnCell: UICollectionViewCell {
+    override init(frame:CGRect) {
+        super.init(frame:frame)
+        setupViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    func setupViews() {
+        backgroundColor = UIColor.red
+    }
+}
+
+

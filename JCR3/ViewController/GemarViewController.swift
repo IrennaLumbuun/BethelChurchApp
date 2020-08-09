@@ -109,7 +109,6 @@ extension GemarViewController:UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "sate_cell", for:indexPath)
         cell.textLabel?.text = " \(datasource[indexPath.row].date)\n\(datasource[indexPath.row].ayat) "
         cell.textLabel?.numberOfLines = 0
-        //cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
         return cell
     }
     

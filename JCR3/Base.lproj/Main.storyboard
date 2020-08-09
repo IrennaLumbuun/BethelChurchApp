@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -471,6 +472,31 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="mlq-e4-bYu"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="EBK-eU-LtD"/>
                             </scrollView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pFf-D6-wuI">
+                                <rect key="frame" x="0.0" y="310" width="414" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U25-ql-F7A">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ya7-59-zNL">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XZe-ro-EFW">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="oBy-oO-qJc" id="bp6-Q6-q8J"/>
+                                    <outlet property="delegate" destination="oBy-oO-qJc" id="1TT-Z1-SLL"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -483,6 +509,7 @@
                         <viewLayoutGuide key="safeArea" id="O9M-Jn-U2z"/>
                     </view>
                     <connections>
+                        <outlet property="btnGroupCollectionView" destination="pFf-D6-wuI" id="Seg-zf-P41"/>
                         <outlet property="gemarBtn" destination="7ZL-Ph-GZu" id="TJX-22-3K7"/>
                         <outlet property="inboxUpdateBtn" destination="rqN-FC-PYx" id="HGm-G4-W3E"/>
                         <outlet property="newsUpdateSearchBar" destination="0lW-CE-Pw6" id="Jnf-Vk-pPU"/>
@@ -1349,7 +1376,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="q4B-Ws-usU"/>
-        <segue reference="vku-Zn-G4F"/>
+        <segue reference="sli-fg-2Ib"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
