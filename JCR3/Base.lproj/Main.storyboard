@@ -498,7 +498,7 @@
         <!--Gemar View Controller-->
         <scene sceneID="YZO-5b-oDA">
             <objects>
-                <viewController id="w3Z-uT-aoH" customClass="GemarViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gemarVC" id="w3Z-uT-aoH" customClass="GemarViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="McX-u1-8dp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -589,7 +589,7 @@
         <!--Entry Gemar View Controller-->
         <scene sceneID="Qtd-0d-Poz">
             <objects>
-                <viewController id="4W1-7u-TmK" customClass="EntryGemarViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="entryGemarVC" id="4W1-7u-TmK" customClass="EntryGemarViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5gV-nO-x3e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -601,6 +601,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
                                         <items>
                                             <navigationItem title="Catatan GEMAR" id="JUH-TZ-Bth">
+                                                <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.left" catalog="system" id="ZXw-HV-0uH">
+                                                    <connections>
+                                                        <action selector="backBtnTapped:" destination="4W1-7u-TmK" id="qjc-PX-Th9"/>
+                                                    </connections>
+                                                </barButtonItem>
                                                 <barButtonItem key="rightBarButtonItem" title="Item" image="checkmark" catalog="system" id="N8z-mU-I7F">
                                                     <connections>
                                                         <action selector="simpanBtnTapped:" destination="4W1-7u-TmK" id="3f5-Ls-SZL"/>
@@ -648,7 +653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqq-oN-bzZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4232" y="603"/>
+            <point key="canvasLocation" x="4231.884057971015" y="602.67857142857144"/>
         </scene>
         <!--Channel Radio View Controller-->
         <scene sceneID="b4I-UK-S65">
@@ -1344,9 +1349,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="q4B-Ws-usU"/>
-        <segue reference="sli-fg-2Ib"/>
+        <segue reference="vku-Zn-G4F"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="gemar" width="48" height="48"/>

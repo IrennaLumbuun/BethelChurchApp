@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class HomeViewController: UIViewController, UIScrollViewDelegate {
 
@@ -21,8 +22,24 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-
-        // Do any additional setup after loading the view.
+        print("view did load home")
+    }
+    
+    //10:30 to see the whole code for horizontal scroll direction collection view
+    // lanjut 16:24
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //in a weird case where user is has not set up their name yet
+        if Auth.auth().currentUser?.displayName == nil {
+            self.transitionToDaftar()
+        }
+    }
+    
+    func transitionToDaftar(){
+        let daftarVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.daftarViewController) as? DaftarViewController
+        
+        view.window?.rootViewController = daftarVC
+        view.window?.makeKeyAndVisible()
     }
     
     func setup() {

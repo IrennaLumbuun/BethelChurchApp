@@ -18,40 +18,53 @@ class EntryGemarViewController: UIViewController {
     @IBOutlet weak var ayatTxt: UITextField!
     @IBOutlet weak var rhemaTxt: UITextField!
     
+    public var item: GemarEntry?
+    public var completionHandler: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        styleElement()
+        // if there is no item, render date and empty text field.
+        // else, render item
+        if item != nil {
+            tanggalLbl.text = item?.date
+            ayatTxt.text = item?.ayat
+            rhemaTxt.text = item?.rhema
+        } else {
+            tanggalLbl.text = Utilities.getFormattedDate(desiredFormat: "dd MMMM yyyy")
+        }
     }
     
-    func setup(){
-        renderLabel()
-        styleElement()
-    }
-    func renderLabel(){
-        let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "dd MMMM yyyy"
-        let formattedDate = format.string(from: date)
-        tanggalLbl.text = formattedDate
-    }
     func styleElement(){
         self.rhemaTxt.frame.size.height = self.view.frame.height - tanggalLbl.frame.height - ayatTxt.frame.height - 100
     }
     
-    // TODO: reformat ikutin ko Anton
     @IBAction func simpanBtnTapped(_ sender: Any) {
         let uuid = Auth.auth().currentUser?.uid
         
+        //save to database
         Database.database().reference().child("jcsaatteduh/sate/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
             let data = snapshot.value as? NSMutableDictionary
-            //let entry = [Utilities.getFormattedDate(desiredFormat: "MMddyyyyHHmmss"): "[\(Utilities.getFormattedDate(desiredFormat: "dd MMMM yyyy")), \(self.ayatTxt.text ?? ""), \(self.rhemaTxt.text ?? "")]"]
             data?[Utilities.getFormattedDate(desiredFormat: "MMddyyyyHHmmss")] = "[\(Utilities.getFormattedDate(desiredFormat: "dd MMMM yyyy")), \(self.ayatTxt.text ?? ""), \(self.rhemaTxt.text ?? "")]"
             Database.database().reference().child("jcsaatteduh/sate/\(uuid!)").setValue(data!)
+            
+            //empty text field & go back to root controller
             self.ayatTxt.text = ""
             self.rhemaTxt.text = ""
-           }) {(error) in
-                   print(error.localizedDescription)
-               }
+            self.transitionToGemar()
+           })
+        {(error) in
+           print(error.localizedDescription)
+       }
+    }
+    func transitionToGemar(){
+        let gemarVC = storyboard?.instantiateViewController(identifier: "gemarVC") as? GemarViewController
+        
+        view.window?.rootViewController = gemarVC
+        view.window?.makeKeyAndVisible()
+    }
+    @IBAction func backBtnTapped(_ sender: Any) {
+        self.transitionToGemar()
     }
     
 }

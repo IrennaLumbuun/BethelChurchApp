@@ -128,7 +128,6 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
         print(user.problem)
     }
     
-    //"[\"DOA0208200037JCR39543946\",\"Irenna\",\"1 Tahun\",\"Wanita\",\"masalah sungkat anda\",\"2020-08-02 00:37\",\"Pendding\",\"noname\"]"
     @objc func simpanBtnClicked(sender : UIButton) {
         let uuid = Auth.auth().currentUser?.uid
         Database.database().reference().child("User/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in

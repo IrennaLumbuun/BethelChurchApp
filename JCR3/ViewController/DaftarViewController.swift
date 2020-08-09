@@ -15,6 +15,9 @@ class DaftarViewController: UIViewController {
     @IBOutlet weak var namaTxt: UITextField!
     @IBOutlet weak var errorLbl: UILabel!
     
+    public var email: String = ""
+    public var password: String = ""
+    
     var pickerData: [String] = [String]()
     
     override func viewDidLoad() {
@@ -43,10 +46,24 @@ class DaftarViewController: UIViewController {
             errorLbl.text = error
             errorLbl.alpha = 1
         } else{
-            storeUserToDatabase()
-            self.transitionToHome()
+            // if logged in by email, create user & store to database
+            if email != "" && password != "" {
+                Auth.auth().createUser(withEmail: email, password: password) { (success, error) in
+                    if error != nil {
+                        self.errorLbl.text = error?.localizedDescription
+                        self.errorLbl.alpha = 1
+                    } else{
+                        self.storeUserToDatabase()
+                    }
+                }
             }
+            else{
+                //log in by phone, just store directly to database
+                storeUserToDatabase()
+            }
+            self.transitionToHome()
         }
+    }
     
     func transitionToHome(){
         let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
@@ -66,7 +83,6 @@ class DaftarViewController: UIViewController {
         // calculate IdAccount ddmmyyHHmmss
         let IDAccount = Utilities.getFormattedDate(desiredFormat: "ddMMyyHHmmss")
         let field: [String : Any] = ["Church": "", "Cool": "", "Email" : userEmail ?? "", "Foto" : urlId, "Role": "Jemaat", "Number": userPhone ?? "", "Name": name!, "Uid": userID, "IDAccount": "JCR3" + IDAccount, "Request": 0]
-
         
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name

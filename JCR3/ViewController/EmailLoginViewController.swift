@@ -70,14 +70,7 @@ class EmailLoginViewController: UIViewController {
                     // we redirect to sign up page
                     if errorCode == AuthErrorCode.userNotFound{
                         print("user not found")
-                        Auth.auth().createUser(withEmail: email, password: password) { (success, error) in
-                            if error != nil {
-                                self.errorLbl.text = error?.localizedDescription
-                                self.errorLbl.alpha = 1
-                            } else {
-                                self.transitionToDaftar()
-                            }
-                        }
+                        self.transitionToDaftar(email: email, password: password)
                     }
                     else {
                         self.errorLbl.text = error?.localizedDescription
@@ -100,8 +93,10 @@ class EmailLoginViewController: UIViewController {
         view.window?.makeKeyAndVisible()
     }
     
-    func transitionToDaftar(){
+    func transitionToDaftar(email:String, password: String){
         let daftarVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.daftarViewController) as? DaftarViewController
+        daftarVC!.email = email
+        daftarVC!.password = password
         
         view.window?.rootViewController = daftarVC
         view.window?.makeKeyAndVisible()
