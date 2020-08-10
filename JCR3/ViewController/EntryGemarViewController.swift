@@ -33,6 +33,7 @@ class EntryGemarViewController: UIViewController {
         } else {
             tanggalLbl.text = Utilities.getFormattedDate(desiredFormat: "dd MMMM yyyy")
         }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "save", style: .done, target: self, action: #selector(simpanBtnTapped))
     }
     
     func styleElement(){

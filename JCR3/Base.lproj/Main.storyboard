@@ -413,7 +413,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="49" height="64"/>
                                                                 <state key="normal" backgroundImage="user"/>
                                                                 <connections>
-                                                                    <segue destination="RuL-Fw-u0M" kind="show" id="j8S-ey-cs5"/>
+                                                                    <segue destination="E3T-Ll-1np" kind="show" id="j8S-ey-cs5"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8Y-OE-X1u">
@@ -431,7 +431,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                                                 <state key="normal" backgroundImage="radio"/>
                                                                 <connections>
-                                                                    <segue destination="gc8-np-8xs" kind="show" id="Wce-1S-l9U"/>
+                                                                    <segue destination="Y35-yg-SDe" kind="show" id="Wce-1S-l9U"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiZ-PI-Gyk">
@@ -514,7 +514,7 @@
             </objects>
             <point key="canvasLocation" x="2760.8695652173915" y="189.50892857142856"/>
         </scene>
-        <!--Gemar View Controller-->
+        <!--Gemar-->
         <scene sceneID="YZO-5b-oDA">
             <objects>
                 <viewController storyboardIdentifier="gemarVC" id="w3Z-uT-aoH" customClass="GemarViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
@@ -522,17 +522,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Lx6-dG-oan">
-                                <rect key="frame" x="20" y="0.0" width="374" height="56"/>
-                                <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3OR-9s-KBR">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
-                                        <items>
-                                            <navigationItem title="GEMAR" id="ft6-7u-eaK"/>
-                                        </items>
-                                    </navigationBar>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wgX-AG-1Iq">
                                 <rect key="frame" x="20" y="758" width="374" height="30"/>
                                 <subviews>
@@ -550,10 +539,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDL-gz-oCb">
-                                <rect key="frame" x="0.0" y="56" width="414" height="694"/>
+                                <rect key="frame" x="0.0" y="10" width="414" height="740"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tv7-2Q-xtE">
-                                        <rect key="frame" x="0.0" y="8" width="414" height="686"/>
+                                        <rect key="frame" x="0.0" y="8" width="414" height="732"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sate_cell" id="4QN-02-ZHr">
@@ -582,19 +571,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="eDL-gz-oCb" firstAttribute="top" secondItem="Eg0-sF-rrw" secondAttribute="top" constant="10" id="18M-FX-T6d"/>
                             <constraint firstItem="wgX-AG-1Iq" firstAttribute="leading" secondItem="Eg0-sF-rrw" secondAttribute="leading" constant="20" id="1cZ-Qt-r1s"/>
                             <constraint firstItem="wgX-AG-1Iq" firstAttribute="top" secondItem="eDL-gz-oCb" secondAttribute="bottom" constant="8" id="HQ1-F7-Ql1"/>
-                            <constraint firstItem="Lx6-dG-oan" firstAttribute="leading" secondItem="Eg0-sF-rrw" secondAttribute="leading" constant="20" id="HfM-3l-yMT"/>
-                            <constraint firstItem="Lx6-dG-oan" firstAttribute="top" secondItem="Eg0-sF-rrw" secondAttribute="top" id="IzX-OO-FkF"/>
-                            <constraint firstAttribute="trailing" secondItem="Lx6-dG-oan" secondAttribute="trailing" constant="20" id="Mgo-gc-yBP"/>
                             <constraint firstItem="eDL-gz-oCb" firstAttribute="leading" secondItem="Eg0-sF-rrw" secondAttribute="leading" id="RPW-kV-Krq"/>
                             <constraint firstItem="Eg0-sF-rrw" firstAttribute="trailing" secondItem="wgX-AG-1Iq" secondAttribute="trailing" constant="20" id="dCz-1l-0qn"/>
-                            <constraint firstItem="eDL-gz-oCb" firstAttribute="top" secondItem="Lx6-dG-oan" secondAttribute="bottom" id="lfb-Hw-QVV"/>
                             <constraint firstItem="Eg0-sF-rrw" firstAttribute="bottom" secondItem="wgX-AG-1Iq" secondAttribute="bottom" constant="20" id="tgI-3Y-JQx"/>
                             <constraint firstItem="eDL-gz-oCb" firstAttribute="trailing" secondItem="Eg0-sF-rrw" secondAttribute="trailing" id="xqx-ad-ZuE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Eg0-sF-rrw"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Gemar" id="CS3-yj-wlh"/>
                     <connections>
                         <outlet property="addEntryBtn" destination="z4i-2T-7Gq" id="VcE-gG-Iuu"/>
                         <outlet property="bacaRenunganBtn" destination="Fot-xj-YfX" id="IO5-IS-dqi"/>
@@ -605,7 +592,7 @@
             </objects>
             <point key="canvasLocation" x="3526.0869565217395" y="603.34821428571422"/>
         </scene>
-        <!--Entry Gemar View Controller-->
+        <!--Catatan Gemar-->
         <scene sceneID="Qtd-0d-Poz">
             <objects>
                 <viewController storyboardIdentifier="entryGemarVC" id="4W1-7u-TmK" customClass="EntryGemarViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
@@ -614,38 +601,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cyx-PL-12m">
-                                <rect key="frame" x="20" y="20" width="374" height="204.5"/>
+                                <rect key="frame" x="20" y="20" width="374" height="128.5"/>
                                 <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wd-I9-Hdd">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
-                                        <items>
-                                            <navigationItem title="Catatan GEMAR" id="JUH-TZ-Bth">
-                                                <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.left" catalog="system" id="ZXw-HV-0uH">
-                                                    <connections>
-                                                        <action selector="backBtnTapped:" destination="4W1-7u-TmK" id="qjc-PX-Th9"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" title="Item" image="checkmark" catalog="system" id="N8z-mU-I7F">
-                                                    <connections>
-                                                        <action selector="simpanBtnTapped:" destination="4W1-7u-TmK" id="3f5-Ls-SZL"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal hari ini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSW-t7-q1h">
-                                        <rect key="frame" x="0.0" y="76" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ayat Firman" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5yo-Xi-Aq2">
-                                        <rect key="frame" x="0.0" y="116.5" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="40.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rhema" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fuy-lc-HV4">
-                                        <rect key="frame" x="0.0" y="170.5" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="94.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -661,12 +631,11 @@
                         <viewLayoutGuide key="safeArea" id="pWq-dF-YuY"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="I3P-oq-xqe"/>
+                    <navigationItem key="navigationItem" title="Catatan Gemar" id="I3P-oq-xqe"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ayatTxt" destination="5yo-Xi-Aq2" id="Nwv-Bw-O2e"/>
                         <outlet property="rhemaTxt" destination="Fuy-lc-HV4" id="Zup-QN-nNj"/>
-                        <outlet property="simpanBtn" destination="N8z-mU-I7F" id="TQH-Kp-j75"/>
                         <outlet property="tanggalLbl" destination="SSW-t7-q1h" id="a1s-qf-usN"/>
                     </connections>
                 </viewController>
@@ -674,7 +643,7 @@
             </objects>
             <point key="canvasLocation" x="4231.884057971015" y="602.67857142857144"/>
         </scene>
-        <!--Channel Radio View Controller-->
+        <!--Radio Channel-->
         <scene sceneID="b4I-UK-S65">
             <objects>
                 <viewController id="gc8-np-8xs" customClass="ChannelRadioViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
@@ -683,22 +652,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7eF-k4-Vyz">
-                                <rect key="frame" x="20" y="0.0" width="374" height="217"/>
+                                <rect key="frame" x="20" y="56" width="374" height="141"/>
                                 <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UxE-RB-EYq">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
-                                        <items>
-                                            <navigationItem title="Title" id="yUo-de-E4H"/>
-                                        </items>
-                                    </navigationBar>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doa, Pujian, Penyembahan, siang dan malam dalam unity" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSe-pM-W7Q">
-                                        <rect key="frame" x="0.0" y="76" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMH-uq-gTP">
-                                        <rect key="frame" x="0.0" y="137" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="61" width="374" height="30"/>
                                         <state key="normal" title="HMMinistry placehodler"/>
                                         <connections>
                                             <action selector="HMMinistryBtnTapped:" destination="gc8-np-8xs" eventType="touchUpInside" id="U1I-qi-sTX"/>
@@ -706,7 +669,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWs-NS-JSg">
-                                        <rect key="frame" x="0.0" y="187" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="111" width="374" height="30"/>
                                         <state key="normal" title="Harpazo Placeholder"/>
                                         <connections>
                                             <action selector="HarpazoBtnTapped:" destination="gc8-np-8xs" eventType="touchUpInside" id="cBI-Vv-4Rl"/>
@@ -724,11 +687,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Chl-S2-Non"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wLn-EY-Epw"/>
+                    <navigationItem key="navigationItem" title="Radio Channel" id="wLn-EY-Epw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2e-bY-siW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3533" y="-69"/>
+            <point key="canvasLocation" x="4375" y="-70"/>
         </scene>
         <!--Radio View Controller-->
         <scene sceneID="vLF-YB-e2L">
@@ -739,7 +702,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9w-rb-Wk6">
-                                <rect key="frame" x="20" y="320" width="374" height="35"/>
+                                <rect key="frame" x="20" y="376" width="374" height="35"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
@@ -751,7 +714,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hww-nr-NLA">
-                                <rect key="frame" x="20" y="375" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="431" width="374" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaV-dx-B7l">
                                         <rect key="frame" x="0.0" y="0.0" width="55.5" height="20.5"/>
@@ -846,9 +809,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y11-nQ-6Zh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4231.884057971015" y="-70.3125"/>
+            <point key="canvasLocation" x="5142.0289855072469" y="-70.3125"/>
         </scene>
-        <!--View Controller-->
+        <!--Badge-->
         <scene sceneID="TuH-fW-qNA">
             <objects>
                 <viewController id="yXf-R7-6f5" customClass="IDViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
@@ -909,7 +872,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ELh-5c-MG3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Cjg-hd-chM"/>
+                    <navigationItem key="navigationItem" title="Badge" id="Cjg-hd-chM"/>
                     <connections>
                         <outlet property="NavBar" destination="JVx-i0-knL" id="zyN-gR-Cjt"/>
                         <outlet property="accountIdLbl" destination="3UU-x3-yJ7" id="dsY-Q1-p4G"/>
@@ -922,7 +885,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sdc-TH-6bP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5000" y="-1027"/>
+            <point key="canvasLocation" x="6108.6956521739139" y="-339.50892857142856"/>
         </scene>
         <!--Dukungan Doa View Controller-->
         <scene sceneID="Ba9-h0-2MY">
@@ -1055,7 +1018,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yUk-c8-oxD">
-                                <rect key="frame" x="20" y="100" width="374" height="315.5"/>
+                                <rect key="frame" x="20" y="156" width="374" height="315.5"/>
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhq-zf-xpp">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
@@ -1124,9 +1087,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gv8-65-YYx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4288.4057971014499" y="-1707.5892857142856"/>
+            <point key="canvasLocation" x="5199" y="-1709"/>
         </scene>
-        <!--User Profile View Controller-->
+        <!--User Profile-->
         <scene sceneID="IPi-jp-bA2">
             <objects>
                 <viewController storyboardIdentifier="UserProfileViewController" id="RuL-Fw-u0M" customClass="UserProfileViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
@@ -1135,16 +1098,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="A7e-E7-81k" userLabel="Main Stack">
-                                <rect key="frame" x="20" y="0.0" width="374" height="456"/>
+                                <rect key="frame" x="20" y="56" width="374" height="380"/>
                                 <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTY-EP-YDR">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
-                                        <items>
-                                            <navigationItem title="User Profile" leftItemsSupplementBackButton="YES" id="xJv-ud-DzT"/>
-                                        </items>
-                                    </navigationBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GCf-6a-mQy" userLabel="user info">
-                                        <rect key="frame" x="0.0" y="76" width="374" height="69"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="69"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wGL-iM-pBb">
                                                 <rect key="frame" x="0.0" y="0.0" width="245.5" height="69"/>
@@ -1169,7 +1126,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Iyp-An-715" userLabel="Button Group">
-                                        <rect key="frame" x="0.0" y="165" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="89" width="374" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8I-6U-7M4">
                                                 <rect key="frame" x="0.0" y="0.0" width="104.5" height="30"/>
@@ -1195,20 +1152,20 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jika Anda ingin mendapatkan fitur pengerja, bisa mengajukan dengan button request" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTS-71-gDG">
-                                        <rect key="frame" x="0.0" y="215" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="139" width="374" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQH-6u-6bk">
-                                        <rect key="frame" x="0.0" y="276" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="200" width="374" height="30"/>
                                         <state key="normal" title="Request Pengerja"/>
                                         <connections>
                                             <action selector="requestPengerjaTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="IQX-tO-o5V"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvS-h9-e1B" userLabel="Change Password">
-                                        <rect key="frame" x="0.0" y="326" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="250" width="374" height="30"/>
                                         <state key="normal" title="Change Password"/>
                                         <connections>
                                             <action selector="changePasswordTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="9PW-dm-F4j"/>
@@ -1217,14 +1174,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQi-pZ-F1w">
-                                        <rect key="frame" x="0.0" y="376" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="300" width="374" height="30"/>
                                         <state key="normal" title="Rating JCR3 Apps"/>
                                         <connections>
                                             <action selector="ratingBtnTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="9hD-qC-gRI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGB-gs-6xC">
-                                        <rect key="frame" x="0.0" y="426" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="350" width="374" height="30"/>
                                         <state key="normal" title="Sign Out"/>
                                         <connections>
                                             <action selector="signOutBtnTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="SfD-4P-WZg"/>
@@ -1241,7 +1198,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PMb-8N-IeT"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Mud-tP-Dr0"/>
+                    <navigationItem key="navigationItem" title="User Profile" id="Mud-tP-Dr0"/>
                     <connections>
                         <outlet property="BadgeBtn" destination="0y2-vL-46P" id="anu-ot-e10"/>
                         <outlet property="BtnGroupHorizontalStack" destination="Iyp-An-715" id="H0U-Su-XTS"/>
@@ -1250,8 +1207,6 @@
                         <outlet property="GemarBtn" destination="u8I-6U-7M4" id="FxY-Ga-0Ws"/>
                         <outlet property="GreetingLbl" destination="Jgb-FK-gXe" id="VPp-MG-tA9"/>
                         <outlet property="MainVerticalStack" destination="A7e-E7-81k" id="AZo-AV-oY6"/>
-                        <outlet property="NavBar" destination="tTY-EP-YDR" id="9Ds-47-wYI"/>
-                        <outlet property="NavbarTitle" destination="xJv-ud-DzT" id="2qJ-mg-wht"/>
                         <outlet property="PhoneNumberLbl" destination="Lpu-jC-1bf" id="awr-1x-PdO"/>
                         <outlet property="ProfilePic" destination="wGL-iM-pBb" id="UKQ-G4-EP5"/>
                         <outlet property="RatingBtn" destination="GQi-pZ-F1w" id="d1k-4u-wCY"/>
@@ -1261,9 +1216,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7X-8N-Tnf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3523" y="-732"/>
+            <point key="canvasLocation" x="4431.884057971015" y="-732.58928571428567"/>
         </scene>
-        <!--Edit Data View Controller-->
+        <!--Edit Data-->
         <scene sceneID="o0g-hq-QIZ">
             <objects>
                 <viewController id="0v9-bT-m9H" customClass="EditDataViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
@@ -1272,16 +1227,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yWR-Lf-Zqe">
-                                <rect key="frame" x="20" y="0.0" width="374" height="547"/>
+                                <rect key="frame" x="20" y="56" width="374" height="471"/>
                                 <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lra-2T-qZA">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
-                                        <items>
-                                            <navigationItem title="Your Profile" id="qL4-HV-Qsz"/>
-                                        </items>
-                                    </navigationBar>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="JCR12345" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xlp-by-GrS">
-                                        <rect key="frame" x="0.0" y="76" width="374" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="64n-ZS-0E1"/>
                                         </constraints>
@@ -1289,45 +1238,45 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jemaat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yce-eM-ig7">
-                                        <rect key="frame" x="0.0" y="136" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="60" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+628123456789" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xol-XH-USN">
-                                        <rect key="frame" x="0.0" y="190" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="114" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nama" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLI-1z-EN4">
-                                        <rect key="frame" x="0.0" y="244" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="168" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBh-vd-Vcd">
-                                        <rect key="frame" x="0.0" y="298" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="222" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gereja" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUL-gp-GMg">
-                                        <rect key="frame" x="0.0" y="352" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="276" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNb-3Y-AuL">
-                                        <rect key="frame" x="0.0" y="406" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="330" width="374" height="30"/>
                                         <state key="normal" title="Simpan"/>
                                         <connections>
                                             <action selector="simpanBtnTapped:" destination="0v9-bT-m9H" eventType="touchUpInside" id="ljt-Lr-oPW"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jika kamu ingin mendapatkan fitur pengerja, bisa mengajukan dengan button request" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COm-n5-BLS">
-                                        <rect key="frame" x="0.0" y="456" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="380" width="374" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gno-34-Vab">
-                                        <rect key="frame" x="0.0" y="517" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="441" width="374" height="30"/>
                                         <state key="normal" title="Request Pengerja"/>
                                         <connections>
                                             <action selector="requestPengerjaTapped:" destination="0v9-bT-m9H" eventType="touchUpInside" id="8pz-nn-E3U"/>
@@ -1347,10 +1296,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="086-IP-oud"/>
                     </view>
-                    <navigationItem key="navigationItem" id="B1N-3L-VUh"/>
+                    <navigationItem key="navigationItem" title="Edit Data" id="B1N-3L-VUh"/>
                     <connections>
-                        <outlet property="NavBar" destination="Lra-2T-qZA" id="BP2-XX-nb2"/>
-                        <outlet property="NavBarLbl" destination="qL4-HV-Qsz" id="AXZ-jx-m3W"/>
                         <outlet property="emailTxt" destination="wBh-vd-Vcd" id="ZQj-xS-eNs"/>
                         <outlet property="gerejaTxt" destination="KUL-gp-GMg" id="Q3O-y2-mzq"/>
                         <outlet property="idAccountTxt" destination="xlp-by-GrS" id="EEw-bS-5pb"/>
@@ -1363,7 +1310,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3hg-UK-aua" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4291" y="-1026"/>
+            <point key="canvasLocation" x="5200" y="-1026.5625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GRB-to-VUf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E3T-Ll-1np" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gd5-ti-wND"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ol6-QM-zJG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RuL-Fw-u0M" kind="relationship" relationship="rootViewController" id="Hx0-1f-2B9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xf2-Eu-0cp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3521.739130434783" y="-732.58928571428567"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lxa-mm-Yll">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y35-yg-SDe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="JLj-LK-FaB"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ice-6U-GQF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gc8-np-8xs" kind="relationship" relationship="rootViewController" id="9DC-7C-dXa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ebN-2h-f8m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3531.884057971015" y="-69.642857142857139"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -1371,9 +1356,7 @@
         <segue reference="sli-fg-2Ib"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
-        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="gemar" width="48" height="48"/>
         <image name="inbox" width="64" height="64"/>
         <image name="link" catalog="system" width="128" height="116"/>
