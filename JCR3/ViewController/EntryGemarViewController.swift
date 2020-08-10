@@ -45,8 +45,9 @@ class EntryGemarViewController: UIViewController {
         //save to database
         Database.database().reference().child("jcsaatteduh/sate/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
             let data = snapshot.value as? NSMutableDictionary
-            data?[Utilities.getFormattedDate(desiredFormat: "MMddyyyyHHmmss")] = "[\(Utilities.getFormattedDate(desiredFormat: "dd MMMM yyyy")), \(self.ayatTxt.text ?? ""), \(self.rhemaTxt.text ?? "")]"
-            Database.database().reference().child("jcsaatteduh/sate/\(uuid!)").setValue(data!)
+            var entries: [String: String] = data as? [String : String] ?? [String: String]()
+            entries[Utilities.getFormattedDate(desiredFormat: "MMddyyyyHHmmss")] = "[\(Utilities.getFormattedDate(desiredFormat: "dd MMMM yyyy")), \(self.ayatTxt.text ?? ""), \(self.rhemaTxt.text ?? "")]"
+            Database.database().reference().child("jcsaatteduh/sate/\(uuid!)").setValue(entries)
             
             //empty text field & go back to root controller
             self.ayatTxt.text = ""

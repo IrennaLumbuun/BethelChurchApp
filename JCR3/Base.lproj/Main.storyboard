@@ -467,13 +467,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMa-XJ-3zz">
-                                <rect key="frame" x="20" y="446" width="374" height="435"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="mlq-e4-bYu"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="EBK-eU-LtD"/>
-                            </scrollView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pFf-D6-wuI">
-                                <rect key="frame" x="0.0" y="310" width="414" height="128"/>
+                                <rect key="frame" x="0.0" y="310" width="414" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U25-ql-F7A">
@@ -500,10 +495,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="hMa-XJ-3zz" firstAttribute="leading" secondItem="O9M-Jn-U2z" secondAttribute="leading" constant="20" id="8Zz-f6-PDG"/>
                             <constraint firstItem="cFh-xV-Sxb" firstAttribute="top" secondItem="O9M-Jn-U2z" secondAttribute="top" constant="20" id="Weu-Gh-ukU"/>
                             <constraint firstItem="cFh-xV-Sxb" firstAttribute="leading" secondItem="O9M-Jn-U2z" secondAttribute="leading" constant="20" id="Y4G-GN-I8S"/>
-                            <constraint firstItem="O9M-Jn-U2z" firstAttribute="trailing" secondItem="hMa-XJ-3zz" secondAttribute="trailing" constant="20" id="nho-kg-aKM"/>
                             <constraint firstAttribute="trailing" secondItem="cFh-xV-Sxb" secondAttribute="trailing" constant="20" id="zXq-eT-xD8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O9M-Jn-U2z"/>
@@ -513,7 +506,6 @@
                         <outlet property="gemarBtn" destination="7ZL-Ph-GZu" id="TJX-22-3K7"/>
                         <outlet property="inboxUpdateBtn" destination="rqN-FC-PYx" id="HGm-G4-W3E"/>
                         <outlet property="newsUpdateSearchBar" destination="0lW-CE-Pw6" id="Jnf-Vk-pPU"/>
-                        <outlet property="notifScrollView" destination="hMa-XJ-3zz" id="yek-II-Of8"/>
                         <outlet property="profileBtn" destination="lz8-I9-BCW" id="fcF-Mx-s8M"/>
                         <outlet property="radioBtn" destination="vUq-gm-W7B" id="Mcy-00-hTM"/>
                     </connections>

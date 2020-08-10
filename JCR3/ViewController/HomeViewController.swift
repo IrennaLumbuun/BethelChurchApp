@@ -35,7 +35,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         btnGroupCollectionView.backgroundColor = UIColor.black
         btnGroupCollectionView.collectionViewLayout = layout
         btnGroupCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        btnGroupCollectionView.register(BtnCell.self, forCellWithReuseIdentifier: "btnCell") //this
+        btnGroupCollectionView.register(BtnCell.self, forCellWithReuseIdentifier: "btnCell")
     }
     
     //10:30 to see the whole code for horizontal scroll direction collection view
@@ -58,64 +58,39 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     
     
     //override func for collection view layout
+    let btnName: [String] = ["Live Streaming", "Warrior Bride", "SBS COOL", "Dukungan Doa"]
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("getting collection item")
-        return 5
+        return 4
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+           print("resize collection")
+           return CGSize(width: 150, height: 50)
+       }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print("return collection")
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath as IndexPath) as! BtnCell //this
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath as IndexPath) as! BtnCell
+        
+        let button = UIButton()
+        button.tag = indexPath.row
+        button.setTitle(btnName[indexPath.row], for: .normal)
+        button.backgroundColor = UIColor.white
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.addTarget(self, action: #selector(self.btnClicked), for: UIControl.Event.touchUpInside)
+
+        button.frame = CGRect(x: 10, y: 10, width: 150, height: 30)
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.sizeToFit()
+        button.layer.cornerRadius = 10
+        
+        cell.btn = button
+        cell.setupViews()
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("resize collection")
-        return CGSize(width: 100, height: 80)//this
-    }
-    
-    /*
-    func setup() {
-        setScrollableButttonGroup()
-    }
-    
-    func setScrollableButttonGroup(){
-        var scView:UIScrollView!
-        let buttonPadding:CGFloat = 10
-        var xOffset:CGFloat = 10
-        
-        scView = UIScrollView(frame: CGRect(x: 0, y: 300, width: view.bounds.width * 4, height: 50))
-        scView.isPagingEnabled = true
-        scView.isScrollEnabled = true
-        scView.isUserInteractionEnabled = true
-        scView.delegate = self
-        view.addSubview(scView)
 
-        scView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let btnName: [String] = ["Live Streaming", "Warrior Bride", "SBS COOL", "Dukungan Doa"]
-
-        for i in 0 ... 3 {
-            let button = UIButton()
-            button.tag = i
-            button.setTitle("\(btnName[i])", for: .normal)
-            button.backgroundColor = UIColor.white
-            button.setTitleColor(UIColor.black, for: .normal)
-            button.addTarget(self, action: #selector(self.btnClicked), for: UIControl.Event.touchUpInside)
-            
-            button.frame = CGRect(x: xOffset, y: CGFloat(buttonPadding), width: CGFloat(btnName[i].count * 10), height: 30)
-            button.layer.cornerRadius = 10
-
-            xOffset = xOffset + CGFloat(buttonPadding) + button.frame.size.width
-            scView.addSubview(button)
-        }
-
-        //scView.contentSize = CGSize(width: xOffset, height: scView.frame.height)
-    }*/
-    
     @objc func btnClicked(sender : UIButton) {
         //get buttonName
         let btnTag = sender.tag
-        print(btnTag)
         // 0 -> pop up with link
         if btnTag == 0 {
             let popUp = storyboard?.instantiateViewController(identifier: Constants.Storyboard.liveStreamPopUp) as? StreamingPopUpViewController
@@ -161,20 +136,25 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
             view.window?.makeKeyAndVisible()
         }
     }
+    
 }
 
 class BtnCell: UICollectionViewCell {
+    var btn: UIButton!
+    
     override init(frame:CGRect) {
         super.init(frame:frame)
-        setupViews()
+        //setupViews()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     func setupViews() {
-        backgroundColor = UIColor.red
+        addSubview(btn)
     }
+    
 }
 
 
