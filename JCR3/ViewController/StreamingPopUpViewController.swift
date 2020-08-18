@@ -23,16 +23,17 @@ class StreamingPopUpViewController: UIViewController {
     @IBOutlet weak var bottomStack: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        styleBtn(btn: jcBtn, image: "Logo.png")
-        styleBtn(btn: gbiBtn, image: "gbi.png")
-        styleBtn(btn: byrBtn, image: "byr.jpeg")
-        styleBtn(btn: kidsBtn, image: "kids.png")
-        styleBtn(btn: dmBtn, image: "dm.jpeg")*/
         stylePopup()
         
     }
     
+    //If user tapped anywhere not in pop up, redirect to home
+    @IBAction func viewTapped(_ sender: Any) {
+        let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+            
+            view.window?.rootViewController = homeVC
+            view.window?.makeKeyAndVisible()
+    }
     func stylePopup() {
         let popupHeight = self.view.frame.height / 5
         self.PopUpView.frame = CGRect(x: 20, y: (self.view.frame.height - popupHeight) / 2, width: self.view.frame.width - 40, height: popupHeight)
@@ -40,31 +41,6 @@ class StreamingPopUpViewController: UIViewController {
         let stackHeight = popupHeight/2
         self.topStack.frame = CGRect(x: 20, y: (self.view.frame.height - popupHeight) / 2, width: self.view.frame.width - 40, height: stackHeight)
         self.bottomStack.frame = CGRect(x: 20, y: (self.view.frame.height - popupHeight) / 2 + stackHeight, width: self.view.frame.width - 40, height: stackHeight)
-    }
-    
-    //TODO: fix this so the background is contained inside image
-    func styleBtn(btn: UIButton, image: String){
-        let popUpWidth = PopUpView.frame.width
-        
-        btn.layer.cornerRadius = 5
-        //btn.setImage(UIImage.init(named: image), for: .normal)
-        
-        // assign insets
-        btn.imageEdgeInsets = UIEdgeInsets(
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0)
-        print("after inset -> \(btn.frame.size.height)")
-        btn.imageView?.contentMode = .scaleToFill
-        
-        let btnWidth = (popUpWidth / 3) - 20 // 10 padding
-        let btnHeight = btnWidth
-        
-        btn.frame.size = CGSize(width: btnWidth, height: btnHeight)
-        
-        print("after assigned -> \(btn.frame.size.height)")
-        
     }
     
 
