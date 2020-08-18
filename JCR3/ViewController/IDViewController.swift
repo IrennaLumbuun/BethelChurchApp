@@ -12,7 +12,6 @@ import FirebaseDatabase
 
 class IDViewController: UIViewController {
 
-    @IBOutlet weak var NavBar: UINavigationBar!
     @IBOutlet weak var horizontalStack: UIStackView!
     @IBOutlet weak var verticalStack: UIStackView!
     @IBOutlet weak var profilePic: UIImageView!
@@ -37,8 +36,7 @@ class IDViewController: UIViewController {
         
         //resize images
         let profilePicWidth = self.view.frame.width / 4
-        let y = 20 + NavBar.frame.height
-        self.profilePic.frame = CGRect(x:20, y: y, width: profilePicWidth, height: profilePicWidth)
+        self.profilePic.frame = CGRect(x:20, y: 100, width: profilePicWidth, height: profilePicWidth)
     }
     
     func instantiateBadge(){
@@ -54,7 +52,21 @@ class IDViewController: UIViewController {
             //set QR code
             let qrcode = self.generateQRCode(from: jcId)
             self.qrCodeImg.image = qrcode
-            self.profilePic.image =  qrcode // TODO: change later!!
+            
+            let photoUrl = Auth.auth().currentUser?.photoURL
+            
+            DispatchQueue.global().async {
+                let photo = try? Data(contentsOf: photoUrl!) as NSData
+                DispatchQueue.main.async {
+                    //print(UIImage(data: photo!.base64EncodedData()))
+                    //let base64:String = (photo?.base64EncodedString())!
+                    //let dataDecoded:NSData = NSData(base64Encoded: base64, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
+                    //print(dataDecoded)
+                    print(photo!)
+                    self.profilePic.image = UIImage(data: photo! as Data, scale:1.0)
+                }
+            }
+            self.profilePic.image =  qrcode // TODO: change later if thecode above is working
         }) {(error) in
                 print("error")
                 print(error.localizedDescription)

@@ -127,8 +127,7 @@ extension GemarViewController:UITableViewDelegate, UITableViewDataSource{
         vc.completionHandler = {
             [weak self] in self?.refresh()
         }
-        view.window?.rootViewController = vc
-        view.window?.makeKeyAndVisible()
+        navigationController?.pushViewController(vc, animated: true)
     }
     /* Uncomment this when adding logic on infinite scrolling
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

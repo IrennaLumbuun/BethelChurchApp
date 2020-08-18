@@ -18,29 +18,36 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     @IBOutlet weak var profileBtn: UIButton!
     @IBOutlet weak var radioBtn: UIButton!
     @IBOutlet weak var gemarBtn: UIButton!
-    @IBOutlet weak var notifScrollView: UIScrollView!
     @IBOutlet weak var btnGroupCollectionView: UICollectionView!
+    @IBOutlet weak var mainTableView: UITableView!
+    
     
     //setting up scrollable button group here
     private let cellId = "btnCell"
+    
+    //setting up scrollable main table here
+    var mainTableData = [NotifEntry]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //setup()
         
+        // for up scrollable Main Table
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
+        
         //for scrollable button group
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
-        btnGroupCollectionView.backgroundColor = UIColor.black
+        btnGroupCollectionView.backgroundColor = UIColor.clear
         btnGroupCollectionView.collectionViewLayout = layout
         btnGroupCollectionView.translatesAutoresizingMaskIntoConstraints = false
         btnGroupCollectionView.register(BtnCell.self, forCellWithReuseIdentifier: "btnCell")
+        
+        getDataForMainTable()
     }
-    
-    //10:30 to see the whole code for horizontal scroll direction collection view
-    // lanjut 17:29, 19:06, 19:18
-    // append element see 27:40
     
     override func viewWillAppear(_ animated: Bool) {
         //in a weird case where user is has not set up their name yet
@@ -56,7 +63,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         view.window?.makeKeyAndVisible()
     }
     
+    // This function append data for main table view
+    // (I assume) in reality we would retrieve data from firebase instead of hardcoding this. But I'm not sure. We'll see what they come up with.
+    func getDataForMainTable(){
+        self.mainTableData.append(NotifEntry(img: "dm", header:"Ibadah Raya", subHeader: "Youtube GBI Modernland", text:"Minggu, 19 Juli 2020 \nMulai pukul 07.00 WIB \nwww.youtube.com/gbimodernlandr3"))
+        self.mainTableData.append(NotifEntry(img: "dm", header:"Receive the Fire", subHeader: "Of the Third pentacost", text:"Pdt Kristina Faraknimela \n24 Juli 2020 \n7 PM | Youtube GBI Modernland"))
+        self.mainTableData.append(NotifEntry(img: "dm", header:"Social Media", subHeader: "Follow and Share", text:"JC Center \nOffice lorem ipsum placeholder note \nlorem ipsum placeholder note"))
+        self.mainTableData.append(NotifEntry(img: "dm", header:"Welcome", subHeader: "Come Join Us", text:"JCR3 Apps"))
+    }
     
+    // These function below render buttons to View
     //override func for collection view layout
     let btnName: [String] = ["Live Streaming", "Warrior Bride", "SBS COOL", "Dukungan Doa"]
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -157,4 +173,38 @@ class BtnCell: UICollectionViewCell {
     
 }
 
+class NotifEntry {
+    @objc dynamic var img: String = ""
+    @objc dynamic var header: String = ""
+    @objc dynamic var subHeader: String = ""
+    @objc dynamic var text: String = ""
+    
+    init(img: String, header: String, subHeader: String, text: String) {
+        self.img = img
+        self.header = header
+        self.subHeader = subHeader
+        self.text = text
+    }
+}
 
+extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int{
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mainTableData.count
+    }
+    //Edit this if needed. Or figure out a way to use AirTable because apparently that's what Ko Anton wants
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "main_cell", for:indexPath)
+        cell.textLabel?.text = " \(mainTableData[indexPath.row].header)\n\(mainTableData[indexPath.row].subHeader) "
+        cell.textLabel?.numberOfLines = 0
+        return cell
+    }
+    /* Uncomment this to set height if needed
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }*/
+}

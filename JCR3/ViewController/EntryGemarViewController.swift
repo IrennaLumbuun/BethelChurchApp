@@ -13,7 +13,6 @@ import FirebaseDatabase
 class EntryGemarViewController: UIViewController {
     
     //outlet
-    @IBOutlet weak var simpanBtn: UIBarButtonItem!
     @IBOutlet weak var tanggalLbl: UILabel!
     @IBOutlet weak var ayatTxt: UITextField!
     @IBOutlet weak var rhemaTxt: UITextField!
@@ -62,11 +61,9 @@ class EntryGemarViewController: UIViewController {
     func transitionToGemar(){
         let gemarVC = storyboard?.instantiateViewController(identifier: "gemarVC") as? GemarViewController
         
-        view.window?.rootViewController = gemarVC
-        view.window?.makeKeyAndVisible()
-    }
-    @IBAction func backBtnTapped(_ sender: Any) {
-        self.transitionToGemar()
+        navigationController?.pushViewController(gemarVC!, animated: true)
+        //view.window?.rootViewController = gemarVC
+        //view.window?.makeKeyAndVisible()
     }
     
 }

@@ -69,6 +69,7 @@ class Utilities{
         // todo: ksh feedback ke user
     }
     
+    
     /* buat kalo perlu picker lagi
      
     override func didReceiveMemoryWarning() {
