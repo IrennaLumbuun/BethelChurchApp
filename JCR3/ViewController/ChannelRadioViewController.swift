@@ -13,8 +13,6 @@ class ChannelRadioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func HarpazoBtnTapped(_ sender: Any) {
@@ -29,11 +27,19 @@ class ChannelRadioViewController: UIViewController {
         let vc = segue.destination as! RadioViewController
         if segue.identifier == "HarpazoRadio"{
             vc.url = "http://pu.klikhost.com:8060/stream"
-            vc.img = "harpazo.jpg"
+            vc.img = "harpazo2.jpg"
         }
         else if segue.identifier == "HMMRadio" {
             vc.url = "http://pu.klikhost.com:8060/stream"
-            vc.img = "hmm.jpg"
+            vc.img = "hmm1.jpg"
         }
+    }
+    @IBAction func backButtonTapped(_ sender: Any) {
+        //transition to home
+        let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        
+        homeVC?.modalPresentationStyle = .fullScreen
+        homeVC?.modalTransitionStyle = .coverVertical
+        present(homeVC!, animated: true, completion: nil)
     }
 }

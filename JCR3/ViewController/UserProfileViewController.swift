@@ -76,4 +76,12 @@ class UserProfileViewController: UIViewController {
         view.window?.rootViewController = landingPageVC
         view.window?.makeKeyAndVisible()
     }
+    @IBAction func backButtonTapped(_ sender: Any) {
+        //transition to home
+        let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        
+        homeVC?.modalPresentationStyle = .fullScreen
+        homeVC?.modalTransitionStyle = .coverVertical
+        present(homeVC!, animated: true, completion: nil)
+    }
 }
