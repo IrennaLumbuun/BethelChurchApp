@@ -28,12 +28,10 @@ class ChannelRadioViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! RadioViewController
         if segue.identifier == "HarpazoRadio"{
-            print("Harpazo")
             vc.url = "http://pu.klikhost.com:8060/stream"
             vc.img = "harpazo.jpg"
         }
         else if segue.identifier == "HMMRadio" {
-            print("hmm")
             vc.url = "http://pu.klikhost.com:8060/stream"
             vc.img = "hmm.jpg"
         }

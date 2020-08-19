@@ -722,46 +722,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7eF-k4-Vyz">
-                                <rect key="frame" x="20" y="56" width="374" height="141"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doa, Pujian, Penyembahan, siang dan malam dalam unity" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSe-pM-W7Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMH-uq-gTP">
-                                        <rect key="frame" x="0.0" y="61" width="374" height="30"/>
-                                        <state key="normal" title="HMMinistry placehodler"/>
-                                        <connections>
-                                            <action selector="HMMinistryBtnTapped:" destination="gc8-np-8xs" eventType="touchUpInside" id="U1I-qi-sTX"/>
-                                            <segue destination="dtk-oE-9bS" kind="show" identifier="HMMRadio" id="q4B-Ws-usU"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWs-NS-JSg">
-                                        <rect key="frame" x="0.0" y="111" width="374" height="30"/>
-                                        <state key="normal" title="Harpazo Placeholder"/>
-                                        <connections>
-                                            <action selector="HarpazoBtnTapped:" destination="gc8-np-8xs" eventType="touchUpInside" id="cBI-Vv-4Rl"/>
-                                            <segue destination="dtk-oE-9bS" kind="show" identifier="HarpazoRadio" id="sMA-DX-QVM"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doa, Pujian, Penyembahan, siang dan malam dalam unity" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSe-pM-W7Q">
+                                <rect key="frame" x="40" y="96" width="334" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWs-NS-JSg">
+                                <rect key="frame" x="82" y="300.5" width="250" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Uv9-OV-jL3"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="20" height="20"/>
+                                <state key="normal" image="harpazo2">
+                                    <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="HarpazoBtnTapped:" destination="gc8-np-8xs" eventType="touchUpInside" id="cBI-Vv-4Rl"/>
+                                    <segue destination="dtk-oE-9bS" kind="show" identifier="HarpazoRadio" id="sMA-DX-QVM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMH-uq-gTP">
+                                <rect key="frame" x="82" y="130.5" width="250" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="dAB-vn-4y9"/>
+                                    <constraint firstAttribute="width" constant="250" id="vCI-A0-uQr"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="200" height="200"/>
+                                <state key="normal" image="hmm">
+                                    <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="HMMinistryBtnTapped:" destination="gc8-np-8xs" eventType="touchUpInside" id="U1I-qi-sTX"/>
+                                    <segue destination="dtk-oE-9bS" kind="show" identifier="HMMRadio" id="q4B-Ws-usU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="7eF-k4-Vyz" firstAttribute="leading" secondItem="phf-zJ-ttm" secondAttribute="leading" constant="20" id="9IK-Rd-2Tk"/>
-                            <constraint firstItem="7eF-k4-Vyz" firstAttribute="top" secondItem="vZx-gY-f7c" secondAttribute="bottom" id="JCf-fF-fK9"/>
-                            <constraint firstAttribute="trailing" secondItem="7eF-k4-Vyz" secondAttribute="trailing" constant="20" id="XlK-II-quL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sSe-pM-W7Q" secondAttribute="trailing" constant="20" id="A6F-q1-tgU"/>
+                            <constraint firstItem="mWs-NS-JSg" firstAttribute="leading" secondItem="YMH-uq-gTP" secondAttribute="leading" id="Dik-uF-eho"/>
+                            <constraint firstItem="sSe-pM-W7Q" firstAttribute="leading" secondItem="phf-zJ-ttm" secondAttribute="leadingMargin" constant="20" id="FaH-TV-0Kq"/>
+                            <constraint firstItem="YMH-uq-gTP" firstAttribute="centerX" secondItem="phf-zJ-ttm" secondAttribute="centerX" id="PRs-FE-rvb"/>
+                            <constraint firstItem="YMH-uq-gTP" firstAttribute="top" secondItem="sSe-pM-W7Q" secondAttribute="bottom" constant="20" id="Pzd-70-e2z"/>
+                            <constraint firstItem="mWs-NS-JSg" firstAttribute="trailing" secondItem="YMH-uq-gTP" secondAttribute="trailing" id="laE-Nd-DrQ"/>
+                            <constraint firstItem="sSe-pM-W7Q" firstAttribute="top" secondItem="vZx-gY-f7c" secondAttribute="bottom" constant="40" id="ppV-xi-xOf"/>
+                            <constraint firstItem="mWs-NS-JSg" firstAttribute="top" secondItem="YMH-uq-gTP" secondAttribute="bottom" constant="20" id="zyG-4t-5h0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Radio Channel" id="wLn-EY-Epw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2e-bY-siW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4375" y="-70"/>
+            <point key="canvasLocation" x="4373.913043478261" y="-70.3125"/>
         </scene>
         <!--Radio View Controller-->
         <scene sceneID="vLF-YB-e2L">
@@ -1505,6 +1518,8 @@
         <image name="dm" width="256" height="256"/>
         <image name="gbi" width="300" height="300"/>
         <image name="gemar" width="48" height="48"/>
+        <image name="harpazo2" width="600" height="600"/>
+        <image name="hmm" width="120" height="120"/>
         <image name="inbox" width="64" height="64"/>
         <image name="kids" width="242" height="209"/>
         <image name="link" catalog="system" width="128" height="116"/>
