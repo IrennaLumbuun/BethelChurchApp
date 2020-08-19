@@ -401,11 +401,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" text="News Update" translatesAutoresizingMaskIntoConstraints="NO" id="0lW-CE-Pw6" userLabel="News Update!">
-                                                <rect key="frame" x="0.0" y="0.0" width="281" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="40"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
                                             <button opaque="NO" contentMode="right" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqN-FC-PYx" userLabel="Inbox Update!">
-                                                <rect key="frame" x="301" y="0.0" width="73" height="40"/>
+                                                <rect key="frame" x="308" y="0.0" width="66" height="40"/>
                                                 <state key="normal" image="inbox"/>
                                             </button>
                                         </subviews>
@@ -1245,25 +1245,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="A7e-E7-81k" userLabel="Main Stack">
-                                <rect key="frame" x="20" y="88" width="374" height="380"/>
+                                <rect key="frame" x="20" y="88" width="374" height="381.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GCf-6a-mQy" userLabel="user info">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="69"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wGL-iM-pBb">
-                                                <rect key="frame" x="0.0" y="0.0" width="245.5" height="69"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="Cc2-Ms-2ys"/>
+                                                    <constraint firstAttribute="height" constant="50" id="gli-T8-AtD"/>
+                                                </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7ZW-Wf-8lV">
-                                                <rect key="frame" x="265.5" y="0.0" width="108.5" height="69"/>
+                                                <rect key="frame" x="70" y="0.0" width="304" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shalom, nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgb-FK-gXe">
-                                                        <rect key="frame" x="0.0" y="0.0" width="108.5" height="48.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Shalom, nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgb-FK-gXe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="304" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nomor hape" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lpu-jC-1bf">
-                                                        <rect key="frame" x="0.0" y="48.5" width="108.5" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nomor hape" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lpu-jC-1bf">
+                                                        <rect key="frame" x="0.0" y="29.5" width="304" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1272,61 +1276,133 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Iyp-An-715" userLabel="Button Group">
-                                        <rect key="frame" x="0.0" y="89" width="374" height="30"/>
+                                    <stackView opaque="NO" contentMode="center" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Iyp-An-715" userLabel="Button Group">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="68.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8I-6U-7M4">
-                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="30"/>
-                                                <state key="normal" title="Gemar"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcq-I5-q4X">
-                                                <rect key="frame" x="104.5" y="0.0" width="170" height="30"/>
-                                                <state key="normal" title="Edit Profile"/>
-                                                <connections>
-                                                    <segue destination="0v9-bT-m9H" kind="show" id="4pA-Mt-9Fy"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0y2-vL-46P">
-                                                <rect key="frame" x="274.5" y="0.0" width="99.5" height="30"/>
-                                                <state key="normal" title="Badge"/>
-                                                <connections>
-                                                    <segue destination="yXf-R7-6f5" kind="show" id="1JP-Hj-moa"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aE5-ix-EB8">
+                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="68.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u8I-6U-7M4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="48"/>
+                                                        <state key="normal" image="gemar"/>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gemar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWK-BL-RZu">
+                                                        <rect key="frame" x="0.0" y="48" width="124.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IIl-Ri-fPq">
+                                                <rect key="frame" x="124.5" y="0.0" width="125" height="68.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcq-I5-q4X">
+                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="48"/>
+                                                        <state key="normal" image="edit"/>
+                                                        <connections>
+                                                            <segue destination="0v9-bT-m9H" kind="show" id="4pA-Mt-9Fy"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPb-A6-uqD">
+                                                        <rect key="frame" x="0.0" y="48" width="125" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yz4-Vt-pvw">
+                                                <rect key="frame" x="249.5" y="0.0" width="124.5" height="68.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0y2-vL-46P">
+                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="48"/>
+                                                        <state key="normal" image="card"/>
+                                                        <connections>
+                                                            <segue destination="yXf-R7-6f5" kind="show" id="1JP-Hj-moa"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Badge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdZ-K5-NCF">
+                                                        <rect key="frame" x="0.0" y="48" width="124.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jika Anda ingin mendapatkan fitur pengerja, bisa mengajukan dengan button request" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTS-71-gDG">
-                                        <rect key="frame" x="0.0" y="139" width="374" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="158.5" width="374" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="AppleSymbols" family="Apple Symbols" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQH-6u-6bk">
-                                        <rect key="frame" x="0.0" y="200" width="374" height="30"/>
-                                        <state key="normal" title="Request Pengerja"/>
+                                        <rect key="frame" x="0.0" y="208" width="374" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="zIX-ik-8ll"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                        <state key="normal" title="Request Pengerja">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="requestPengerjaTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="IQX-tO-o5V"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvS-h9-e1B" userLabel="Change Password">
-                                        <rect key="frame" x="0.0" y="250" width="374" height="30"/>
-                                        <state key="normal" title="Change Password"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JvS-h9-e1B" userLabel="Change Password">
+                                        <rect key="frame" x="0.0" y="278" width="374" height="18.5"/>
+                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" image="lock.open" catalog="system">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Change Password">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                         <connections>
                                             <action selector="changePasswordTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="9PW-dm-F4j"/>
                                             <action selector="requestPengerjaTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="JXv-pS-cGj"/>
                                             <segue destination="EIU-Dr-lsy" kind="show" id="NyR-ZA-1ug"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQi-pZ-F1w">
-                                        <rect key="frame" x="0.0" y="300" width="374" height="30"/>
-                                        <state key="normal" title="Rating JCR3 Apps"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GQi-pZ-F1w">
+                                        <rect key="frame" x="0.0" y="316.5" width="374" height="20"/>
+                                        <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" image="star" catalog="system">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Rating JCR3 Apps">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                         <connections>
                                             <action selector="ratingBtnTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="9hD-qC-gRI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGB-gs-6xC">
-                                        <rect key="frame" x="0.0" y="350" width="374" height="30"/>
-                                        <state key="normal" title="Sign Out"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WGB-gs-6xC">
+                                        <rect key="frame" x="0.0" y="356.5" width="374" height="25"/>
+                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" image="square.and.arrow.up.on.square" catalog="system">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Sign Out">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                         <connections>
                                             <action selector="signOutBtnTapped:" destination="RuL-Fw-u0M" eventType="touchUpInside" id="SfD-4P-WZg"/>
                                         </connections>
@@ -1530,7 +1606,9 @@
         <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
         <image name="byr" width="400" height="400"/>
+        <image name="card" width="48" height="48"/>
         <image name="dm" width="256" height="256"/>
+        <image name="edit" width="48" height="48"/>
         <image name="gbi" width="300" height="300"/>
         <image name="gemar" width="48" height="48"/>
         <image name="harpazo2" width="600" height="600"/>
@@ -1538,8 +1616,11 @@
         <image name="inbox" width="64" height="64"/>
         <image name="kids" width="242" height="209"/>
         <image name="link" catalog="system" width="128" height="116"/>
+        <image name="lock.open" catalog="system" width="128" height="112"/>
         <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="radio" width="64" height="64"/>
+        <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <image name="user" width="48" height="48"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>

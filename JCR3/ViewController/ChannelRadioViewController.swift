@@ -27,11 +27,11 @@ class ChannelRadioViewController: UIViewController {
         let vc = segue.destination as! RadioViewController
         if segue.identifier == "HarpazoRadio"{
             vc.url = "http://pu.klikhost.com:8060/stream"
-            vc.img = "harpazo2.jpg"
+            vc.img = "harpazo.jpg"
         }
         else if segue.identifier == "HMMRadio" {
             vc.url = "http://pu.klikhost.com:8060/stream"
-            vc.img = "hmm1.jpg"
+            vc.img = "hmm.jpg"
         }
     }
     @IBAction func backButtonTapped(_ sender: Any) {
