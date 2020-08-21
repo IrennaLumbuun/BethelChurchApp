@@ -27,16 +27,6 @@ class IDViewController: UIViewController {
     
     func setup(){
         instantiateBadge()
-        styleItem()
-    }
-    func styleItem(){
-        verticalStack.frame = CGRect(x: 20, y: 20, width: view.frame.width, height: view.frame.height / 4)
-        namaLbl.textColor = UIColor.white
-        accountIdLbl.textColor = UIColor.white
-        
-        //resize images
-        let profilePicWidth = self.view.frame.width / 4
-        self.profilePic.frame = CGRect(x:20, y: 100, width: profilePicWidth, height: profilePicWidth)
     }
     
     func instantiateBadge(){
