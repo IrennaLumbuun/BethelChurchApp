@@ -21,5 +21,6 @@ target 'JCR3' do
    pod 'Firebase/Auth'
    pod 'Firebase/Core'
    pod 'Firebase/Database'
-
+   
+   pod 'GoogleAPIClientForREST/Drive', '~> 1.3.7'
 end

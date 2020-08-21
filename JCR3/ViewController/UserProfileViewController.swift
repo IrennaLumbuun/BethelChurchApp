@@ -13,8 +13,6 @@ import FirebaseDatabase
 class UserProfileViewController: UIViewController {
 
     @IBOutlet weak var MainVerticalStack: UIStackView!
-    @IBOutlet weak var NavBar: UINavigationBar!
-    @IBOutlet weak var NavbarTitle: UINavigationItem!
     @IBOutlet weak var ProfilePic: UIImageView!
     @IBOutlet weak var GreetingLbl: UILabel!
     @IBOutlet weak var PhoneNumberLbl: UILabel!
@@ -36,6 +34,10 @@ class UserProfileViewController: UIViewController {
     func setup(){
         renderLabel()
         styleItem()
+        // render pic to profilePic ImageView
+        let name = Auth.auth().currentUser!.displayName?.uppercased() ?? "X"
+        let imageName = String(name[name.startIndex]) + ".png"
+        self.ProfilePic.image = UIImage.init(named: imageName)
     }
     
     func renderLabel(){
@@ -84,4 +86,6 @@ class UserProfileViewController: UIViewController {
         homeVC?.modalTransitionStyle = .coverVertical
         present(homeVC!, animated: true, completion: nil)
     }
+    
 }
+

@@ -53,20 +53,9 @@ class IDViewController: UIViewController {
             let qrcode = self.generateQRCode(from: jcId)
             self.qrCodeImg.image = qrcode
             
-            let photoUrl = Auth.auth().currentUser?.photoURL
-            
-            DispatchQueue.global().async {
-                let photo = try? Data(contentsOf: photoUrl!) as NSData
-                DispatchQueue.main.async {
-                    //print(UIImage(data: photo!.base64EncodedData()))
-                    //let base64:String = (photo?.base64EncodedString())!
-                    //let dataDecoded:NSData = NSData(base64Encoded: base64, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
-                    //print(dataDecoded)
-                    print(photo!)
-                    self.profilePic.image = UIImage(data: photo! as Data, scale:1.0)
-                }
-            }
-            self.profilePic.image =  qrcode // TODO: change later if thecode above is working
+            let name = Auth.auth().currentUser!.displayName?.uppercased() ?? "X"
+            let imageName = String(name[name.startIndex]) + ".png"
+            self.profilePic.image = UIImage.init(named: imageName)
         }) {(error) in
                 print("error")
                 print(error.localizedDescription)
