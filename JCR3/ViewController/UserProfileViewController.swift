@@ -35,7 +35,7 @@ class UserProfileViewController: UIViewController {
         
     }
     override func viewDidLayoutSubviews(){
-        
+        styleButtonGroup()
     }
     
     func setup(){
@@ -54,7 +54,11 @@ class UserProfileViewController: UIViewController {
     }
     
     func styleButtonGroup(){
-        
+        Utilities.styleButton(btn: EditProfileBtn)
+        Utilities.styleButton(btn: GemarBtn)
+        Utilities.styleButton(btn: BadgeBtn)
+        Utilities.makeCircular(imgView: ProfilePic, color: UIColor.green.cgColor)
+        Utilities.styleView(v: BtnGroupView)
     }
     
     @IBAction func requestPengerjaTapped(_ sender: Any) {
