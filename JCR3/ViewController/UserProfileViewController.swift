@@ -16,7 +16,6 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var ProfilePic: UIImageView!
     @IBOutlet weak var GreetingLbl: UILabel!
     @IBOutlet weak var PhoneNumberLbl: UILabel!
-    @IBOutlet weak var BtnGroupHorizontalStack: UIStackView!
     @IBOutlet weak var GemarBtn: UIButton!
     @IBOutlet weak var EditProfileBtn: UIButton!
     @IBOutlet weak var BadgeBtn: UIButton!
@@ -24,16 +23,23 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var ChangePasswordBtn: UIButton!
     @IBOutlet weak var RatingBtn: UIButton!
     @IBOutlet weak var SignOutBtn: UIButton!
+    @IBOutlet weak var BtnGroupView: UIView!
+    @IBOutlet weak var GemarStack: UIStackView!
+    @IBOutlet weak var EditProfileStack: UIStackView!
+    @IBOutlet weak var BadgeStack: UIStackView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         
     }
+    override func viewDidLayoutSubviews(){
+        
+    }
     
     func setup(){
         renderLabel()
-        styleItem()
         // render pic to profilePic ImageView
         let name = Auth.auth().currentUser!.displayName?.uppercased() ?? "X"
         let imageName = String(name[name.startIndex]) + ".png"
@@ -47,7 +53,7 @@ class UserProfileViewController: UIViewController {
         PhoneNumberLbl.text = phoneNumber != nil ? phoneNumber : email
     }
     
-    func styleItem(){
+    func styleButtonGroup(){
         
     }
     
