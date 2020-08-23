@@ -537,11 +537,11 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pFf-D6-wuI">
-                                <rect key="frame" x="0.0" y="296" width="414" height="35"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pFf-D6-wuI">
+                                <rect key="frame" x="0.0" y="286" width="414" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="bLP-F0-nXD"/>
+                                    <constraint firstAttribute="height" constant="50" id="bLP-F0-nXD"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U25-ql-F7A">
                                     <size key="itemSize" width="128" height="128"/>
@@ -565,7 +565,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uIG-Hx-NBg">
-                                <rect key="frame" x="0.0" y="349" width="414" height="547"/>
+                                <rect key="frame" x="0.0" y="346" width="414" height="550"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="main_cell" id="VY3-ab-o7G">
@@ -585,12 +585,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pFf-D6-wuI" firstAttribute="top" secondItem="cFh-xV-Sxb" secondAttribute="bottom" constant="20" id="65D-CU-GKN"/>
+                            <constraint firstItem="pFf-D6-wuI" firstAttribute="top" secondItem="cFh-xV-Sxb" secondAttribute="bottom" constant="10" id="65D-CU-GKN"/>
                             <constraint firstItem="pFf-D6-wuI" firstAttribute="centerX" secondItem="cFh-xV-Sxb" secondAttribute="centerX" id="8f7-Vo-oZw"/>
                             <constraint firstAttribute="bottomMargin" secondItem="uIG-Hx-NBg" secondAttribute="bottom" constant="-34" id="JKg-2i-WWM"/>
                             <constraint firstItem="cFh-xV-Sxb" firstAttribute="top" secondItem="uKE-YG-m9e" secondAttribute="bottom" constant="20" id="Weu-Gh-ukU"/>
                             <constraint firstItem="cFh-xV-Sxb" firstAttribute="leading" secondItem="SXu-qk-pne" secondAttribute="leading" constant="20" id="Y4G-GN-I8S"/>
-                            <constraint firstItem="uIG-Hx-NBg" firstAttribute="top" secondItem="pFf-D6-wuI" secondAttribute="bottom" constant="18" id="Zgh-YA-q0f"/>
+                            <constraint firstItem="uIG-Hx-NBg" firstAttribute="top" secondItem="pFf-D6-wuI" secondAttribute="bottom" constant="10" id="Zgh-YA-q0f"/>
                             <constraint firstItem="uIG-Hx-NBg" firstAttribute="trailing" secondItem="pFf-D6-wuI" secondAttribute="trailing" id="ZkK-bm-knB"/>
                             <constraint firstItem="uIG-Hx-NBg" firstAttribute="leading" secondItem="pFf-D6-wuI" secondAttribute="leading" id="fPw-TG-YAp"/>
                             <constraint firstItem="pFf-D6-wuI" firstAttribute="leading" secondItem="SXu-qk-pne" secondAttribute="leading" id="qlw-Jc-JnT"/>

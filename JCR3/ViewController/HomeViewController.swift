@@ -83,13 +83,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     //override func for collection view layout
     let btnName: [String] = ["LIVE STREAMING", "WARRIOR BRIDE", "SBS COOL ", "DUKUNGAN DOA"]
     let btnIcon: [String] = ["camera.circle", "arrow.down.doc", "arrow.down.doc", "pray"]
-    let btnTint: [UIColor] = [UIColor.red, UIColor.init(red: 0, green: 98, blue: 227, alpha: 1), UIColor.init(red: 0, green: 98, blue: 227, alpha: 1), UIColor.init(red: 227, green: 193, blue: 0, alpha: 0.9)]
+    let btnTint: [UIColor] = [UIColor.init(red: 207/255, green: 38/255, blue: 0/255, alpha: 1), UIColor.init(red: 0, green: 98/255, blue: 227/255, alpha: 1), UIColor.init(red: 0, green: 98/255, blue: 227/255, alpha: 1), UIColor.init(red: 227/255, green: 193/255, blue: 0/255, alpha: 0.9)]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 13 * btnName[indexPath.row].count, height: 35)
+        return CGSize(width: 13 * btnName[indexPath.row].count, height: 50)
        }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -101,7 +101,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         button.addTarget(self, action: #selector(self.btnClicked), for: UIControl.Event.touchUpInside)
         
         // title
-        let myNormalAttributedTitle = NSAttributedString(string: btnName[indexPath.row], attributes: [NSAttributedString.Key.foregroundColor : UIColor.darkGray])
+        let myNormalAttributedTitle = NSAttributedString(string: btnName[indexPath.row], attributes: [NSAttributedString.Key.foregroundColor : UIColor.init(red: 48/255, green: 48/255, blue: 48/255, alpha: 1)])
         button.setAttributedTitle(myNormalAttributedTitle, for: .normal)
         
         let mySelectedAttributedTitle = NSAttributedString(string: btnName[indexPath.row], attributes: [NSAttributedString.Key.backgroundColor : UIColor.lightGray, NSAttributedString.Key.foregroundColor : UIColor.black])
@@ -113,7 +113,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         button.tintColor = btnTint[indexPath.row]
 
         // frame and padding
-        button.frame = CGRect(x: 10, y: 10, width: 13 * btnName[indexPath.row].count, height: 20)
+        button.frame = CGRect(x: 10, y: 10, width: 13 * btnName[indexPath.row].count, height: 35)
         button.titleEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         button.imageEdgeInsets = UIEdgeInsets(top: 2, left: -2, bottom: 2, right: 10)
         //button.sizeToFit()
@@ -140,7 +140,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
             let popUp = storyboard?.instantiateViewController(identifier: Constants.Storyboard.liveStreamPopUp) as? StreamingPopUpViewController
             self.addChild(popUp!)
             popUp!.view.frame = self.view.frame
-            self.view.addSubview(popUp!.view)
+            UIView.transition(with: self.view, duration: 0.5, options: [.transitionCrossDissolve], animations: {
+              self.view.addSubview(popUp!.view)
+            }, completion: nil)
             popUp?.didMove(toParent: self)
             
         }
@@ -176,8 +178,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         if btnTag == 3 {
             let dukunganDoaVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.dukunganDoaViewController) as? DukunganDoaViewController
             
-            view.window?.rootViewController = dukunganDoaVC
-            view.window?.makeKeyAndVisible()
+            dukunganDoaVC?.modalPresentationStyle = .fullScreen
+            dukunganDoaVC?.modalTransitionStyle = .coverVertical
+            present(dukunganDoaVC!, animated: true, completion: nil)
         }
     }
     
