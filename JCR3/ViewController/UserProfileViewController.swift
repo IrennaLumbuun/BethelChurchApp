@@ -54,9 +54,9 @@ class UserProfileViewController: UIViewController {
     }
     
     func styleButtonGroup(){
-        Utilities.styleButton(btn: EditProfileBtn)
-        Utilities.styleButton(btn: GemarBtn)
-        Utilities.styleButton(btn: BadgeBtn)
+        Utilities.styleCircularButton(btn: EditProfileBtn)
+        Utilities.styleCircularButton(btn: GemarBtn)
+        Utilities.styleCircularButton(btn: BadgeBtn)
         Utilities.makeCircular(imgView: ProfilePic, color: UIColor.green.cgColor)
         Utilities.styleView(v: BtnGroupView)
     }

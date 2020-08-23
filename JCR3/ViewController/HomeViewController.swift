@@ -20,7 +20,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     @IBOutlet weak var gemarBtn: UIButton!
     @IBOutlet weak var btnGroupCollectionView: UICollectionView!
     @IBOutlet weak var mainTableView: UITableView!
-    
+    @IBOutlet weak var mainBtnView: UIView!
     
     //setting up scrollable button group here
     private let cellId = "btnCell"
@@ -28,6 +28,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     //setting up scrollable main table here
     var mainTableData = [NotifEntry]()
     
+    
+    override func viewDidLayoutSubviews() {
+        Utilities.styleView(v: mainBtnView)
+        Utilities.styleCircularButton(btn: profileBtn)
+        Utilities.styleCircularButton(btn: radioBtn)
+        Utilities.styleCircularButton(btn: gemarBtn)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,12 +86,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         return 4
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           print("resize collection")
-           return CGSize(width: 150, height: 50)
+        return CGSize(width: 14 * btnName[indexPath.row].count, height: 35)
        }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("return collection")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath as IndexPath) as! BtnCell
         
         let button = UIButton()
@@ -94,10 +99,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         button.setTitleColor(UIColor.black, for: .normal)
         button.addTarget(self, action: #selector(self.btnClicked), for: UIControl.Event.touchUpInside)
 
-        button.frame = CGRect(x: 10, y: 10, width: 150, height: 30)
+        // frame and padding
+        button.frame = CGRect(x: 10, y: 10, width: 14 * btnName[indexPath.row].count, height: 20)
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        button.sizeToFit()
+        button.titleEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        //button.sizeToFit()
         button.layer.cornerRadius = 10
+        
+        //add shadow
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 1)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 1.0
+        button.layer.masksToBounds = false
         
         cell.btn = button
         cell.setupViews()

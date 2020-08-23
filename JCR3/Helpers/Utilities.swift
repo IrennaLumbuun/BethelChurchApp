@@ -34,7 +34,7 @@ class Utilities{
         return passwordTest.evaluate(with:password)
     }
     
-    static func styleButton(btn: UIButton){
+    static func styleCircularButton(btn: UIButton){
         //border
         btn.layer.cornerRadius = btn.frame.height/2
         
