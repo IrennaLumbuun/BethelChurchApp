@@ -12,8 +12,7 @@ import FirebaseDatabase
 
 class IDViewController: UIViewController {
 
-    @IBOutlet weak var horizontalStack: UIStackView!
-    @IBOutlet weak var verticalStack: UIStackView!
+    @IBOutlet weak var badgeView: UIView!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var accountIdLbl: UILabel!
     @IBOutlet weak var namaLbl: UILabel!
@@ -23,6 +22,12 @@ class IDViewController: UIViewController {
         super.viewDidLoad()
         setup()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        Utilities.styleView(v: badgeView)
+        badgeView.backgroundColor = UIColor.init(red: 30/255, green: 25/255, blue: 84/255, alpha: 1)
+        Utilities.makeCircular(imgView: profilePic, color: UIColor.clear.cgColor)
     }
     
     func setup(){
