@@ -217,8 +217,8 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
         cell.textLabel?.numberOfLines = 0
         return cell
     }
-    /* Uncomment this to set height if needed
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }*/
+        return 150
+    }
 }

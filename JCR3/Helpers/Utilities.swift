@@ -47,6 +47,19 @@ class Utilities{
         btn.layer.masksToBounds = false
     }
     
+    static func styleRectangularButton(btn: UIButton){
+        //border
+        btn.layer.cornerRadius = 10
+        
+        //shadow
+        btn.backgroundColor = UIColor(red: 192, green: 192, blue: 192, alpha:1)
+        btn.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        btn.layer.shadowOffset = CGSize(width: 0.0, height: 1)
+        btn.layer.shadowOpacity = 1.0
+        btn.layer.shadowRadius = 1.0
+        btn.layer.masksToBounds = false
+    }
+    
     static func makeCircular(imgView: UIImageView, color:CGColor){
         //border
         imgView.layer.cornerRadius = imgView.frame.height/2

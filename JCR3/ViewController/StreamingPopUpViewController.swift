@@ -19,12 +19,16 @@ class StreamingPopUpViewController: UIViewController {
     @IBOutlet weak var kidsBtn: UIButton!
     @IBOutlet weak var dmBtn: UIButton!
     
-    @IBOutlet weak var topStack: UIStackView!
-    @IBOutlet weak var bottomStack: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        stylePopup()
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        Utilities.styleRectangularButton(btn: jcBtn)
+        Utilities.styleRectangularButton(btn: gbiBtn)
+        Utilities.styleRectangularButton(btn: byrBtn)
+        Utilities.styleRectangularButton(btn: kidsBtn)
+        Utilities.styleRectangularButton(btn: dmBtn)
     }
     
     //If user tapped anywhere not in pop up, redirect to home
@@ -33,14 +37,6 @@ class StreamingPopUpViewController: UIViewController {
             
             view.window?.rootViewController = homeVC
             view.window?.makeKeyAndVisible()
-    }
-    func stylePopup() {
-        let popupHeight = self.view.frame.height / 5
-        self.PopUpView.frame = CGRect(x: 20, y: (self.view.frame.height - popupHeight) / 2, width: self.view.frame.width - 40, height: popupHeight)
-        
-        let stackHeight = popupHeight/2
-        self.topStack.frame = CGRect(x: 20, y: (self.view.frame.height - popupHeight) / 2, width: self.view.frame.width - 40, height: stackHeight)
-        self.bottomStack.frame = CGRect(x: 20, y: (self.view.frame.height - popupHeight) / 2 + stackHeight, width: self.view.frame.width - 40, height: stackHeight)
     }
     
 
