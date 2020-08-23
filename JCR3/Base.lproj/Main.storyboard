@@ -771,20 +771,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWs-NS-JSg">
-                                <rect key="frame" x="82" y="332.5" width="250" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="Uv9-OV-jL3"/>
-                                </constraints>
-                                <size key="titleShadowOffset" width="20" height="20"/>
-                                <state key="normal" image="harpazo2">
-                                    <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="HarpazoBtnTapped:" destination="gc8-np-8xs" eventType="touchUpInside" id="cBI-Vv-4Rl"/>
-                                    <segue destination="dtk-oE-9bS" kind="show" identifier="HarpazoRadio" id="18U-cW-V53"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMH-uq-gTP">
                                 <rect key="frame" x="82" y="162.5" width="250" height="150"/>
                                 <constraints>
@@ -797,7 +783,19 @@
                                 </state>
                                 <connections>
                                     <action selector="HMMinistryBtnTapped:" destination="gc8-np-8xs" eventType="touchUpInside" id="U1I-qi-sTX"/>
-                                    <segue destination="dtk-oE-9bS" kind="show" identifier="HMMRadio" id="q4B-Ws-usU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWs-NS-JSg">
+                                <rect key="frame" x="82" y="332.5" width="250" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Uv9-OV-jL3"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="20" height="20"/>
+                                <state key="normal" image="harpazo2">
+                                    <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="HarpazoBtnTapped:" destination="gc8-np-8xs" eventType="touchUpInside" id="cBI-Vv-4Rl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -820,6 +818,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="HMMBtn" destination="YMH-uq-gTP" id="Nhe-vO-2Cj"/>
+                        <outlet property="HarpazoBtn" destination="mWs-NS-JSg" id="N8v-MI-fYK"/>
+                        <segue destination="dtk-oE-9bS" kind="show" identifier="radio" id="Iun-yE-TLo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2e-bY-siW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -837,64 +840,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9w-rb-Wk6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9w-rb-Wk6">
                                 <rect key="frame" x="20" y="408" width="374" height="35"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Label">
-                                        <attributes>
-                                            <font key="NSFont" size="30" name="Calibri"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <fontDescription key="fontDescription" name="Calibri" family="Calibri" pointSize="30"/>
+                                <color key="textColor" red="0.1234932487" green="0.47828759520000003" blue="0.2153581323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hww-nr-NLA">
                                 <rect key="frame" x="20" y="463" width="374" height="20.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaV-dx-B7l">
-                                        <rect key="frame" x="0.0" y="0.0" width="55.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On Air" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaV-dx-B7l">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.1234932487" green="0.47828759520000003" blue="0.2153581323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lad-bm-loa">
                                         <rect key="frame" x="363.5" y="0.0" width="10.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.1234932487" green="0.47828759520000003" blue="0.2153581323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Jt-a3-INB">
-                                <rect key="frame" x="20" y="796" width="374" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="r4r-iJ-QdS"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="814" width="374" height="2"/>
+                                <color key="tintColor" red="0.1234932487" green="0.47828759520000003" blue="0.2153581323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="L0c-db-ztK">
                                 <rect key="frame" x="20" y="826" width="374" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAh-83-pve">
-                                        <rect key="frame" x="0.0" y="-0.5" width="91.5" height="51"/>
-                                        <state key="normal" backgroundImage="link" catalog="system"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAh-83-pve">
+                                        <rect key="frame" x="0.0" y="0.0" width="91.5" height="50"/>
+                                        <color key="tintColor" red="0.12349324865503386" green="0.47828759517766495" blue="0.21535813230024228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="link" catalog="system"/>
                                         <connections>
                                             <action selector="shareBtnTapped:" destination="dtk-oE-9bS" eventType="touchUpInside" id="XMu-PX-pVA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUZ-cZ-bAd">
-                                        <rect key="frame" x="141.5" y="2" width="91" height="46"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUZ-cZ-bAd">
+                                        <rect key="frame" x="141.5" y="0.0" width="91" height="50"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                        <state key="normal" backgroundImage="pause.fill" catalog="system">
+                                        <color key="tintColor" red="0.12349324865503386" green="0.47828759517766495" blue="0.21535813230024228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="pause.circle" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                         </state>
                                         <connections>
                                             <action selector="playBtnTapped:" destination="dtk-oE-9bS" eventType="touchUpInside" id="GbZ-G7-LSi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Er2-Ck-udV">
-                                        <rect key="frame" x="282.5" y="0.0" width="91.5" height="51"/>
-                                        <state key="normal" backgroundImage="bubble.left.and.bubble.right.fill" catalog="system"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Er2-Ck-udV">
+                                        <rect key="frame" x="282.5" y="0.0" width="91.5" height="50"/>
+                                        <color key="tintColor" red="0.12349324865503386" green="0.47828759517766495" blue="0.21535813230024228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="bubble.left.and.bubble.right.fill" catalog="system"/>
                                         <connections>
                                             <action selector="chatBtnTapped:" destination="dtk-oE-9bS" eventType="touchUpInside" id="ZUh-6Z-aYg"/>
                                         </connections>
@@ -905,7 +903,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EVE-n2-x17">
-                                <rect key="frame" x="10" y="98" width="414" height="300"/>
+                                <rect key="frame" x="10" y="98" width="391" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="TbD-rp-G09"/>
                                 </constraints>
@@ -919,10 +917,11 @@
                             <constraint firstAttribute="trailing" secondItem="L0c-db-ztK" secondAttribute="trailing" constant="20" id="NMo-Zo-a8G"/>
                             <constraint firstItem="Hww-nr-NLA" firstAttribute="leading" secondItem="XsB-ww-GpP" secondAttribute="leading" constant="20" id="P9c-fw-Vnu"/>
                             <constraint firstItem="s9w-rb-Wk6" firstAttribute="leading" secondItem="XsB-ww-GpP" secondAttribute="leading" constant="20" id="T72-i2-aka"/>
-                            <constraint firstItem="EVE-n2-x17" firstAttribute="trailing" secondItem="XsB-ww-GpP" secondAttribute="trailing" constant="10" id="VPN-JV-FEO"/>
+                            <constraint firstItem="EVE-n2-x17" firstAttribute="trailing" secondItem="XsB-ww-GpP" secondAttribute="trailing" constant="-13" id="VPN-JV-FEO"/>
                             <constraint firstAttribute="bottom" secondItem="L0c-db-ztK" secondAttribute="bottom" constant="20" id="WAL-xJ-ljd"/>
                             <constraint firstItem="L0c-db-ztK" firstAttribute="leading" secondItem="XsB-ww-GpP" secondAttribute="leading" constant="20" id="afv-T4-ica"/>
                             <constraint firstItem="EVE-n2-x17" firstAttribute="top" secondItem="8mN-8V-Uv3" secondAttribute="bottom" constant="10" id="b3v-20-wcx"/>
+                            <constraint firstItem="EVE-n2-x17" firstAttribute="leading" secondItem="XsB-ww-GpP" secondAttribute="leading" constant="10" id="b4r-xa-65g"/>
                             <constraint firstItem="EVE-n2-x17" firstAttribute="leading" secondItem="XsB-ww-GpP" secondAttribute="leading" constant="10" id="doe-Bc-oXw"/>
                             <constraint firstItem="Hww-nr-NLA" firstAttribute="top" secondItem="s9w-rb-Wk6" secondAttribute="bottom" constant="20" id="eH9-W9-hoP"/>
                             <constraint firstItem="s9w-rb-Wk6" firstAttribute="top" secondItem="EVE-n2-x17" secondAttribute="bottom" constant="10" id="lJ1-ep-jr7"/>
@@ -1707,7 +1706,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="18U-cW-V53"/>
         <segue reference="9EN-6y-i2z"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -1726,7 +1724,7 @@
         <image name="kids" width="242" height="209"/>
         <image name="link" catalog="system" width="128" height="116"/>
         <image name="lock.open" catalog="system" width="128" height="112"/>
-        <image name="pause.fill" catalog="system" width="116" height="128"/>
+        <image name="pause.circle" catalog="system" width="128" height="121"/>
         <image name="radio" width="64" height="64"/>
         <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>

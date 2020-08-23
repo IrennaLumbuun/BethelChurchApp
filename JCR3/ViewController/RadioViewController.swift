@@ -22,15 +22,16 @@ class RadioViewController: UIViewController, AVAssetResourceLoaderDelegate {
     //global var
     var url = ""
     var img = ""
+    var radioName = ""
     
     var player: AVPlayer!
     var avAudioSession:AVAudioSession = AVAudioSession.sharedInstance()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(url)
         let urlFile = URL(string: url)!
         self.radioImg.image = UIImage.init(named: img)
+        self.radioNameLbl.text = "Radio" + radioName
         
         //autoplay radio
         try! avAudioSession.setCategory(.playback, mode: .default, options: [])
@@ -45,15 +46,14 @@ class RadioViewController: UIViewController, AVAssetResourceLoaderDelegate {
     }
     
     @IBAction func playBtnTapped(_ sender: Any) {
-        print(player.rate)
         if player.rate != 0 {
             player.pause()
-            onAirStatus.text = "Not Playing"
-            playBtn.setBackgroundImage(UIImage(systemName: "play.fill"), for: .normal)
+            onAirStatus.text = "Off Air"
+            playBtn.setImage(UIImage(systemName: "play.circle"), for: .normal)
         } else {
-                player.play()
-                playBtn.setBackgroundImage(UIImage(systemName: "pause.fill"), for: .normal)
-                onAirStatus.text = "Playing"
+            player.play()
+            playBtn.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+            onAirStatus.text = "On Air"
         }
     }
     

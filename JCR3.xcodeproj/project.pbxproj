@@ -19,7 +19,6 @@
 		8227E09B24CABDD300572DC7 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E09824CABDD200572DC7 /* EmailLoginViewController.swift */; };
 		8227E09C24CABDD300572DC7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E09924CABDD200572DC7 /* HomeViewController.swift */; };
 		8227E09D24CABDD300572DC7 /* PhoneLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E09A24CABDD300572DC7 /* PhoneLoginViewController.swift */; };
-		8227E0A524CAC3E100572DC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8227E0A424CAC3E100572DC7 /* GoogleService-Info.plist */; };
 		8227E0A724CBB68000572DC7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0A624CBB68000572DC7 /* Utilities.swift */; };
 		8227E0AC24CC201D00572DC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0AB24CC201D00572DC7 /* Constants.swift */; };
 		8227E0AE24CCBD1000572DC7 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0AD24CCBD1000572DC7 /* LandingPageViewController.swift */; };
@@ -34,6 +33,7 @@
 		8227E0C024D3D32900572DC7 /* EntryGemarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0BF24D3D32900572DC7 /* EntryGemarViewController.swift */; };
 		8227E0C424D60DEC00572DC7 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0C324D60DEC00572DC7 /* EditPasswordViewController.swift */; };
 		8227E0C624D638A800572DC7 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0C524D638A700572DC7 /* RadioViewController.swift */; };
+		82B2BC1F24F260A8006D7ADB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82B2BC1E24F260A8006D7ADB /* GoogleService-Info.plist */; };
 		878A99285C1C863E8590FF89 /* Pods_JCR3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46F9A2D3D53AE32FFE613F1 /* Pods_JCR3.framework */; };
 		D69F156CDD44D7C3F509E85E /* Pods_JCR3_JCR3UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E703CE314C2C3D6F313BBD3 /* Pods_JCR3_JCR3UITests.framework */; };
 /* End PBXBuildFile section */
@@ -77,7 +77,6 @@
 		8227E09824CABDD200572DC7 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		8227E09924CABDD200572DC7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8227E09A24CABDD300572DC7 /* PhoneLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneLoginViewController.swift; sourceTree = "<group>"; };
-		8227E0A424CAC3E100572DC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8227E0A624CBB68000572DC7 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		8227E0A824CBBD0B00572DC7 /* JCR3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JCR3.entitlements; sourceTree = "<group>"; };
 		8227E0AB24CC201D00572DC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		8227E0BF24D3D32900572DC7 /* EntryGemarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryGemarViewController.swift; sourceTree = "<group>"; };
 		8227E0C324D60DEC00572DC7 /* EditPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordViewController.swift; sourceTree = "<group>"; };
 		8227E0C524D638A700572DC7 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
+		82B2BC1E24F260A8006D7ADB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8498C9AF1BA2BEBC39B42AF6 /* Pods-JCR3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCR3Tests.release.xcconfig"; path = "Target Support Files/Pods-JCR3Tests/Pods-JCR3Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8E1012134371D31139578445 /* Pods-JCR3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCR3.release.xcconfig"; path = "Target Support Files/Pods-JCR3/Pods-JCR3.release.xcconfig"; sourceTree = "<group>"; };
 		ADA2B07FA99BFC742A5D2C4F /* Pods-JCR3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCR3Tests.debug.xcconfig"; path = "Target Support Files/Pods-JCR3Tests/Pods-JCR3Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				8227E0A824CBBD0B00572DC7 /* JCR3.entitlements */,
-				8227E0A424CAC3E100572DC7 /* GoogleService-Info.plist */,
+				82B2BC1E24F260A8006D7ADB /* GoogleService-Info.plist */,
 				8227E09724CABDC100572DC7 /* ViewController */,
 				8227E08824CAB10900572DC7 /* Helpers */,
 				8227E05124CAA36800572DC7 /* AppDelegate.swift */,
@@ -350,7 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8227E05E24CAA36B00572DC7 /* LaunchScreen.storyboard in Resources */,
-				8227E0A524CAC3E100572DC7 /* GoogleService-Info.plist in Resources */,
+				82B2BC1F24F260A8006D7ADB /* GoogleService-Info.plist in Resources */,
 				8227E05B24CAA36B00572DC7 /* Assets.xcassets in Resources */,
 				8227E05924CAA36800572DC7 /* Main.storyboard in Resources */,
 			);
