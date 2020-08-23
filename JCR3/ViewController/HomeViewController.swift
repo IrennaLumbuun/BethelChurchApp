@@ -81,30 +81,44 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     
     // These function below render buttons to View
     //override func for collection view layout
-    let btnName: [String] = ["Live Streaming", "Warrior Bride", "SBS COOL", "Dukungan Doa"]
+    let btnName: [String] = ["LIVE STREAMING", "WARRIOR BRIDE", "SBS COOL ", "DUKUNGAN DOA"]
+    let btnIcon: [String] = ["camera.circle", "arrow.down.doc", "arrow.down.doc", "pray"]
+    let btnTint: [UIColor] = [UIColor.red, UIColor.init(red: 0, green: 98, blue: 227, alpha: 1), UIColor.init(red: 0, green: 98, blue: 227, alpha: 1), UIColor.init(red: 227, green: 193, blue: 0, alpha: 0.9)]
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 14 * btnName[indexPath.row].count, height: 35)
+        return CGSize(width: 13 * btnName[indexPath.row].count, height: 35)
        }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath as IndexPath) as! BtnCell
         
-        let button = UIButton()
+        let button = UIButton(type: .custom)
         button.tag = indexPath.row
-        button.setTitle(btnName[indexPath.row], for: .normal)
         button.backgroundColor = UIColor.white
-        button.setTitleColor(UIColor.black, for: .normal)
         button.addTarget(self, action: #selector(self.btnClicked), for: UIControl.Event.touchUpInside)
+        
+        // title
+        let myNormalAttributedTitle = NSAttributedString(string: btnName[indexPath.row], attributes: [NSAttributedString.Key.foregroundColor : UIColor.darkGray])
+        button.setAttributedTitle(myNormalAttributedTitle, for: .normal)
+        
+        let mySelectedAttributedTitle = NSAttributedString(string: btnName[indexPath.row], attributes: [NSAttributedString.Key.backgroundColor : UIColor.lightGray, NSAttributedString.Key.foregroundColor : UIColor.black])
+        button.setAttributedTitle(mySelectedAttributedTitle, for: .focused)
+        button.titleLabel?.font = .systemFont(ofSize: 12)
+        
+        //image
+        button.setImage(UIImage(systemName: btnIcon[indexPath.row])?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = btnTint[indexPath.row]
 
         // frame and padding
-        button.frame = CGRect(x: 10, y: 10, width: 14 * btnName[indexPath.row].count, height: 20)
-        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.frame = CGRect(x: 10, y: 10, width: 13 * btnName[indexPath.row].count, height: 20)
         button.titleEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 2, left: -2, bottom: 2, right: 10)
         //button.sizeToFit()
         button.layer.cornerRadius = 10
+        
         
         //add shadow
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor

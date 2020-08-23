@@ -1049,13 +1049,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0F-dE-7Ba">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Dukungan Doa" id="tNG-HV-9dg">
+                                        <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="rSx-2F-aJC">
+                                            <connections>
+                                                <action selector="backButtonTapped:" destination="bWd-tl-Jry" id="htX-bq-Pru"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="3ft-mM-AUB">
                                 <rect key="frame" x="20" y="805" width="374" height="37"/>
                                 <color key="currentPageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cas-Ze-7eq">
-                                <rect key="frame" x="20" y="44" width="374" height="753"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cas-Ze-7eq">
+                                <rect key="frame" x="0.0" y="88" width="414" height="709"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="XgM-io-Z2w"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="FZ7-Y2-sl5"/>
                             </scrollView>
@@ -1064,10 +1080,18 @@
                         <constraints>
                             <constraint firstItem="3ft-mM-AUB" firstAttribute="leading" secondItem="0dc-wp-890" secondAttribute="leading" constant="20" id="4O9-Br-fxl"/>
                             <constraint firstAttribute="trailing" secondItem="3ft-mM-AUB" secondAttribute="trailing" constant="20" id="6hc-Gz-gDR"/>
+                            <constraint firstAttribute="trailing" secondItem="t0F-dE-7Ba" secondAttribute="trailing" id="IV7-TG-JEE"/>
+                            <constraint firstItem="Cas-Ze-7eq" firstAttribute="leading" secondItem="t0F-dE-7Ba" secondAttribute="leading" id="KKy-ug-btC"/>
+                            <constraint firstItem="t0F-dE-7Ba" firstAttribute="top" secondItem="B2k-YM-fEU" secondAttribute="bottom" id="WCP-bs-ptf"/>
+                            <constraint firstItem="t0F-dE-7Ba" firstAttribute="leading" secondItem="0dc-wp-890" secondAttribute="leading" id="mKX-xp-zoZ"/>
+                            <constraint firstItem="Cas-Ze-7eq" firstAttribute="top" secondItem="t0F-dE-7Ba" secondAttribute="bottom" id="s3h-f3-ZuD"/>
+                            <constraint firstItem="3ft-mM-AUB" firstAttribute="top" secondItem="Cas-Ze-7eq" secondAttribute="bottom" constant="8" id="uwb-7C-kSk"/>
+                            <constraint firstItem="Cas-Ze-7eq" firstAttribute="trailing" secondItem="t0F-dE-7Ba" secondAttribute="trailing" id="w33-rI-qcC"/>
                             <constraint firstItem="cLC-Qe-kzk" firstAttribute="top" secondItem="3ft-mM-AUB" secondAttribute="bottom" constant="20" id="yPg-zl-idH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="NavBar" destination="t0F-dE-7Ba" id="Ts8-1M-lci"/>
                         <outlet property="pageControl" destination="3ft-mM-AUB" id="ur1-kx-gGk"/>
                         <outlet property="scrollView" destination="Cas-Ze-7eq" id="zl7-dE-DBh"/>
                     </connections>
@@ -1458,6 +1482,7 @@
                                                 <fragment content="Change Password">
                                                     <attributes>
                                                         <font key="NSFont" metaFont="system"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>

@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var NavBar: UINavigationBar!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -19,8 +20,11 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
 
         pageControl.numberOfPages = 2
-        setupScreens()
         scrollView.delegate = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        setupScreens()
     }
     
     struct userInfo{
@@ -35,38 +39,63 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
         let vertStack  = UIStackView(frame: frame)
         
         //greeting
-        let shalomLbl = UILabel(frame: CGRect(x: 20, y: 20, width: self.view.frame.width, height: 40))
+        let shalomLbl = UILabel(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
         shalomLbl.text = "Shalom! \(Auth.auth().currentUser!.displayName!)"
+        shalomLbl.textAlignment = .center
+        shalomLbl.textColor = UIColor(red: 67/255, green: 122/255, blue: 77/255, alpha: 1.0)
+        shalomLbl.font = .systemFont(ofSize: 18)
         vertStack.addSubview(shalomLbl)
         
         //message
         let messageLbl = UILabel(frame: CGRect(x: 20, y: shalomLbl.frame.height + 20, width: self.view.frame.width - 40, height: 60))
         messageLbl.text = "Bantu kami untuk sebutkan jenis kelamin dan usia Anda."
         messageLbl.numberOfLines = 0
+        messageLbl.textAlignment = .center
+        messageLbl.font = .systemFont(ofSize: 14)
         vertStack.addSubview(messageLbl)
         
+        //horizontal stack for button
+        let horizontalStack = UIStackView(frame: CGRect(x: 20, y: shalomLbl.frame.height + messageLbl.frame.height + 40, width: self.view.frame.width - 40, height: 100))
+        horizontalStack.axis = .horizontal
+        horizontalStack.alignment = .fill
+        horizontalStack.distribution = .fillEqually
+        horizontalStack.spacing = 100
+        
         //gender btn
-        let maleBtn = UIButton(frame: CGRect(x: 20, y: shalomLbl.frame.height + messageLbl.frame.height + 20, width: 100, height: 100))
-        maleBtn.setTitle("Male", for: .normal)
+        let maleBtn = UIButton(frame: CGRect(x: 20, y: shalomLbl.frame.height + messageLbl.frame.height + 40, width: 100, height: 100))
         maleBtn.tag = 0
-        maleBtn.backgroundColor = UIColor.blue
+        maleBtn.setImage(UIImage(named: "male"), for: .normal)
         maleBtn.isUserInteractionEnabled = true
         maleBtn.addTarget(self, action: #selector(self.btnGenderClicked), for: UIControl.Event.touchUpInside)
+         Utilities.styleRectangularButton(btn: maleBtn)
         
-        let femaleBtn = UIButton(frame: CGRect(x: 150, y: shalomLbl.frame.height + messageLbl.frame.height + 20, width: 100, height: 100))
+        let femaleBtn = UIButton(frame: CGRect(x: 150, y: shalomLbl.frame.height + messageLbl.frame.height + 40, width: 100, height: 100))
         femaleBtn.addTarget(self, action: #selector(self.btnGenderClicked), for: UIControl.Event.touchUpInside)
         femaleBtn.tag = 1
-        femaleBtn.setTitle("Female", for: .normal)
         femaleBtn.isUserInteractionEnabled = true
-        femaleBtn.backgroundColor = UIColor.red
+        femaleBtn.setImage(UIImage(named:"female"), for: .normal)
+        Utilities.styleRectangularButton(btn: femaleBtn)
         
-        vertStack.addSubview(maleBtn)
-        vertStack.addSubview(femaleBtn)
+        horizontalStack.addArrangedSubview(maleBtn)
+        horizontalStack.addArrangedSubview(femaleBtn)
+        
+        vertStack.addSubview(horizontalStack)
         
         //Age
-        let ageTxt = UITextField(frame: CGRect(x: 20, y: shalomLbl.frame.height + messageLbl.frame.height + 160, width: self.view.frame.width - 40, height: 40))
+        let ageTxt = UITextField(frame: CGRect(x: 20, y: shalomLbl.frame.height + messageLbl.frame.height + 160, width: 100, height: 40))
         ageTxt.placeholder = "Usia"
         ageTxt.addTarget(self, action: #selector(self.ageTextFieldDidChange(_:)), for: .editingChanged)
+        ageTxt.center.x = self.view.frame.width / 2
+        ageTxt.textAlignment = .center
+        
+        ageTxt.backgroundColor = UIColor(red: 192, green: 192, blue: 192, alpha:1)
+        ageTxt.textAlignment = .center
+        ageTxt.layer.cornerRadius = 20
+        ageTxt.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        ageTxt.layer.shadowOffset = CGSize(width: 0.0, height: 1)
+        ageTxt.layer.shadowOpacity = 1.0
+        ageTxt.layer.shadowRadius = 1.0
+        ageTxt.layer.masksToBounds = false
         vertStack.addSubview(ageTxt)
         
         self.scrollView.addSubview(vertStack)
@@ -96,28 +125,47 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
         let vertStack  = UIStackView(frame: frame)
             
         //greeting
-        let shalomLbl = UILabel(frame: CGRect(x: 20, y: 20, width: self.view.frame.width, height: 40))
+        let shalomLbl = UILabel(frame: CGRect(x: 0, y: 20, width: self.view.frame.width, height: 40))
         shalomLbl.text = "Shalom! \(Auth.auth().currentUser!.displayName!)"
+        shalomLbl.textAlignment = .center
+        shalomLbl.textColor = UIColor(red: 67/255, green: 122/255, blue: 77/255, alpha: 1.0)
+        shalomLbl.font = .systemFont(ofSize: 18)
         vertStack.addSubview(shalomLbl)
+        
             
         //message
         let messageLbl = UILabel(frame: CGRect(x: 20, y: shalomLbl.frame.height + 20, width: self.view.frame.width - 40, height: 60))
         messageLbl.text = "Bantu kami untuk jelaskan apa yang rindu kami bantu dalam doa. Tuhan Yesus Memberkati"
         messageLbl.numberOfLines = 0
+        messageLbl.textAlignment = .center
+        messageLbl.font = .systemFont(ofSize: 14)
         vertStack.addSubview(messageLbl)
         
         //Masalah singkat
         let masalahTxt = UITextField(frame: CGRect(x: 20, y: shalomLbl.frame.height + messageLbl.frame.height + 40, width: self.view.frame.width - 40, height: 120))
         masalahTxt.placeholder = "Masalah singkat Anda"
         masalahTxt.addTarget(self, action: #selector(self.masalahTextFieldDidChange(_:)), for: .editingChanged)
+        
+        masalahTxt.center.x = self.view.frame.width / 2
+        masalahTxt.textAlignment = .center
+        
+        masalahTxt.backgroundColor = UIColor(red: 192, green: 192, blue: 192, alpha:1)
+        masalahTxt.textAlignment = .center
+        masalahTxt.layer.cornerRadius = 20
+        masalahTxt.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        masalahTxt.layer.shadowOffset = CGSize(width: 0.0, height: 1)
+        masalahTxt.layer.shadowOpacity = 1.0
+        masalahTxt.layer.shadowRadius = 1.0
+        masalahTxt.layer.masksToBounds = false
+        
         vertStack.addSubview(masalahTxt)
         
         //btn simpan
-        let simpanBtn = UIButton(frame: CGRect(x: (self.view.frame.width / 2) - 100, y: shalomLbl.frame.height + messageLbl.frame.height + masalahTxt.frame.height + 40, width: 200, height: 40))
+        let simpanBtn = UIButton(frame: CGRect(x: (self.view.frame.width / 2) - 100, y: shalomLbl.frame.height + messageLbl.frame.height + masalahTxt.frame.height + 60, width: 200, height: 40))
         simpanBtn.addTarget(self, action: #selector(self.simpanBtnClicked), for: UIControl.Event.touchUpInside)
         simpanBtn.setTitle("Simpan", for: .normal)
         simpanBtn.isUserInteractionEnabled = true
-        simpanBtn.backgroundColor = UIColor.orange
+        simpanBtn.backgroundColor = UIColor(red: 67/255, green: 122/255, blue: 77/255, alpha: 1.0)
         vertStack.addSubview(simpanBtn)
         
         self.scrollView.addSubview(vertStack)
@@ -125,7 +173,6 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
     
     @objc func masalahTextFieldDidChange(_ textField: UITextField) {
         user.problem = textField.text!
-        print(user.problem)
     }
     
     @objc func simpanBtnClicked(sender : UIButton) {
@@ -161,7 +208,7 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
         }
 
         // set up content size
-        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * 2), height: self.view.frame.height - pageControl.frame.height)
+        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * 2), height: self.view.frame.height - pageControl.frame.height - NavBar.frame.height - 100)
         scrollView.delegate = self
     }
     
@@ -171,5 +218,13 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(pageNumber)
     }
-
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        //transition to home
+        let homeVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        
+        homeVC?.modalPresentationStyle = .fullScreen
+        homeVC?.modalTransitionStyle = .coverVertical
+        present(homeVC!, animated: true, completion: nil)
+    }
 }
