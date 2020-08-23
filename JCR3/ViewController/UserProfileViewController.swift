@@ -66,7 +66,16 @@ class UserProfileViewController: UIViewController {
     }
     @IBAction func changePasswordTapped(_ sender: Any) {
         // bikin pop up
+        let popUp = storyboard?.instantiateViewController(identifier: "editPasswordVC") as? EditPasswordViewController
+        self.addChild(popUp!)
+        //popUp!.view.frame = self.view.frame
+        UIView.transition(with: self.view, duration: 0.5, options: [.transitionCrossDissolve], animations: {
+          self.view.addSubview(popUp!.view)
+        }, completion: nil)
+        popUp?.didMove(toParent: self)
     }
+    
+    
     @IBAction func ratingBtnTapped(_ sender: Any) {
         //redirect to url
     }

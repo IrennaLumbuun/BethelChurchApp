@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class EditPasswordViewController: UIViewController {
 
-    @IBOutlet weak var popUpVertical: UIStackView!
+    @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var tutupBtn: UIBarButtonItem!
     @IBOutlet weak var passwordBaruTxt: UITextField!
     @IBOutlet weak var konfirmPasswordTxt: UITextField!
@@ -20,18 +20,20 @@ class EditPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stylePopup()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func setup() {
         // do styling and whatnot
     }
     
-    func stylePopup() {
-        
-        let stackHeight = popUpVertical.frame.height
-        self.popUpVertical.frame = CGRect(x: 20, y: (self.view.frame.height - stackHeight) / 2, width: self.view.frame.width - 40, height: stackHeight)
-    }
     
     func isPasswordMatch() -> Bool{
         let pass =  passwordBaruTxt.text
@@ -47,14 +49,20 @@ class EditPasswordViewController: UIViewController {
     func closePopUp(){
         let profileVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.userProfileViewController) as? UserProfileViewController
         
-        view.window?.rootViewController = profileVC
-        view.window?.makeKeyAndVisible()
+        navigationController?.pushViewController(profileVC!, animated: true)
     }
     
     @IBAction func tutupBtnTapped(_ sender: Any) {
+        print("tutup button")
         closePopUp()
-        
     }
+    
+    //If user tapped anywhere not in pop up, redirect to home
+    @IBAction func viewTapped(_ sender: Any) {
+        print("view tapped")
+        closePopUp()
+    }
+    
     @IBAction func simpanBtnTapped(_ sender: Any) {
         //check both text field
         let pass =  passwordBaruTxt.text
