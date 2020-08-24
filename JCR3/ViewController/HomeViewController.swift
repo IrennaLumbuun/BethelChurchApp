@@ -226,7 +226,6 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     //Edit this if needed. Or figure out a way to use AirTable because apparently that's what Ko Anton wants
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "main_cell", for:indexPath)
-        print(indexPath.row)
         
         //quick workaround so cell doesn't overlap
         // probably not the best way to do stuffs

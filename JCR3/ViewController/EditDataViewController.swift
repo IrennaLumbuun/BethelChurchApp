@@ -12,8 +12,6 @@ import FirebaseDatabase
 
 class EditDataViewController: UIViewController {
 
-    @IBOutlet weak var NavBar: UINavigationBar!
-    @IBOutlet weak var NavBarLbl: UINavigationItem!
     @IBOutlet weak var idAccountTxt: UITextField!
     @IBOutlet weak var statusTxt: UITextField!
     @IBOutlet weak var noHpTxt: UITextField!
@@ -26,6 +24,19 @@ class EditDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        Utilities.styleView(v: idAccountTxt)
+        Utilities.styleView(v: statusTxt)
+        Utilities.styleView(v: noHpTxt)
+        Utilities.styleView(v: namaTxt)
+        Utilities.styleView(v: emailTxt)
+        Utilities.styleView(v: gerejaTxt)
+        Utilities.styleRectangularButton(btn: simpanBtn)
+        Utilities.styleRectangularButton(btn: requestPengerjaBtn)
+        requestPengerjaBtn.backgroundColor = UIColor.red
+        simpanBtn.backgroundColor = UIColor(red: 67/255, green: 122/255, blue: 77/255, alpha: 1.0)
     }
     
     func setup(){
