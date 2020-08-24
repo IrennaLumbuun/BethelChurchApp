@@ -38,6 +38,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getDataForMainTable()
         //setup()
         
         // for up scrollable Main Table
@@ -52,8 +53,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         btnGroupCollectionView.collectionViewLayout = layout
         btnGroupCollectionView.translatesAutoresizingMaskIntoConstraints = false
         btnGroupCollectionView.register(BtnCell.self, forCellWithReuseIdentifier: "btnCell")
-        
-        getDataForMainTable()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,10 +72,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     // This function append data for main table view
     // (I assume) in reality we would retrieve data from firebase instead of hardcoding this. But I'm not sure. We'll see what they come up with.
     func getDataForMainTable(){
-        self.mainTableData.append(NotifEntry(img: "dm", header:"Ibadah Raya", subHeader: "Youtube GBI Modernland", text:"Minggu, 19 Juli 2020 \nMulai pukul 07.00 WIB \nwww.youtube.com/gbimodernlandr3"))
-        self.mainTableData.append(NotifEntry(img: "dm", header:"Receive the Fire", subHeader: "Of the Third pentacost", text:"Pdt Kristina Faraknimela \n24 Juli 2020 \n7 PM | Youtube GBI Modernland"))
-        self.mainTableData.append(NotifEntry(img: "dm", header:"Social Media", subHeader: "Follow and Share", text:"JC Center \nOffice lorem ipsum placeholder note \nlorem ipsum placeholder note"))
-        self.mainTableData.append(NotifEntry(img: "dm", header:"Welcome", subHeader: "Come Join Us", text:"JCR3 Apps"))
+        self.mainTableData = [NotifEntry(img: "dm", header:"Ibadah Raya", subHeader: "Youtube GBI Modernland", text:"Minggu, 19 Juli 2020 \nMulai pukul 07.00 WIB \nwww.youtube.com/gbimodernlandr3"), NotifEntry(img: "dm", header:"Receive the Fire", subHeader: "Of the Third pentacost", text:"Pdt Kristina Faraknimela \n24 Juli 2020 \n7 PM | Youtube GBI Modernland"), NotifEntry(img: "dm", header:"Social Media", subHeader: "Follow and Share", text:"JC Center \nOffice lorem ipsum placeholder note \nlorem ipsum placeholder note"), NotifEntry(img: "dm", header:"Welcome", subHeader: "Come Join Us", text:"JCR3 Apps")]
     }
     
     // These function below render buttons to View
@@ -230,12 +226,66 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     //Edit this if needed. Or figure out a way to use AirTable because apparently that's what Ko Anton wants
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "main_cell", for:indexPath)
-        cell.textLabel?.text = " \(mainTableData[indexPath.row].header)\n\(mainTableData[indexPath.row].subHeader) "
-        cell.textLabel?.numberOfLines = 0
+        print(indexPath.row)
+        
+        //quick workaround so cell doesn't overlap
+        // probably not the best way to do stuffs
+        if (cell.subviews.count == 2){
+            //image
+             let imageView:UIImageView = {
+                 let iv = UIImageView()
+                 iv.image = UIImage(named: "jc")
+                 iv.contentMode = .scaleAspectFill
+                 iv.layer.masksToBounds = true
+                 return iv
+             }()
+             // header
+             let header: UILabel = {
+                let lbl = UILabel()
+                lbl.text = mainTableData[indexPath.row].header
+                lbl.font = UIFont.boldSystemFont(ofSize: 18)
+                lbl.numberOfLines = 1
+                return lbl
+             }()
+             
+             //subHeader
+            let subHeader: UILabel = {
+                 let lbl = UILabel()
+                 lbl.text = mainTableData[indexPath.row].subHeader
+                 lbl.font = UIFont.systemFont(ofSize: 14)
+                 lbl.textColor = UIColor(red: 60/255, green: 60/255, blue: 60/255, alpha: 1)
+                 lbl.numberOfLines = 1
+                 return lbl
+             }()
+            
+            //subHeader
+            let notifText: UILabel = {
+                let lbl = UILabel()
+                lbl.text = mainTableData[indexPath.row].text
+                lbl.font = UIFont.systemFont(ofSize: 14)
+                lbl.numberOfLines = 0
+                return lbl
+             }()
+             
+             cell.addSubview(imageView)
+             cell.addSubview(header)
+             cell.addSubview(subHeader)
+             cell.addSubview(notifText)
+            print(indexPath)
+            imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100)
+             header.frame = CGRect(x: 20, y: 120, width: self.view.frame.width - 90 , height: 35)
+             subHeader.frame = CGRect(x: 20, y: 160, width: self.view.frame.width - 90 , height: 25)
+            notifText.frame = CGRect(x: 20, y: 180, width: self.view.frame.width - 90 , height: 100)
+        }
+        
+        Utilities.styleView(v: cell)
+        cell.layer.cornerRadius = 0
+        
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return CGFloat(300.0)
     }
 }
