@@ -67,13 +67,17 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
         maleBtn.setImage(UIImage(named: "male"), for: .normal)
         maleBtn.isUserInteractionEnabled = true
         maleBtn.addTarget(self, action: #selector(self.btnGenderClicked), for: UIControl.Event.touchUpInside)
+        
          Utilities.styleRectangularButton(btn: maleBtn)
         
         let femaleBtn = UIButton(frame: CGRect(x: 150, y: shalomLbl.frame.height + messageLbl.frame.height + 40, width: 100, height: 100))
         femaleBtn.addTarget(self, action: #selector(self.btnGenderClicked), for: UIControl.Event.touchUpInside)
+        
         femaleBtn.tag = 1
         femaleBtn.isUserInteractionEnabled = true
-        femaleBtn.setImage(UIImage(named:"female"), for: .normal)
+        femaleBtn.setImage(Utilities.convertToGrayScale(image: UIImage(named:"female")!), for: .normal)
+        //selected and focused not work
+        femaleBtn.setImage(UIImage(named:"female"),  for: .focused)
         Utilities.styleRectangularButton(btn: femaleBtn)
         
         horizontalStack.addArrangedSubview(maleBtn)
@@ -110,13 +114,11 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
     @objc func btnGenderClicked(sender : UIButton) {
         //get buttonName
         let btnTag = sender.tag
-        print(btnTag)
 
         if btnTag == 0 {
-            print("male")
             user.gender = "Pria"
         } else if btnTag == 1 {
-            print("female")
+            print(sender.subviews)
             user.gender = "Wanita"
         }
     }

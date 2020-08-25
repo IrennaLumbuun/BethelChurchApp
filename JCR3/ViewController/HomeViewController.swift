@@ -129,6 +129,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     }
 
     @objc func btnClicked(sender : UIButton) {
+        Utilities.onClickFeedback(btn: sender)
         //get buttonName
         let btnTag = sender.tag
         // 0 -> pop up with link
@@ -274,7 +275,7 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
             imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100)
              header.frame = CGRect(x: 20, y: 120, width: self.view.frame.width - 90 , height: 35)
              subHeader.frame = CGRect(x: 20, y: 160, width: self.view.frame.width - 90 , height: 25)
-            notifText.frame = CGRect(x: 20, y: 180, width: self.view.frame.width - 90 , height: 100)
+            notifText.frame = CGRect(x: 20, y: 190, width: self.view.frame.width - 90 , height: 100)
         }
         
         Utilities.styleView(v: cell)

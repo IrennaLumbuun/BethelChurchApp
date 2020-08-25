@@ -42,6 +42,7 @@ class StreamingPopUpViewController: UIViewController {
 
     // TODO: refractor ALL THESE functions
     @IBAction func jcBtnTapped(_ sender: Any) {
+        Utilities.onClickFeedback(btn: jcBtn)
         Database.database().reference().child("Dashboard").observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
             let data = snapshot.value as? NSDictionary
@@ -53,8 +54,10 @@ class StreamingPopUpViewController: UIViewController {
             print("error")
             print(error.localizedDescription)
         }
+        
     }
     @IBAction func gbiBtnTapped(_ sender: Any) {
+        Utilities.onClickFeedback(btn: gbiBtn)
         Database.database().reference().child("Dashboard").observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
             let data = snapshot.value as? NSDictionary
@@ -68,6 +71,7 @@ class StreamingPopUpViewController: UIViewController {
         }
     }
     @IBAction func byrBtnTapped(_ sender: Any) {
+        Utilities.onClickFeedback(btn: byrBtn)
         Database.database().reference().child("Dashboard").observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
             let data = snapshot.value as? NSDictionary
@@ -81,6 +85,7 @@ class StreamingPopUpViewController: UIViewController {
         }
     }
     @IBAction func kidsBtnTapped(_ sender: Any) {
+        Utilities.onClickFeedback(btn: kidsBtn)
         Database.database().reference().child("Dashboard").observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
             let data = snapshot.value as? NSDictionary
@@ -94,6 +99,7 @@ class StreamingPopUpViewController: UIViewController {
         }
     }
     @IBAction func dmBtnTapped(_ sender: Any) {
+        Utilities.onClickFeedback(btn: dmBtn)
         Database.database().reference().child("Dashboard").observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
             let data = snapshot.value as? NSDictionary
