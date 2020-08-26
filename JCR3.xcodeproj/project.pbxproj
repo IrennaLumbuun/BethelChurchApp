@@ -33,6 +33,7 @@
 		8227E0C024D3D32900572DC7 /* EntryGemarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0BF24D3D32900572DC7 /* EntryGemarViewController.swift */; };
 		8227E0C424D60DEC00572DC7 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0C324D60DEC00572DC7 /* EditPasswordViewController.swift */; };
 		8227E0C624D638A800572DC7 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0C524D638A700572DC7 /* RadioViewController.swift */; };
+		825982F224F618C500CD9740 /* BacaRenunganViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825982F124F618C400CD9740 /* BacaRenunganViewController.swift */; };
 		82B2BC1F24F260A8006D7ADB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82B2BC1E24F260A8006D7ADB /* GoogleService-Info.plist */; };
 		878A99285C1C863E8590FF89 /* Pods_JCR3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46F9A2D3D53AE32FFE613F1 /* Pods_JCR3.framework */; };
 		D69F156CDD44D7C3F509E85E /* Pods_JCR3_JCR3UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E703CE314C2C3D6F313BBD3 /* Pods_JCR3_JCR3UITests.framework */; };
@@ -92,6 +93,7 @@
 		8227E0BF24D3D32900572DC7 /* EntryGemarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryGemarViewController.swift; sourceTree = "<group>"; };
 		8227E0C324D60DEC00572DC7 /* EditPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordViewController.swift; sourceTree = "<group>"; };
 		8227E0C524D638A700572DC7 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
+		825982F124F618C400CD9740 /* BacaRenunganViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacaRenunganViewController.swift; sourceTree = "<group>"; };
 		82B2BC1E24F260A8006D7ADB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8498C9AF1BA2BEBC39B42AF6 /* Pods-JCR3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCR3Tests.release.xcconfig"; path = "Target Support Files/Pods-JCR3Tests/Pods-JCR3Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8E1012134371D31139578445 /* Pods-JCR3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCR3.release.xcconfig"; path = "Target Support Files/Pods-JCR3/Pods-JCR3.release.xcconfig"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				8227E0BD24CE6A2B00572DC7 /* DukunganDoaViewController.swift */,
 				8227E09A24CABDD300572DC7 /* PhoneLoginViewController.swift */,
 				8227E0B524CD913900572DC7 /* GemarViewController.swift */,
+				825982F124F618C400CD9740 /* BacaRenunganViewController.swift */,
 				8227E0B324CD911700572DC7 /* ChannelRadioViewController.swift */,
 			);
 			path = ViewController;
@@ -491,6 +494,7 @@
 				8227E0B424CD911700572DC7 /* ChannelRadioViewController.swift in Sources */,
 				8227E0C024D3D32900572DC7 /* EntryGemarViewController.swift in Sources */,
 				8227E09B24CABDD300572DC7 /* EmailLoginViewController.swift in Sources */,
+				825982F224F618C500CD9740 /* BacaRenunganViewController.swift in Sources */,
 				8227E0AE24CCBD1000572DC7 /* LandingPageViewController.swift in Sources */,
 				8227E0B624CD913900572DC7 /* GemarViewController.swift in Sources */,
 				8227E0B824CD917500572DC7 /* EditDataViewController.swift in Sources */,

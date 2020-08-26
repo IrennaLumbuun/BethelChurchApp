@@ -119,17 +119,50 @@ class GemarTableViewCell: UITableViewCell{
     @IBOutlet var dateLbl: UILabel!
     @IBOutlet var ayatLbl: UILabel!
     
-    override func awakeFromNib() {
-       super.awakeFromNib()
-        print("nib is called")
-        print(noteImg)
-       //custom logic goes here
+    var entry: GemarEntry = GemarEntry(date: "", ayat: "", rhema: "") {
+        didSet {
+            //this gives out the same error. HELP.
+            let dateLbl: UILabel = {
+                let lbl = UILabel()
+                lbl.text = entry.date
+                lbl.font = UIFont.systemFont(ofSize: 14)
+                lbl.numberOfLines = 1
+                return lbl
+            }()
+            dateLbl.frame = CGRect(x: 70, y: 5, width: self.frame.width, height: 25)
+            self.addSubview(dateLbl)
+            
+            if(ayatLbl != nil){
+                print(ayatLbl)
+                ayatLbl.text = entry.ayat
+            }
+        }
     }
     
-    func update(for entry: GemarEntry) {
-        noteImg.image = UIImage(named: "noted")
-        dateLbl.text = entry.date
-        ayatLbl.text = entry.ayat
+    override func awakeFromNib() {
+       super.awakeFromNib()
+        if (noteImg != nil){
+            print(noteImg)
+            noteImg.image = UIImage(named: "noted")
+        }
+        
+        // display entry
+        /*
+        var entry: GemarEntry = GemarEntry(date: "", ayat: "", rhema: "") {
+            didSet {
+                print(dateLbl)
+                print(entry.ayat)
+                if(dateLbl != nil){
+                    print(dateLbl)
+                    dateLbl.text = entry.date
+                }
+                if(ayatLbl != nil){
+                    print(ayatLbl)
+                    ayatLbl.text = entry.ayat
+                }
+            }
+        }*/
+       //custom logic goes here
     }
 }
 
@@ -143,6 +176,7 @@ extension GemarViewController: UITableViewDelegate, UITableViewDataSource{
         return datasource.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        /* Uncomment to break
         let cell = tableView.dequeueReusableCell(withIdentifier: "sate_cell", for:indexPath) as! GemarTableViewCell
         
         print(cell.subviews)
@@ -150,6 +184,10 @@ extension GemarViewController: UITableViewDelegate, UITableViewDataSource{
         cell.dateLbl.text = datasource[indexPath.row].date
         cell.ayatLbl.text = datasource[indexPath.row].ayat
         //cell.update(for: datasource[indexPath.row])
+        */
+        
+         let cell = tableView.dequeueReusableCell(withIdentifier: "sate_cell", for:indexPath) as! GemarTableViewCell
+        cell.entry = datasource[indexPath.row]
         /*
         if cell.subviews.count == 2{
             //image
@@ -181,8 +219,8 @@ extension GemarViewController: UITableViewDelegate, UITableViewDataSource{
              
              cell.addSubview(imageView)
              cell.addSubview(dateLbl)
-             cell.addSubview(ayatLbl)*/
-        /*
+             cell.addSubview(ayatLbl)
+        
              imageView.frame = CGRect(x: 20, y: 5, width: 40, height: 40)
              dateLbl.frame = CGRect(x: 70, y: 5, width: self.view.frame.width - 90 , height: 25)
              ayatLbl.frame = CGRect(x: 70, y: 25, width: self.view.frame.width - 90 , height: 25)

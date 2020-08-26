@@ -77,6 +77,7 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
         femaleBtn.isUserInteractionEnabled = true
         femaleBtn.setImage(Utilities.convertToGrayScale(image: UIImage(named:"female")!), for: .normal)
         //selected and focused not work
+        // https://stackoverflow.com/questions/24844865/keep-uibutton-selected-highlighted-after-touch
         femaleBtn.setImage(UIImage(named:"female"),  for: .focused)
         Utilities.styleRectangularButton(btn: femaleBtn)
         
