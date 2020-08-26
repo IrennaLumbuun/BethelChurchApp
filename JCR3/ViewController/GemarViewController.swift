@@ -115,55 +115,14 @@ class GemarViewController: UIViewController {
 }
 
 class GemarTableViewCell: UITableViewCell{
-    @IBOutlet var noteImg: UIImageView!
-    @IBOutlet var dateLbl: UILabel!
-    @IBOutlet var ayatLbl: UILabel!
     
-    var entry: GemarEntry = GemarEntry(date: "", ayat: "", rhema: "") {
-        didSet {
-            //this gives out the same error. HELP.
-            let dateLbl: UILabel = {
-                let lbl = UILabel()
-                lbl.text = entry.date
-                lbl.font = UIFont.systemFont(ofSize: 14)
-                lbl.numberOfLines = 1
-                return lbl
-            }()
-            dateLbl.frame = CGRect(x: 70, y: 5, width: self.frame.width, height: 25)
-            self.addSubview(dateLbl)
-            
-            if(ayatLbl != nil){
-                print(ayatLbl)
-                ayatLbl.text = entry.ayat
-            }
+    override func prepareForReuse() {
+        //clear cell
+        for i in (0..<self.subviews.count).reversed() {
+            self.subviews[i].removeFromSuperview()
         }
     }
     
-    override func awakeFromNib() {
-       super.awakeFromNib()
-        if (noteImg != nil){
-            print(noteImg)
-            noteImg.image = UIImage(named: "noted")
-        }
-        
-        // display entry
-        /*
-        var entry: GemarEntry = GemarEntry(date: "", ayat: "", rhema: "") {
-            didSet {
-                print(dateLbl)
-                print(entry.ayat)
-                if(dateLbl != nil){
-                    print(dateLbl)
-                    dateLbl.text = entry.date
-                }
-                if(ayatLbl != nil){
-                    print(ayatLbl)
-                    ayatLbl.text = entry.ayat
-                }
-            }
-        }*/
-       //custom logic goes here
-    }
 }
 
 extension GemarViewController: UITableViewDelegate, UITableViewDataSource{
@@ -176,62 +135,51 @@ extension GemarViewController: UITableViewDelegate, UITableViewDataSource{
         return datasource.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        /* Uncomment to break
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sate_cell", for:indexPath) as! GemarTableViewCell
-        
-        print(cell.subviews)
-        cell.noteImg.image = UIImage(named: "noted")
-        cell.dateLbl.text = datasource[indexPath.row].date
-        cell.ayatLbl.text = datasource[indexPath.row].ayat
-        //cell.update(for: datasource[indexPath.row])
-        */
         
          let cell = tableView.dequeueReusableCell(withIdentifier: "sate_cell", for:indexPath) as! GemarTableViewCell
-        cell.entry = datasource[indexPath.row]
-        /*
-        if cell.subviews.count == 2{
-            //image
-             let imageView:UIImageView = {
-                 let iv = UIImageView()
-                 iv.image = UIImage(named: "noted")
-                 iv.contentMode = .scaleAspectFill
-                 iv.layer.masksToBounds = true
-                 return iv
-             }()
-             // tanggal
-             let dateLbl: UILabel = {
-                 let lbl = UILabel()
-                 lbl.text = datasource[indexPath.row].date
-                 lbl.font = UIFont.systemFont(ofSize: 14)
-                 lbl.numberOfLines = 1
-                 return lbl
-             }()
-             
-             //ayat
-            let ayatLbl: UILabel = {
-                 let lbl = UILabel()
-                 lbl.text = datasource[indexPath.row].ayat
-                 lbl.font = UIFont.systemFont(ofSize: 14)
-                 lbl.textColor = UIColor(red: 60/255, green: 60/255, blue: 60/255, alpha: 1)
-                 lbl.numberOfLines = 1
-                 return lbl
-             }()
-             
-             cell.addSubview(imageView)
-             cell.addSubview(dateLbl)
-             cell.addSubview(ayatLbl)
         
-             imageView.frame = CGRect(x: 20, y: 5, width: 40, height: 40)
-             dateLbl.frame = CGRect(x: 70, y: 5, width: self.view.frame.width - 90 , height: 25)
-             ayatLbl.frame = CGRect(x: 70, y: 25, width: self.view.frame.width - 90 , height: 25)
-        }*/
+        //image
+         let imageView:UIImageView = {
+             let iv = UIImageView()
+             iv.image = UIImage(named: "noted")
+             iv.contentMode = .scaleAspectFill
+             iv.layer.masksToBounds = true
+             return iv
+         }()
+         // tanggal
+         let dateLbl: UILabel = {
+             let lbl = UILabel()
+             lbl.text = datasource[indexPath.row].date
+             lbl.font = UIFont.systemFont(ofSize: 14)
+             lbl.numberOfLines = 1
+             return lbl
+         }()
+         
+         //ayat
+        let ayatLbl: UILabel = {
+             let lbl = UILabel()
+             lbl.text = datasource[indexPath.row].ayat
+             lbl.font = UIFont.systemFont(ofSize: 14)
+             lbl.textColor = UIColor(red: 60/255, green: 60/255, blue: 60/255, alpha: 1)
+             lbl.numberOfLines = 1
+             return lbl
+         }()
+         
+         cell.addSubview(imageView)
+         cell.addSubview(dateLbl)
+         cell.addSubview(ayatLbl)
+    
+         imageView.frame = CGRect(x: 20, y: 5, width: 40, height: 40)
+         dateLbl.frame = CGRect(x: 70, y: 5, width: self.view.frame.width - 90 , height: 25)
+         ayatLbl.frame = CGRect(x: 70, y: 25, width: self.view.frame.width - 90 , height: 25)
+    
         return cell
     }
     
-    /*
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
-    }*/
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
