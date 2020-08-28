@@ -660,7 +660,7 @@
                                         <rect key="frame" x="0.0" y="8" width="414" height="698"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="sate_cell" rowHeight="50" id="4QN-02-ZHr" customClass="GemarTableViewCell" customModule="JCR3" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="sate_cell" rowHeight="50" id="4QN-02-ZHr" customClass="GemarTableViewCell" customModule="JCR3" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4QN-02-ZHr" id="dJa-bP-She" customClass="GemarTableViewCell" customModule="JCR3" customModuleProvider="target">
@@ -2007,7 +2007,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9EN-6y-i2z"/>
+        <segue reference="Xzb-P1-nXm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="512" height="512"/>

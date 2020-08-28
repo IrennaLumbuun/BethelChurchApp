@@ -19,6 +19,7 @@ class EntryGemarViewController: UIViewController {
     
     public var item: GemarEntry?
     public var completionHandler: (() -> Void)?
+    //public var isInDatabase: Boolean = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,9 @@ class EntryGemarViewController: UIViewController {
         Database.database().reference().child("jcsaatteduh/sate/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
             let data = snapshot.value as? NSMutableDictionary
             var entries: [String: String] = data as? [String : String] ?? [String: String]()
-            entries[Utilities.getFormattedDate(desiredFormat: "MMddyyyyHHmmss")] = "[\(Utilities.getFormattedDate(desiredFormat: "dd MMMM yyyy")), \(self.ayatTxt.text ?? ""), \(self.rhemaTxt.text ?? "")]"
+            // check whether to save as new item or as existing item
+            let key = (self.item == nil) ? Utilities.getFormattedDate(desiredFormat: "MMddyyyyHHmmss") : self.item?.key
+            entries[key!] = "[\(self.tanggalLbl.text ?? ""), \(self.ayatTxt.text ?? ""), \(self.rhemaTxt.text ?? "")]"
             Database.database().reference().child("jcsaatteduh/sate/\(uuid!)").setValue(entries)
             
             //empty text field & go back to root controller
@@ -62,8 +65,6 @@ class EntryGemarViewController: UIViewController {
         let gemarVC = storyboard?.instantiateViewController(identifier: "gemarVC") as? GemarViewController
         
         navigationController?.pushViewController(gemarVC!, animated: true)
-        //view.window?.rootViewController = gemarVC
-        //view.window?.makeKeyAndVisible()
     }
     
 }

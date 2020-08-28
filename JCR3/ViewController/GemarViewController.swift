@@ -11,11 +11,13 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class GemarEntry {
+    @objc dynamic var key: String = ""
     @objc dynamic var date: String = ""
     @objc dynamic var ayat: String = ""
     @objc dynamic var rhema: String = ""
     
-    init(date: String, ayat: String, rhema: String) {
+    init(key: String, date: String, ayat: String, rhema: String) {
+        self.key = key
         self.date = date
         self.ayat = ayat
         self.rhema = rhema
@@ -34,9 +36,6 @@ class GemarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getSate()
-        
-        //app broke when trying to register uinib
-        //gemarTable.register(UINib(nibName: "GemarTableViewCell", bundle: nil), forCellReuseIdentifier: "sate_cell")
         gemarTable.delegate = self
         gemarTable.dataSource = self
     }
@@ -51,16 +50,17 @@ class GemarViewController: UIViewController {
     func getSate(){
         /*
          If you have time, uncomment the commented part and add some logic to reload database as user scrolls down instead of doing it at once.
+         
+         //jangan lupa gemar entry sekarang ada key
          */
         let uuid = Auth.auth().currentUser?.uid
         Database.database().reference().child("jcsaatteduh/sate/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
-            
             if snapshot.childrenCount > 0 {
                 for s in snapshot.children.allObjects as! [DataSnapshot]{
                     let str = (s.value as! String)
                     let range = str.index(after: str.startIndex)..<str.index(before: str.endIndex)
                     let items = str[range].components(separatedBy:", ")
-                    self.datasource.append(GemarEntry(date:items[0], ayat: items[1], rhema: items[2]))
+                    self.datasource.append(GemarEntry(key:s.key, date:items[0], ayat: items[1], rhema: items[2]))
                 }
                 self.gemarTable.reloadData()
             }
