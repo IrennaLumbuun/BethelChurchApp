@@ -62,10 +62,48 @@ class EditDataViewController: UIViewController {
             }
     }
     
+    func transitionToUserProfile(){
+        //transition to home
+        let userProfileVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.userProfileViewController) as? UserProfileViewController
+        
+        userProfileVC?.modalPresentationStyle = .fullScreen
+        userProfileVC?.modalTransitionStyle = .coverVertical
+        present(userProfileVC!, animated: true, completion: nil)
+    }
+    
     @IBAction func simpanBtnTapped(_ sender: Any) {
+        // transition to home when button is pressed
+        let exitControllerAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+             self.navigationController?.popViewController(animated: true)
+            print("You've pressed default");
+        }
+        
         let uuid = Auth.auth().currentUser?.uid
-        var fields = ["IDAccount": idAccountTxt.text?.trimmingCharacters(in: .whitespaces), "Role": statusTxt.text?.trimmingCharacters(in: .whitespaces), "Number": noHpTxt.text?.trimmingCharacters(in: .whitespaces), "Name": namaTxt.text?.trimmingCharacters(in: .whitespaces), "Email" :emailTxt.text?.trimmingCharacters(in: .whitespaces), "Church": gerejaTxt.text?.trimmingCharacters(in: .whitespaces), "Uid": uuid]
-        Database.database().reference().child("Account/\(uuid!)").setValue(fields)
+        let fields = ["IDAccount": idAccountTxt.text?.trimmingCharacters(in: .whitespaces), "Role": statusTxt.text?.trimmingCharacters(in: .whitespaces), "Number": noHpTxt.text?.trimmingCharacters(in: .whitespaces), "Name": namaTxt.text, "Email" :emailTxt.text?.trimmingCharacters(in: .whitespaces), "Church": gerejaTxt.text?.trimmingCharacters(in: .whitespaces), "Uid": uuid]
+        Database.database().reference().child("User/\(uuid!)").setValue(fields){
+          (error:Error?, ref:DatabaseReference) in
+          if let error = error {
+            // show error
+            let alertController = UIAlertController(title: "Error saving data", message: error.localizedDescription, preferredStyle: .alert)
+            alertController.addAction(exitControllerAction)
+            self.present(alertController, animated: true, completion: nil)
+            //exit editDataVC
+          } else {
+            // submit changes to firebase auth
+            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            changeRequest?.displayName = self.namaTxt.text
+            changeRequest?.commitChanges(completion: { (error) in
+                let alertController = UIAlertController(title: "Error saving data", message: error?.localizedDescription, preferredStyle: .alert)
+                alertController.addAction(exitControllerAction)
+                self.present(alertController, animated: true, completion: nil)
+            })
+            let alertController = UIAlertController(title: "Pesan dari server", message: "Your data has been updated.", preferredStyle: .alert)
+            alertController.addAction(exitControllerAction)
+            self.present(alertController, animated: true, completion: nil)
+          }
+        }
+        
+        
     }
     
     @IBAction func requestPengerjaTapped(_ sender: Any) {
