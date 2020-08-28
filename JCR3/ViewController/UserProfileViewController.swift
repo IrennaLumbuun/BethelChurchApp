@@ -83,12 +83,18 @@ class UserProfileViewController: UIViewController {
     // user signs out
     // go back to landingpage
     @IBAction func signOutBtnTapped(_ sender: Any) {
+        let cancelAction = UIAlertAction(title: "Default", style: .default) { (action:UIAlertAction) in
+            return
+        }
+        
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
             self.transitionToLandingPage()
         } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+            let alertController = UIAlertController(title: "Error", message: signOutError.localizedDescription, preferredStyle: .alert)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     func transitionToLandingPage(){
