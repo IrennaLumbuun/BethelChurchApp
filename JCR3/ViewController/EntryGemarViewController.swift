@@ -15,7 +15,7 @@ class EntryGemarViewController: UIViewController {
     //outlet
     @IBOutlet weak var tanggalLbl: UILabel!
     @IBOutlet weak var ayatTxt: UITextField!
-    @IBOutlet weak var rhemaTxt: UITextField!
+    @IBOutlet weak var rhemaTxt: UITextView!
     
     public var item: GemarEntry?
     public var completionHandler: (() -> Void)?
@@ -23,7 +23,6 @@ class EntryGemarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        styleElement()
         // if there is no item, render date and empty text field.
         // else, render item
         if item != nil {
@@ -36,8 +35,12 @@ class EntryGemarViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "save", style: .done, target: self, action: #selector(simpanBtnTapped))
     }
     
-    func styleElement(){
-        self.rhemaTxt.frame.size.height = self.view.frame.height - tanggalLbl.frame.height - ayatTxt.frame.height - 100
+    override func viewDidLayoutSubviews() {
+        rhemaTxt.layer.backgroundColor = UIColor.white.cgColor
+        rhemaTxt.layer.borderColor = UIColor.lightGray.cgColor
+        rhemaTxt.layer.borderWidth = 1
+        rhemaTxt.layer.cornerRadius = 5
+        rhemaTxt.layer.masksToBounds = true
     }
     
     @IBAction func simpanBtnTapped(_ sender: Any) {

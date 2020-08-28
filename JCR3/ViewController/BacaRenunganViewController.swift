@@ -23,6 +23,7 @@ class BacaRenunganViewController: UIViewController {
     @IBOutlet weak var ayatHarianView: UIView!
     @IBOutlet weak var quotesHarianView: UIView!
     
+    // TODO: replace popupview with UIAlertController instead
     
     override func viewDidLoad() {
         super.viewDidLoad()

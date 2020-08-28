@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
+class DukunganDoaViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate {
 
     @IBOutlet weak var NavBar: UINavigationBar!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -145,21 +145,18 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
         vertStack.addSubview(messageLbl)
         
         //Masalah singkat
-        let masalahTxt = UITextField(frame: CGRect(x: 20, y: shalomLbl.frame.height + messageLbl.frame.height + 40, width: self.view.frame.width - 40, height: 120))
-        masalahTxt.placeholder = "Masalah singkat Anda"
-        masalahTxt.addTarget(self, action: #selector(self.masalahTextFieldDidChange(_:)), for: .editingChanged)
+        let masalahTxt = UITextView(frame: CGRect(x: 20, y: shalomLbl.frame.height + messageLbl.frame.height + 40, width: self.view.frame.width - 40, height: 120))
+        masalahTxt.delegate = self
+        masalahTxt.isSelectable = true
+        masalahTxt.isEditable = true
+        masalahTxt.isUserInteractionEnabled = true
+        masalahTxt.isScrollEnabled = true
+        masalahTxt.textAlignment = .left
+        masalahTxt.text = "Masalah singkat Anda"
+       // masalahTxt.addTarget(self, action: #selector(self.masalahTextFieldDidChange(_:)), for: .editingChanged)
         
         masalahTxt.center.x = self.view.frame.width / 2
-        masalahTxt.textAlignment = .center
-        
-        masalahTxt.backgroundColor = UIColor(red: 192, green: 192, blue: 192, alpha:1)
-        masalahTxt.textAlignment = .center
-        masalahTxt.layer.cornerRadius = 20
-        masalahTxt.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        masalahTxt.layer.shadowOffset = CGSize(width: 0.0, height: 1)
-        masalahTxt.layer.shadowOpacity = 1.0
-        masalahTxt.layer.shadowRadius = 1.0
-        masalahTxt.layer.masksToBounds = false
+        Utilities.styleView(v: masalahTxt)
         
         vertStack.addSubview(masalahTxt)
         
@@ -173,6 +170,17 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate {
         
         self.scrollView.addSubview(vertStack)
     }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("editing")
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        print(textView.text)
+    }
+    func textViewDidChange(_ textView: UITextView){
+               user.problem = textView.text!
+           }
     
     @objc func masalahTextFieldDidChange(_ textField: UITextField) {
         user.problem = textField.text!
