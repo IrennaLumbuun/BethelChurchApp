@@ -183,16 +183,44 @@ extension GemarViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //open screen where we can see item info and delete
-        let item = datasource[indexPath.row]
-        guard let vc = storyboard?.instantiateViewController(identifier: "entryGemarVC") as? EntryGemarViewController else{
-            return
+        
+        //Action 1: redirect to gemar entry
+        let openGemarEntry = UIAlertAction(title: "Buka Gemar", style: .default) { (action:UIAlertAction) in
+            let item = self.datasource[indexPath.row]
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "entryGemarVC") as? EntryGemarViewController else{
+               return
+           }
+           vc.item = item
+           vc.completionHandler = {
+               [weak self] in self?.refresh()
+           }
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-        vc.item = item
-        vc.completionHandler = {
-            [weak self] in self?.refresh()
+        
+        // action2: delete gemar
+        let deleteGemar = UIAlertAction(title: "Delete Gemar", style: .destructive) { (action:UIAlertAction) in
+            let uuid = Auth.auth().currentUser?.uid
+            let ref = Database.database().reference().child("jcsaatteduh/sate/\(uuid!)/\(self.datasource[indexPath.row].key)")
+            ref.removeValue(){
+                error, _ in
+                if let error = error {
+                  print("Data could not be deleted: \(error).")
+                } else {
+                  self.refresh()
+                }
+            }
         }
-        navigationController?.pushViewController(vc, animated: true)
+        
+        // action3: cancel
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
+            //do nothing
+        }
+        
+        let alertController = UIAlertController(title: datasource[indexPath.row].ayat, message: datasource[indexPath.row].rhema, preferredStyle: .alert)
+        alertController.addAction(openGemarEntry)
+        alertController.addAction(deleteGemar)
+        alertController.addAction(cancel)
+        self.present(alertController, animated: true, completion: nil)
     }
     /* Uncomment this when adding logic on infinite scrolling
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -205,7 +233,7 @@ extension GemarViewController: UITableViewDelegate, UITableViewDataSource{
     }*/
     
     func refresh(){
-        print("call refresh")
+        self.datasource = []
         getSate()
         gemarTable.reloadData()
     }
