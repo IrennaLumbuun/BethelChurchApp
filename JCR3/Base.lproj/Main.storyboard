@@ -765,7 +765,7 @@
                                 <rect key="frame" x="30" y="328" width="354" height="568"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dgo-AB-KFR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="renungan_cell" id="dgo-AB-KFR" customClass="RenunganTableViewCell" customModule="JCR3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="354" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dgo-AB-KFR" id="orq-p4-bK2">
@@ -774,6 +774,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xys-Wc-bTv" id="neE-nq-akM"/>
+                                    <outlet property="delegate" destination="xys-Wc-bTv" id="xMV-ds-dep"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTC-Vx-Rm6">
                                 <rect key="frame" x="30" y="273" width="354" height="50"/>
@@ -963,11 +967,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Km-NW-1sK">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Rhema" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Km-NW-1sK">
                                         <rect key="frame" x="0.0" y="94.5" width="374" height="575"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1119,7 +1122,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAh-83-pve">
                                         <rect key="frame" x="0.0" y="0.0" width="91.5" height="50"/>
                                         <color key="tintColor" red="0.12349324865503386" green="0.47828759517766495" blue="0.21535813230024228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="link" catalog="system"/>
+                                        <state key="normal" image="link" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="small"/>
+                                        </state>
                                         <connections>
                                             <action selector="shareBtnTapped:" destination="dtk-oE-9bS" eventType="touchUpInside" id="XMu-PX-pVA"/>
                                         </connections>
@@ -1129,7 +1134,7 @@
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                         <color key="tintColor" red="0.12349324865503386" green="0.47828759517766495" blue="0.21535813230024228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="pause.circle" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default"/>
                                         </state>
                                         <connections>
                                             <action selector="playBtnTapped:" destination="dtk-oE-9bS" eventType="touchUpInside" id="GbZ-G7-LSi"/>
@@ -1138,7 +1143,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Er2-Ck-udV">
                                         <rect key="frame" x="282.5" y="0.0" width="91.5" height="50"/>
                                         <color key="tintColor" red="0.12349324865503386" green="0.47828759517766495" blue="0.21535813230024228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="bubble.left.and.bubble.right.fill" catalog="system"/>
+                                        <state key="normal" image="bubble.left.and.bubble.right.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="small"/>
+                                        </state>
                                         <connections>
                                             <action selector="chatBtnTapped:" destination="dtk-oE-9bS" eventType="touchUpInside" id="ZUh-6Z-aYg"/>
                                         </connections>
