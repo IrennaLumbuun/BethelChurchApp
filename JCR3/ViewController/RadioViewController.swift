@@ -41,7 +41,20 @@ class RadioViewController: UIViewController, AVAssetResourceLoaderDelegate {
         player.play()
     }
     
+    //TODO: test this when connection is working
     @IBAction func shareBtnTapped(_ sender: Any) {
+        let desc = "share btn description"
+        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [desc], applicationActivities: nil)
+        print("----")
+        
+        // ipad config
+        activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
+        activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
+        
+        
+        //pre - configuration
+        activityViewController.activityItemsConfiguration = [ UIActivity.ActivityType.message] as? UIActivityItemsConfigurationReading
+        
         // todo later
     }
     
@@ -50,10 +63,12 @@ class RadioViewController: UIViewController, AVAssetResourceLoaderDelegate {
             player.pause()
             onAirStatus.text = "Off Air"
             playBtn.setImage(UIImage(systemName: "play.circle"), for: .normal)
+            onAirStatus.textColor = UIColor.red
         } else {
             player.play()
             playBtn.setImage(UIImage(systemName: "pause.circle"), for: .normal)
             onAirStatus.text = "On Air"
+            onAirStatus.textColor = UIColor.green
         }
     }
     

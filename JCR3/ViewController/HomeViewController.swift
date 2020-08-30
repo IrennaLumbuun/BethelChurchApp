@@ -284,7 +284,6 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
          cell.addSubview(header)
          cell.addSubview(subHeader)
          cell.addSubview(notifText)
-        print(indexPath)
         imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100)
          header.frame = CGRect(x: 20, y: 120, width: self.view.frame.width - 90 , height: 35)
          subHeader.frame = CGRect(x: 20, y: 160, width: self.view.frame.width - 90 , height: 25)
