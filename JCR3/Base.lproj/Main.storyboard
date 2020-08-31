@@ -814,6 +814,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="btnShareTapped:" destination="xys-Wc-bTv" eventType="touchUpInside" id="VV0-Ha-AaK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

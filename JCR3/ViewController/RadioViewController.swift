@@ -43,18 +43,8 @@ class RadioViewController: UIViewController, AVAssetResourceLoaderDelegate {
     
     //TODO: test this when connection is working
     @IBAction func shareBtnTapped(_ sender: Any) {
-        let desc = "share btn description"
-        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [desc], applicationActivities: nil)
-        print("----")
-        
-        // ipad config
-        activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
-        activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
-        
-        
-        //pre - configuration
-        activityViewController.activityItemsConfiguration = [ UIActivity.ActivityType.message] as? UIActivityItemsConfigurationReading
-        
+        let desc = "Shalom On Fire! Ayo dengerin \(radioName) dan download aplikasinya! Tuhan Yesus memberkati!"
+        Utilities.displayShareController(message: desc, sender: self.shareBtn, viewController: self)
         // todo later
     }
     

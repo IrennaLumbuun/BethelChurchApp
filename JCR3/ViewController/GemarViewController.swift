@@ -198,7 +198,7 @@ extension GemarViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         // action2: delete gemar
-        let deleteGemar = UIAlertAction(title: "Delete Gemar", style: .destructive) { (action:UIAlertAction) in
+        let deleteGemar = UIAlertAction(title: "Delete", style: .destructive) { (action:UIAlertAction) in
             let uuid = Auth.auth().currentUser?.uid
             let ref = Database.database().reference().child("jcsaatteduh/sate/\(uuid!)/\(self.datasource[indexPath.row].key)")
             ref.removeValue(){
@@ -211,13 +211,20 @@ extension GemarViewController: UITableViewDelegate, UITableViewDataSource{
             }
         }
         
-        // action3: cancel
+        // action 3: share gemar
+        let shareGemar = UIAlertAction(title: "Share", style: .default) { (action:UIAlertAction) in
+            let message = "Shalom On Fire! Ayo Gemar \(Utilities.getFormattedDate(desiredFormat: "dd MM yyyy"))\n *Firman:* \n \(self.datasource[indexPath.row].ayat)\n*Rhema* \n \(self.datasource[indexPath.row].rhema)\n Tuhan Yesus memberkati!"
+            Utilities.displayShareController(message: message, sender: tableView, viewController: self)
+        }
+        
+        // action 4: cancel
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
             //do nothing
         }
         
         let alertController = UIAlertController(title: datasource[indexPath.row].ayat, message: datasource[indexPath.row].rhema, preferredStyle: .alert)
         alertController.addAction(openGemarEntry)
+        alertController.addAction(shareGemar)
         alertController.addAction(deleteGemar)
         alertController.addAction(cancel)
         self.present(alertController, animated: true, completion: nil)

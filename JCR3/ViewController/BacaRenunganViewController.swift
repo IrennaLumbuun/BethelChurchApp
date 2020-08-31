@@ -16,18 +16,10 @@ class BacaRenunganViewController: UIViewController {
     @IBOutlet weak var ayatLbl: UILabel!
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var renunganTableView: UITableView!
-    @IBOutlet weak var logoJC: UIImageView!
-    @IBOutlet weak var buatGematBtn: UIButton!
-    @IBOutlet weak var renunganTitleLbl: UILabel!
-    @IBOutlet weak var btnShare: UIButton!
-    @IBOutlet weak var renunganTextLbl: UILabel!
-    @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var ayatHarianView: UIView!
     @IBOutlet weak var quotesHarianView: UIView!
     
      var datasource = [GemarEntry]()
-    
-    // TODO: replace popupview with UIAlertController instead
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +35,8 @@ class BacaRenunganViewController: UIViewController {
     
     // show share popup
     @IBAction func btnShareTapped(_ sender: Any) {
-    }
-    
-    @IBAction func btnCancelTapped(_ sender: Any) {
+        let message = "Shalom On Fire! Ayo Gemar dengan renungan ini \(Utilities.getFormattedDate(desiredFormat: "dd MM yyyy"))\n *Renungan:* \n \(isiAyatLbl.text ?? "")\n \(ayatLbl.text ?? "") \n Tuhan Yesus memberkati!"
+            Utilities.displayShareController(message: message, sender: shareBtn, viewController: self)
     }
     
     func getRenungan(){
@@ -151,13 +142,20 @@ extension BacaRenunganViewController: UITableViewDelegate, UITableViewDataSource
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
-        // action2: cancel
+        // action 2: share gemar:
+        let shareGemar = UIAlertAction(title: "Share", style: .default) { (action:UIAlertAction) in
+            let message = "Shalom On Fire! Ayo Gemar \(Utilities.getFormattedDate(desiredFormat: "dd MM yyyy"))\n *Firman:* \n \(self.datasource[indexPath.row].ayat)\n*Rhema* \n \(self.datasource[indexPath.row].rhema)\n Tuhan Yesus memberkati!"
+            Utilities.displayShareController(message: message, sender: tableView, viewController: self)
+        }
+        
+        // action 3: cancel
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
             //do nothing
         }
         
         let alertController = UIAlertController(title: datasource[indexPath.row].ayat, message: datasource[indexPath.row].rhema, preferredStyle: .alert)
         alertController.addAction(openGemarEntry)
+        alertController.addAction(shareGemar)
         alertController.addAction(cancel)
         self.present(alertController, animated: true, completion: nil)
     }

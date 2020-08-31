@@ -19,7 +19,6 @@ class EntryGemarViewController: UIViewController {
     
     public var item: GemarEntry?
     public var completionHandler: (() -> Void)?
-    //public var isInDatabase: Boolean = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

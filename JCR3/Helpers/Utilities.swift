@@ -146,6 +146,20 @@ class Utilities{
         // todo: ksh feedback ke user
     }
     
+    static func displayShareController(message: String, sender: UIView, viewController: UIViewController){
+        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [message], applicationActivities: nil)
+        
+        // ipad config
+        activityViewController.popoverPresentationController?.sourceView = sender
+        activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
+        
+        
+        //pre - configuration
+        activityViewController.activityItemsConfiguration = [ UIActivity.ActivityType.message] as? UIActivityItemsConfigurationReading
+        
+        viewController.present(activityViewController, animated: true)
+    }
+    
     
     /* buat kalo perlu picker lagi
      
