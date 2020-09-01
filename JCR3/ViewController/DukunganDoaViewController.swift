@@ -75,10 +75,7 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate, UITextV
         
         femaleBtn.tag = 1
         femaleBtn.isUserInteractionEnabled = true
-        femaleBtn.setImage(Utilities.convertToGrayScale(image: UIImage(named:"female")!), for: .normal)
-        //selected and focused not work
-        // https://stackoverflow.com/questions/24844865/keep-uibutton-selected-highlighted-after-touch
-        femaleBtn.setImage(UIImage(named:"female"),  for: .focused)
+        femaleBtn.setImage(UIImage(named:"female"), for: .normal)
         Utilities.styleRectangularButton(btn: femaleBtn)
         
         horizontalStack.addArrangedSubview(maleBtn)
@@ -115,12 +112,65 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate, UITextV
     @objc func btnGenderClicked(sender : UIButton) {
         //get buttonName
         let btnTag = sender.tag
-
+        sender.isSelected = !sender.isSelected
+        
+        let selectedTitleInset = UIEdgeInsets(
+            top: 62.5,
+            left: -75,
+            bottom: 0,
+            right: 0
+        )
+        
+        let selectedImageInset = UIEdgeInsets(
+            top: 0.0,
+            left: 10.0,
+            bottom: 20.0,
+            right: 0
+        )
+        let selectedContentInset = UIEdgeInsets(
+            top: 0,
+            left: 20,
+            bottom: 0,
+            right: 0
+        )
+        
+        let originalInset = UIEdgeInsets(
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0
+        )
+        
         if btnTag == 0 {
-            user.gender = "Pria"
+            if(sender.isSelected) {
+                user.gender = "Pria"
+                sender.setTitle("Pria", for: .selected)
+                sender.setTitleColor(UIColor.blue, for: .normal)
+                sender.imageEdgeInsets = selectedImageInset
+                sender.titleEdgeInsets = selectedTitleInset
+                sender.contentEdgeInsets = selectedContentInset
+            }
+            else {
+                user.gender = "Wanita"
+                sender.imageEdgeInsets = originalInset
+                sender.titleEdgeInsets = originalInset
+                sender.contentEdgeInsets = originalInset
+            }
         } else if btnTag == 1 {
-            print(sender.subviews)
-            user.gender = "Wanita"
+            if(sender.isSelected) {
+                user.gender = "Wanita"
+                sender.setTitle("Wanita", for: .selected)
+                sender.setTitleColor(UIColor.red, for: .normal)
+                sender.imageEdgeInsets = selectedImageInset
+                sender.titleEdgeInsets = selectedTitleInset
+                sender.contentEdgeInsets = selectedContentInset
+            }
+            else {
+                user.gender = "Pria"
+                sender.imageEdgeInsets = originalInset
+                sender.titleEdgeInsets = originalInset
+                sender.contentEdgeInsets = originalInset
+            }
         }
     }
     
@@ -166,6 +216,7 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate, UITextV
         simpanBtn.setTitle("Simpan", for: .normal)
         simpanBtn.isUserInteractionEnabled = true
         simpanBtn.backgroundColor = UIColor(red: 67/255, green: 122/255, blue: 77/255, alpha: 1.0)
+        // effect when selected
         vertStack.addSubview(simpanBtn)
         
         self.scrollView.addSubview(vertStack)
@@ -176,17 +227,18 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate, UITextV
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        print(textView.text)
+        user.problem = textView.text!
     }
     func textViewDidChange(_ textView: UITextView){
-               user.problem = textView.text!
-           }
+           user.problem = textView.text!
+       }
     
     @objc func masalahTextFieldDidChange(_ textField: UITextField) {
         user.problem = textField.text!
     }
     
     @objc func simpanBtnClicked(sender : UIButton) {
+        Utilities.onClickFeedback(btn: sender)
         let uuid = Auth.auth().currentUser?.uid
         Database.database().reference().child("User/\(uuid!)").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
