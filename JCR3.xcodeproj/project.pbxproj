@@ -35,6 +35,7 @@
 		8227E0C624D638A800572DC7 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227E0C524D638A700572DC7 /* RadioViewController.swift */; };
 		825982F224F618C500CD9740 /* BacaRenunganViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825982F124F618C400CD9740 /* BacaRenunganViewController.swift */; };
 		82B2BC1F24F260A8006D7ADB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82B2BC1E24F260A8006D7ADB /* GoogleService-Info.plist */; };
+		82FDE7E524FF1F33002DB5BA /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FDE7E424FF1F33002DB5BA /* ChatViewController.swift */; };
 		878A99285C1C863E8590FF89 /* Pods_JCR3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46F9A2D3D53AE32FFE613F1 /* Pods_JCR3.framework */; };
 		D69F156CDD44D7C3F509E85E /* Pods_JCR3_JCR3UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E703CE314C2C3D6F313BBD3 /* Pods_JCR3_JCR3UITests.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,7 @@
 		8227E0C524D638A700572DC7 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		825982F124F618C400CD9740 /* BacaRenunganViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacaRenunganViewController.swift; sourceTree = "<group>"; };
 		82B2BC1E24F260A8006D7ADB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		82FDE7E424FF1F33002DB5BA /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = JCR3/ViewController/ChatViewController.swift; sourceTree = SOURCE_ROOT; };
 		8498C9AF1BA2BEBC39B42AF6 /* Pods-JCR3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCR3Tests.release.xcconfig"; path = "Target Support Files/Pods-JCR3Tests/Pods-JCR3Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8E1012134371D31139578445 /* Pods-JCR3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCR3.release.xcconfig"; path = "Target Support Files/Pods-JCR3/Pods-JCR3.release.xcconfig"; sourceTree = "<group>"; };
 		ADA2B07FA99BFC742A5D2C4F /* Pods-JCR3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCR3Tests.debug.xcconfig"; path = "Target Support Files/Pods-JCR3Tests/Pods-JCR3Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				8227E09A24CABDD300572DC7 /* PhoneLoginViewController.swift */,
 				8227E0B524CD913900572DC7 /* GemarViewController.swift */,
 				825982F124F618C400CD9740 /* BacaRenunganViewController.swift */,
+				82FDE7E424FF1F33002DB5BA /* ChatViewController.swift */,
 				8227E0B324CD911700572DC7 /* ChannelRadioViewController.swift */,
 			);
 			path = ViewController;
@@ -485,6 +488,7 @@
 			files = (
 				8227E0BE24CE6A2C00572DC7 /* DukunganDoaViewController.swift in Sources */,
 				8227E0B024CCD76700572DC7 /* DaftarViewController.swift in Sources */,
+				82FDE7E524FF1F33002DB5BA /* ChatViewController.swift in Sources */,
 				8227E09D24CABDD300572DC7 /* PhoneLoginViewController.swift in Sources */,
 				8227E0BC24CE3C4B00572DC7 /* StreamingPopUpViewController.swift in Sources */,
 				8227E0BA24CD919400572DC7 /* IDViewController.swift in Sources */,

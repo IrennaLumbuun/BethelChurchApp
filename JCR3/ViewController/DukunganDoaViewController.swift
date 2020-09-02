@@ -248,6 +248,7 @@ class DukunganDoaViewController: UIViewController, UIScrollViewDelegate, UITextV
             
             let field = [doaId: "[doaId, \(Auth.auth().currentUser!.displayName!), \(self.user.age) tahun, \(self.user.gender), \(self.user.problem), \(Utilities.getFormattedDate(desiredFormat: "yyyy-MM-dd hh:mm")), pending, noname]"]
             Database.database().reference().child("DukunganList/Dukdok").setValue(field)
+            self.performSegue(withIdentifier: "dukunganDoaChatSegue", sender: sender)
         }) {(error) in
                 print("error")
                 print(error.localizedDescription)

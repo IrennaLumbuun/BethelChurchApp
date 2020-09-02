@@ -597,6 +597,7 @@
                             <constraint firstAttribute="trailing" secondItem="cFh-xV-Sxb" secondAttribute="trailing" constant="20" id="zXq-eT-xD8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="stD-5R-Vor"/>
                     <connections>
                         <outlet property="btnGroupCollectionView" destination="pFf-D6-wuI" id="Seg-zf-P41"/>
                         <outlet property="gemarBtn" destination="7ZL-Ph-GZu" id="TJX-22-3K7"/>
@@ -922,6 +923,60 @@
             </objects>
             <point key="canvasLocation" x="5142.0289855072469" y="602.67857142857144"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="2Jd-Ui-nEY">
+            <objects>
+                <viewController storyboardIdentifier="chatVC" id="y05-ZL-w2e" customClass="ChatViewController" customModule="JCR3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q50-Lr-GTZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="MjH-JW-Adf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ahC-NZ-LkY" customClass="Ch">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="placeholder for chatroom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLB-WX-OYX">
+                                <rect key="frame" x="110" y="437.5" width="194" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2iY-Sn-Qgh"/>
+                                    <constraint firstAttribute="width" constant="194" id="QYP-dz-eY9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcd-0r-1vG">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem id="O9M-cz-RD6">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.left" catalog="system" id="Aam-Xg-DIf">
+                                            <connections>
+                                                <segue destination="oBy-oO-qJc" kind="presentation" modalPresentationStyle="fullScreen" id="Q22-7Y-BNy"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SLB-WX-OYX" firstAttribute="centerY" secondItem="ahC-NZ-LkY" secondAttribute="centerY" id="CVO-sT-Q18"/>
+                            <constraint firstAttribute="trailing" secondItem="Mcd-0r-1vG" secondAttribute="trailing" id="EDj-mC-urA"/>
+                            <constraint firstItem="SLB-WX-OYX" firstAttribute="centerX" secondItem="ahC-NZ-LkY" secondAttribute="centerX" id="N0b-b1-Zt7"/>
+                            <constraint firstItem="Mcd-0r-1vG" firstAttribute="leading" secondItem="ahC-NZ-LkY" secondAttribute="leading" id="O5S-av-pgk"/>
+                            <constraint firstItem="Mcd-0r-1vG" firstAttribute="top" secondItem="q50-Lr-GTZ" secondAttribute="bottom" id="Qvs-y8-BEd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gVG-xa-HzI"/>
+                    <connections>
+                        <outlet property="NavBar" destination="Mcd-0r-1vG" id="eB1-oP-YT3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FdS-X8-xm4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6006" y="361"/>
+        </scene>
         <!--Radio Channel-->
         <scene sceneID="b4I-UK-S65">
             <objects>
@@ -1116,6 +1171,7 @@
                                         </state>
                                         <connections>
                                             <action selector="chatBtnTapped:" destination="dtk-oE-9bS" eventType="touchUpInside" id="ZUh-6Z-aYg"/>
+                                            <segue destination="y05-ZL-w2e" kind="show" id="ANp-oF-3lC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1313,10 +1369,12 @@
                             <constraint firstItem="cLC-Qe-kzk" firstAttribute="top" secondItem="3ft-mM-AUB" secondAttribute="bottom" constant="20" id="yPg-zl-idH"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="oIS-al-bg6"/>
                     <connections>
                         <outlet property="NavBar" destination="t0F-dE-7Ba" id="Ts8-1M-lci"/>
                         <outlet property="pageControl" destination="3ft-mM-AUB" id="ur1-kx-gGk"/>
                         <outlet property="scrollView" destination="Cas-Ze-7eq" id="zl7-dE-DBh"/>
+                        <segue destination="y05-ZL-w2e" kind="presentation" identifier="dukunganDoaChatSegue" modalPresentationStyle="fullScreen" id="9K9-tJ-0Hc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3X-ss-2Eg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1990,6 +2048,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="9K9-tJ-0Hc"/>
         <segue reference="9EN-6y-i2z"/>
     </inferredMetricsTieBreakers>
     <resources>
